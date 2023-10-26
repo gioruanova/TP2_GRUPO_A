@@ -11,7 +11,7 @@
 }
 
 .navbar-brand:hover {
-    color: gray;
+    color: #44bbe1;
 
 }
 
@@ -27,7 +27,7 @@
 }
 
 .redes i:hover {
-    color: gray;
+    color: #44bbe1;
 
 }
 
@@ -98,7 +98,16 @@ body {
     text-align: center;
 }
 
+.biography a {
+    color: #44bbe1;
+    text-decoration: none;
+    font-weight: 700;
+    transition: ease 200ms all;
+}
 
+.biography a:hover {
+    color: white;
+}
 
 .containerCustomized .card .card-title {
     -webkit-line-clamp: 2;
@@ -259,6 +268,52 @@ body {
     }
 }
 
+/*Founders Images---------*/
+.founder-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0 0 0;
+}
+
+.founder-grid img {
+    max-width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    object-fit: cover;
+    margin: 0 1rem;
+    box-shadow: 3px 3px 10px 6px #182d3d;
+}
+
+.founder-grid img:hover {
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px) rotate(5deg);
+    }
+
+    50% {
+        transform: translateX(5px) rotate(-5deg);
+    }
+
+    75% {
+        transform: translateX(-5px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
 /* ERROR PAGE------ */
 .error-box {
     display: flex;
@@ -291,7 +346,7 @@ body {
 }
 
 .error-box a:hover {
-    color: gray;
+    color: #44bbe1;
 
 }
 
@@ -331,7 +386,7 @@ footer .navbar-brand {
 }
 
 .nav-footer a:hover {
-    color: gray;
+    color: #44bbe1;
     text-decoration: none;
 }
 
@@ -349,7 +404,7 @@ footer .navbar-brand {
 }
 
 .copyright a:hover {
-    color: gray;
+    color: #44bbe1;
 }
 
 footer .disabled {

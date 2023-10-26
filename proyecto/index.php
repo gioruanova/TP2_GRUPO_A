@@ -41,13 +41,12 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
 
         <div class="container containerCustomized mt-8 animate__animated animate__fadeIn">
             <h1>NEXT GEN Distribuidora</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur perspiciatis aperiam nostrum cumque
-                ex
-                nesciunt deserunt, accusamus, vero, rerum suscipit ducimus quos. Nisi dolor asperiores, libero optio
-                necessitatibus ipsam laudantium.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur perspiciatis aperiam nostrum cumque
-                ex
-                nesciunt deserunt.</p>
+            <p>NextGen se destaca como un referente en la industria de importación de productos
+                informáticos, ofreciendo soluciones innovadoras y servicios de alta calidad.</p>
+
+            <p>Nuestra empresa se ha
+                ganado la confianza de clientes en todo el mundo gracias a nuestra dedicación a la excelencia y a la
+                satisfacción del cliente. Explore nuestro catálogo y descubra la diferencia NextGen.</p>
         </div>
 
         <div class="container containerCustomized mt-3 animate__animated animate__fadeInDown">
@@ -137,13 +136,20 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
 
         <div class="container containerCustomized mt-2">
             <h3>Garantia en importacion</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur perspiciatis aperiam nostrum cumque
-                ex
-                nesciunt deserunt, accusamus, vero, rerum suscipit ducimus quos. Nisi dolor asperiores, libero optio
-                necessitatibus ipsam laudantium.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur perspiciatis aperiam nostrum cumque
-                ex
-                nesciunt deserunt.</p>
+            <p>NextGen, una empresa ficticia líder en el mercado de importación de productos informáticos, se
+                enorgullece de ofrecer a sus clientes una garantía sin igual en sus importaciones. Nuestra misión es
+                proporcionar productos de la más alta calidad, y respaldamos esa promesa con una garantía de
+                satisfacción total. Si algún producto importado por NextGen no cumple con sus expectativas, estamos
+                comprometidos a reemplazarlo o reembolsar su compra.</p>
+
+            <p>En NextGen, comprendemos la importancia de la confiabilidad en la tecnología. Nuestros productos
+                informáticos están respaldados por rigurosas pruebas de calidad y garantizamos su durabilidad y
+                rendimiento. Nuestra garantía en importaciones es un testimonio de nuestro compromiso con la
+                satisfacción del cliente. Confíe en NextGen para obtener productos informáticos de vanguardia
+                respaldados por la mejor garantía en la industria.</p>
+
+            <p>Cualquier semejanza con cualquier otra empresa es pura casualidad, y el fin de este sitio, es reflecar
+                practicas relacionadas PHP y MYSQL.</p>
         </div>
     </div>
     <!-- -----------------------------BODY----------------------------- -->
