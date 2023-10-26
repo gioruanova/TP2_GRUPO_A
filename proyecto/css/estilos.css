@@ -1,3 +1,19 @@
+body {
+    background-image: url("../img/body-bg.jpg");
+    background-attachment: fixed;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Sometype Mono', monospace;
+    font-weight: 800;
+}
+
 /* HEADER------ */
 .navbar {
     position: fixed;
@@ -33,10 +49,7 @@
 
 
 /* BODY------ */
-body {
-    background-image: url("../img/body-bg.jpg");
-    background-attachment: fixed;
-}
+
 
 .contentCustomized {
     min-height: 75vh;
@@ -369,6 +382,36 @@ footer .navbar-brand {
     margin-bottom: 1rem;
 }
 
+footer .navbar-brand .brand-name {
+    position: relative;
+}
+
+footer .navbar-brand .brand-name::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    border-radius: 4px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, red, blue, green, yellow, red);
+    background-size: 500% 100%;
+    border-image: linear-gradient(to right, red, blue, green, yellow, red);
+    border-image-slice: 1;
+    animation: bgChange 8s linear infinite;
+}
+
+@keyframes bgChange {
+    0% {
+        background-position: 0% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+
+}
+
 .nav-footer {
     margin-bottom: 1rem;
 }
@@ -408,6 +451,11 @@ footer .navbar-brand {
 }
 
 footer .disabled {
+    color: gray;
+    cursor: default;
+}
+
+footer .disabled:hover {
     color: gray;
     cursor: default;
 }

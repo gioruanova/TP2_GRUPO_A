@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
     <!-- ---IMPORT HEADERS--- -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextGen Distribuidora</title>
+    <title>NextGen</title>
 </head>
 
 <body>
@@ -31,8 +31,8 @@ if (isset($_GET['id'])) {
     <div class="contentCustomized animate__animated animate__fadeInDown">
 
         <div class="container containerCustomized mt-8">
-            <h1>Conoce mas sobre el producto</h1>
-            <p>A continuacion podras obtener un detalle extendido del producto y sus caracteristicas.</p>
+            <h1>Conocé más sobre el producto</h1>
+            <p>A continuación podrás obtener un detalle extendido del producto y sus características.</p>
 
         </div>
 

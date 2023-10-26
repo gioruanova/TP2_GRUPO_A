@@ -1,7 +1,7 @@
 <footer>
     <a class="navbar-brand" href="index.php">
         <span><i class="bi bi-cpu color-change-effect"></i></span>
-        <span>NextGen</span>
+        <span class="brand-name">NextGen</span>
     </a>
     <div class="nav-footer">
         <a href="index.php">Inicio</a>

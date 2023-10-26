@@ -7,7 +7,7 @@
     <!-- ---IMPORT HEADERS--- -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextGen Distribuidora - Sobre nosotros</title>
+    <title>NextGen - Sobre nosotros</title>
 </head>
 
 <body>

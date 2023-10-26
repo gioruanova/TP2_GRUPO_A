@@ -28,7 +28,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
     <!-- ---IMPORT HEADERS--- -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextGen Distribuidora</title>
+    <title>NextGen</title>
 </head>
 
 <body>
@@ -40,7 +40,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
     <div class="contentCustomized">
 
         <div class="container containerCustomized mt-8 animate__animated animate__fadeIn">
-            <h1>NEXT GEN Distribuidora</h1>
+            <h1><span><i class="bi bi-cpu color-change-effect me-2"></i></span>NextGen</h1>
             <p>NextGen se destaca como un referente en la industria de importación de productos
                 informáticos, ofreciendo soluciones innovadoras y servicios de alta calidad.</p>
 
@@ -87,7 +87,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                                         </div>
                                     </div>
                                     <a href="productoDetalle.php?id=<?php echo $prod['id_producto'] ?>"
-                                        class="btn btn-primary">Ver mas</a>
+                                        class="btn btn-primary">Ver Más ></a>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +135,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
         </div>
 
         <div class="container containerCustomized mt-2">
-            <h3>Garantia en importacion</h3>
+            <h3>Garantía en importación</h3>
             <p>NextGen, una empresa ficticia líder en el mercado de importación de productos informáticos, se
                 enorgullece de ofrecer a sus clientes una garantía sin igual en sus importaciones. Nuestra misión es
                 proporcionar productos de la más alta calidad, y respaldamos esa promesa con una garantía de
