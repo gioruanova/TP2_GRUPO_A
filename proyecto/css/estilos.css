@@ -477,11 +477,11 @@ footer .disabled {
 /* MISC STYLES----- */
 
 .color-change-effect {
-    animation: colorChange 3s linear infinite;
+    animation: logoEffect 3s linear infinite;
 }
 
 
-@keyframes colorChange {
+@keyframes logoEffect {
     0% {
         color: white;
     }
