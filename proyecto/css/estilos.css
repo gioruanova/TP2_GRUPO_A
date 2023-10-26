@@ -2,6 +2,7 @@ body {
     background-image: url("../img/body-bg.jpg");
     background-attachment: fixed;
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
 }
 
 h1,
@@ -12,7 +13,7 @@ h5,
 h6 {
     font-family: 'Sometype Mono', monospace;
     font-weight: 800;
-    word-spacing: -9px;
+    word-spacing: -4px;
 }
 
 /* HEADER------ */
@@ -28,7 +29,7 @@ h6 {
 }
 
 .navbar-brand:hover {
-    color: #44bbe1;
+    animation: logoEffect 3s linear infinite;
 
 }
 
@@ -69,7 +70,7 @@ h6 {
 .containerCustomized {
     max-width: 1200px;
     width: 90%;
-    margin: 5rem auto 2rem auto;
+    margin: 8rem auto 2rem auto;
     background-color: #2a5e85eb;
     border-radius: 6px;
     padding: 2rem;
@@ -166,10 +167,12 @@ h6 {
     text-decoration: line-through;
     color: gray;
     font-size: 14px;
+    height: 1rem;
 }
 
 .containerCustomized .card .final-price {
     font-weight: 500;
+    
 
 }
 
@@ -239,6 +242,7 @@ h6 {
     text-decoration: line-through;
     color: gray;
     font-size: 14px;
+    height: 1rem;
 }
 
 .cardDetail .final-price {
