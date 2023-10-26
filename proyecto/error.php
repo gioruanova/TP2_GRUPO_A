@@ -14,32 +14,28 @@
     <!-- ---IMPORT NAV--- -->
     <?php require('layout/_navbar.php') ?>
     <!-- ---IMPORT NAV--- -->
-    <!-- ---IMPORT NAV--- -->
-    <?php require('js/_bootstrap.js') ?>
-    <!-- ---IMPORT NAV--- -->
-
 
     <!-- -----------------------------BODY----------------------------- -->
 
     <div class="contentCustomized animate__animated animate__bounceIn">
-    <div class="container containerCustomized mt-8">
-        <h1>Disculpe las molestias</h1>
+        <div class="container containerCustomized mt-8">
+            <h1>Disculpe las molestias</h1>
 
-    </div>
+        </div>
 
-    <div class="container containerCustomized mt-3">
+        <div class="container containerCustomized mt-3">
 
-        <div class="error-box">
-            <img src="img/error.gif"></img>
-            <div class="error-text">
-                <p>Algo salio mal. Estamos trabajando para solucionar el incoveniente</p>
-                <p>Por favor regrese en unos minutos</p>
-                <br>
-                <h4>Enlaces recomendados:</h4>
-                <a href="empresa.php">>Nuestra empresa</a>
+            <div class="error-box">
+                <img src="img/error.gif"></img>
+                <div class="error-text">
+                    <p>Algo salio mal. Estamos trabajando para solucionar el incoveniente</p>
+                    <p>Por favor regrese en unos minutos</p>
+                    <br>
+                    <h4>Enlaces recomendados:</h4>
+                    <a href="empresa.php">>Nuestra empresa</a>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
 
@@ -48,9 +44,14 @@
     <!-- ---IMPORT FOOTER--- -->
     <?php require('layout/_footer.php') ?>
     <!-- ---IMPORT FOOTER--- -->
+    
     <!-- ---IMPORT WHATSAPP--- -->
     <?php require('layout/_whatsappIcon.php') ?>
     <!-- ---IMPORT WHATSAPP--- -->
+
+    <!-- ---IMPORT JS--- -->
+    <?php require('js/_bootstrap.js') ?>
+    <!-- ---IMPORT JS--- -->
 </body>
 
 </html>

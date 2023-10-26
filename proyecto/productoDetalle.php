@@ -8,8 +8,6 @@ if (isset($_GET['id'])) {
     $producto = getProductoById($conexion, $_GET['id']);
 }
 
-var_dump($producto);
-
 ?>
 
 <!DOCTYPE html>
@@ -28,10 +26,6 @@ var_dump($producto);
     <!-- ---IMPORT NAV--- -->
     <?php require('layout/_navbar.php') ?>
     <!-- ---IMPORT NAV--- -->
-    <!-- ---IMPORT NAV--- -->
-    <?php require('js/_bootstrap.js') ?>
-    <!-- ---IMPORT NAV--- -->
-
 
     <!-- -----------------------------BODY----------------------------- -->
     <div class="contentCustomized animate__animated animate__fadeInDown">
@@ -78,7 +72,7 @@ var_dump($producto);
                             <a href="index.php" class="btn btn-primary mt-2" title="Proximamente!!">Volver</a>
                         </div>
                     </div>
-                   <?php echo ($producto['producto_promo'] == 0 ? "" : "<span class='promoAvailable'>SALE</span>") ?>
+                    <?php echo ($producto['producto_promo'] == 0 ? "" : "<span class='promoAvailable'>SALE</span>") ?>
                 </div>
 
 
@@ -100,9 +94,14 @@ var_dump($producto);
     <!-- ---IMPORT FOOTER--- -->
     <?php require('layout/_footer.php') ?>
     <!-- ---IMPORT FOOTER--- -->
+    
     <!-- ---IMPORT WHATSAPP--- -->
     <?php require('layout/_whatsappIcon.php') ?>
     <!-- ---IMPORT WHATSAPP--- -->
+
+    <!-- ---IMPORT JS--- -->
+    <?php require('js/_bootstrap.js') ?>
+    <!-- ---IMPORT JS--- -->
 
 </body>
 

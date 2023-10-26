@@ -1,7 +1,19 @@
 <?php
 require_once('_conexion.php');
 require_once('consultas/consultas_productos.php');
+require_once('funciones/paginacion.php');
+
 $productos = getProductos($conexion);
+
+// Cantidad de productos
+$cantidad = count($productos);
+
+
+$pagina_actual = $_GET['pag'] ?? 1;
+$cantidad_por_pagina = 3;
+$paginado_enlaces = paginador_enlaces($cantidad, $pagina_actual, $cantidad_por_pagina);
+$productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
+
 
 
 
@@ -23,15 +35,11 @@ $productos = getProductos($conexion);
     <!-- ---IMPORT NAV--- -->
     <?php require('layout/_navbar.php') ?>
     <!-- ---IMPORT NAV--- -->
-    <!-- ---IMPORT NAV--- -->
-    <?php require('js/_bootstrap.js') ?>
-    <!-- ---IMPORT NAV--- -->
-
 
     <!-- -----------------------------BODY----------------------------- -->
-    <div class="contentCustomized animate__animated animate__fadeInDown">
+    <div class="contentCustomized">
 
-        <div class="container containerCustomized mt-8">
+        <div class="container containerCustomized mt-8 animate__animated animate__fadeIn">
             <h1>NEXT GEN Distribuidora</h1>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur perspiciatis aperiam nostrum cumque
                 ex
@@ -42,7 +50,7 @@ $productos = getProductos($conexion);
                 nesciunt deserunt.</p>
         </div>
 
-        <div class="container containerCustomized mt-3">
+        <div class="container containerCustomized mt-3 animate__animated animate__fadeInDown">
 
             <div class="container text-center">
                 <div class="row justify-content-md-center">
@@ -52,7 +60,7 @@ $productos = getProductos($conexion);
                     <?php foreach ($productos as $prod): ?>
                         <div class="col justify-content-md-center">
                             <div class="card text-bg-dark">
-                            <?php echo ($prod['producto_promo'] == 0 ? "" : "<span class='promoAvailable'>SALE</span>") ?>
+                                <?php echo ($prod['producto_promo'] == 0 ? "" : "<span class='promoAvailable'>SALE</span>") ?>
                                 <img src="img/<?php echo ($prod['nombre_archivo_producto'] == NULL) ? "error-image.jpg" : $prod['nombre_archivo_producto'] . '.jpg'; ?>"
                                     alt="<?php echo ($prod['nombre_archivo_producto'] == NULL) ? "Producto sin imagen para " . $prod['nombre_producto'] : $prod['nombre_producto'] ?>">
                                 <div class="card-body">
@@ -86,9 +94,42 @@ $productos = getProductos($conexion);
                         </div>
                     <?php endforeach ?>
 
-
-
                     <!-- -------Termina CARD------- -->
+
+                    <nav aria-label="Page navigation example" data-bs-theme="dark">
+                        <ul class="pagination justify-content-center">
+                            <?php if ($paginado_enlaces['anterior']): ?>
+                                <li class="page-item">
+                                    <a class="page-link" href="?pag=<?php echo $paginado_enlaces['primero'] ?>"> Primero
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="?pag=<?php echo $paginado_enlaces['anterior'] ?>">
+                                        <?php echo $paginado_enlaces['anterior'] ?>
+                                    </a>
+                                </li>
+                            <?php endif ?>
+                            <li class="page-item active">
+                                <span class="page-link">
+                                    <?php echo $paginado_enlaces['actual'] ?>
+                                </span>
+                            </li>
+                            <?php if ($paginado_enlaces['siguiente']): ?>
+                                <li class="page-item">
+                                    <a class="page-link" href="?pag=<?php echo $paginado_enlaces['siguiente'] ?>">
+                                        <?php echo $paginado_enlaces['siguiente'] ?>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="?pag=<?php echo $paginado_enlaces['ultimo'] ?>"> Último </a>
+                                </li>
+                            <?php endif ?>
+                        </ul>
+                    </nav>
+
+
+
+
 
                 </div>
             </div>
@@ -110,9 +151,14 @@ $productos = getProductos($conexion);
     <!-- ---IMPORT FOOTER--- -->
     <?php require('layout/_footer.php') ?>
     <!-- ---IMPORT FOOTER--- -->
+
     <!-- ---IMPORT WHATSAPP--- -->
     <?php require('layout/_whatsappIcon.php') ?>
     <!-- ---IMPORT WHATSAPP--- -->
+
+    <!-- ---IMPORT JS--- -->
+    <?php require('js/_bootstrap.js') ?>
+    <!-- ---IMPORT JS--- -->
 
 </body>
 

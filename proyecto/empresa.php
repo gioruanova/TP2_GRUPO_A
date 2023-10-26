@@ -14,9 +14,6 @@
     <!-- ---IMPORT NAV--- -->
     <?php require('layout/_navbar.php') ?>
     <!-- ---IMPORT NAV--- -->
-    <!-- ---IMPORT NAV--- -->
-    <?php require('js/_bootstrap.js') ?>
-    <!-- ---IMPORT NAV--- -->
 
 
     <!-- -----------------------------BODY----------------------------- -->
@@ -75,9 +72,14 @@
     <!-- ---IMPORT FOOTER--- -->
     <?php require('layout/_footer.php') ?>
     <!-- ---IMPORT FOOTER--- -->
+    
     <!-- ---IMPORT WHATSAPP--- -->
     <?php require('layout/_whatsappIcon.php') ?>
     <!-- ---IMPORT WHATSAPP--- -->
+
+    <!-- ---IMPORT JS--- -->
+    <?php require('js/_bootstrap.js') ?>
+    <!-- ---IMPORT JS--- -->
 </body>
 
 </html>
