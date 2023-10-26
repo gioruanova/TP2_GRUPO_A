@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2023 at 02:52 PM
+-- Generation Time: Oct 26, 2023 at 09:42 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -34,16 +34,19 @@ CREATE TABLE `productos` (
   `categoria_producto` varchar(45) NOT NULL,
   `precio_producto` float(8,2) NOT NULL,
   `descuento_producto` float(8,2) NOT NULL,
-  `nombre_archivo_producto` varchar(45) NOT NULL
+  `nombre_archivo_producto` varchar(45) DEFAULT NULL,
+  `producto_promo` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto`, `categoria_producto`, `precio_producto`, `descuento_producto`, `nombre_archivo_producto`) VALUES
-(1, 'Gabinete Corsair', 'Gabinete apto modular', 'Perifericos', 3500.00, 0.00, 'gabinete1'),
-(5, 'SSD Samsung 2TB', 'Disco solido 2TB Samsung', 'Almacenamiento', 40000.00, 1500.00, 'ssdsamsung');
+INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto`, `categoria_producto`, `precio_producto`, `descuento_producto`, `nombre_archivo_producto`, `producto_promo`) VALUES
+(1, 'Gabinete Corsair', 'Gabinete apto modular', 'Perifericos', 3500.00, 0.00, 'gabinete1', 0),
+(5, 'SSD Samsung 2TB', 'Disco solido 2TB Samsung', 'Almacenamiento', 40000.00, 1500.00, 'ssdsamsung', 1),
+(6, 'Gabinete Red Dragon', 'Gabinete lleno de luces led, modular, con botones y cosas, y no se que mas poner en la descripcion', 'Perifericos', 45000.00, 5000.00, 'gabinete2', 1),
+(7, 'Perrito Computadora', 'No tengo imagen', 'Un producto random', 40000.00, 0.00, NULL, 0);
 
 --
 -- Indexes for dumped tables
@@ -63,7 +66,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT for table `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
