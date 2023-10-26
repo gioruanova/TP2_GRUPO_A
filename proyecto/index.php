@@ -40,7 +40,10 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
     <div class="contentCustomized">
 
         <div class="container containerCustomized mt-8 animate__animated animate__fadeIn">
-            <h1><span><i class="bi bi-cpu color-change-effect me-2"></i></span>NextGen</h1>
+            <div class="brand-index ">
+                <i class="brand-icon bi bi-cpu color-change-effect me-2"></i>
+                <h1 class="brand-name">NextGen</h1>
+            </div>
             <p>NextGen se destaca como un referente en la industria de importación de productos
                 informáticos, ofreciendo soluciones innovadoras y servicios de alta calidad.</p>
 
@@ -49,7 +52,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                 satisfacción del cliente. Explore nuestro catálogo y descubra la diferencia NextGen.</p>
         </div>
 
-        <div class="container containerCustomized mt-3 animate__animated animate__fadeInDown">
+        <div class="container containerCustomized mt-3 animate__animated animate__fadeInDown  animate__delay-1s">
 
             <div class="container text-center">
                 <div class="row justify-content-md-center">
@@ -87,7 +90,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                                         </div>
                                     </div>
                                     <a href="productoDetalle.php?id=<?php echo $prod['id_producto'] ?>"
-                                        class="btn btn-primary">Ver Más ></a>
+                                        class="btn btn-primary">Ver Más <i class="bi bi-plus-circle ms-1"></i></a>
                                 </div>
                             </div>
                         </div>

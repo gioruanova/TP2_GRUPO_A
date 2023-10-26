@@ -68,8 +68,8 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                         <div class="button-wrap">
-                            <a href="#" class="btn btn-success disabled" title="Proximamente!!">Contactar</a>
-                            <a href="index.php" class="btn btn-primary mt-2" title="Proximamente!!">Volver</a>
+                            <a href="#" class="btn btn-success disabled" title="Proximamente!!"><i class="bi bi-envelope me-2"></i>Contactar</a>
+                            <a href="index.php" class="btn btn-danger mt-2"><i class="bi bi-arrow-left-circle me-2"></i>Volver</a>
                         </div>
                     </div>
                     <?php echo ($producto['producto_promo'] == 0 ? "" : "<span class='promoAvailable'>SALE</span>") ?>
@@ -86,7 +86,7 @@ if (isset($_GET['id'])) {
             <h3>No dudes en contactarnos</h3>
             <p>Contactanos y recibi nuestro asesoramiento, y suscribite a nuestro newsletter mensual para estar al tanto
                 de todos los ingresos y promociones</p>
-            <a href="contacto.php" class="btn btn-success">Contactanos</a>
+            <a href="contacto.php" class="btn btn-primary" style="width: 200px"><i class="bi bi-envelope me-2"></i>Contactanos</a>
         </div>
     </div>
     <!-- -----------------------------BODY----------------------------- -->
