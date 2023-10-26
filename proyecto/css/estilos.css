@@ -470,3 +470,60 @@ footer .disabled {
     color: white;
     font-size: 25px;
 }
+
+
+
+
+/* MISC STYLES----- */
+
+.color-change-effect {
+    animation: colorChange 3s linear infinite;
+}
+
+
+@keyframes colorChange {
+    0% {
+        color: white;
+    }
+
+    10% {
+        color: #792525;
+    }
+
+    20% {
+        color: #62be56;
+    }
+
+    30% {
+        color: #4ca8dd;
+    }
+
+    40% {
+        color: #a34cdd;
+    }
+
+    50% {
+        color: #3528e7;
+    }
+
+    60% {
+        color: #e728b7;
+    }
+
+    70% {
+        color: #fd1c1c;
+    }
+
+    80% {
+        color: #efff60;
+    }
+
+    90% {
+        color: #a5a5a5;
+    }
+
+    100% {
+        color: #ffffff;
+    }
+
+}

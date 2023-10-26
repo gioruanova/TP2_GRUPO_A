@@ -1,6 +1,6 @@
 <footer>
     <a class="navbar-brand" href="index.php">
-        <span><i class="bi bi-cpu"></i></span>
+        <span><i class="bi bi-cpu color-change-effect"></i></span>
         <span>NextGen</span>
     </a>
     <div class="nav-footer">
