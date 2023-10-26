@@ -172,7 +172,7 @@ h6 {
 
 .containerCustomized .card .final-price {
     font-weight: 500;
-    
+
 
 }
 
@@ -311,7 +311,7 @@ h6 {
     height: 200px;
     border-radius: 100%;
     object-fit: cover;
-    margin: 0 1rem;
+    margin: 1rem;
     box-shadow: 3px 3px 10px 6px #182d3d;
 }
 
@@ -351,6 +351,8 @@ h6 {
     gap: 20px;
 }
 
+
+
 .error-box img {
     border-radius: 1rem;
     box-shadow: 2px 2px 25px -3px #4f5050c4;
@@ -376,6 +378,17 @@ h6 {
 .error-box a:hover {
     color: #44bbe1;
 
+}
+
+@media screen and (max-width:800px) {
+    .error-box {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .error-box .error-text {
+        align-items: center
+    }
 }
 
 
