@@ -1,6 +1,6 @@
-﻿﻿## :page_with_curl: NextGen - PHP/MYSQL Project
+﻿﻿## 📃 NextGen - PHP/MYSQL Project
 
-## :computer: Devs
+## 💻 Devs
 
 - [@GiorgioRuanova](https://github.com/gioruanova)
 - [@ManuelCanavari](https://github.com/mcanavari43)
