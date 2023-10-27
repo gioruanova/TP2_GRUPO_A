@@ -6,6 +6,7 @@ $productos = getProductos($conexion);
 
 if (isset($_GET['id'])) {
     $producto = getProductoById($conexion, $_GET['id']);
+    
 }
 
 ?>
@@ -68,7 +69,7 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                         <div class="button-wrap">
-                            <a href="#" class="btn btn-success disabled" title="Proximamente!!"><i class="bi bi-envelope me-2"></i>Contactar</a>
+                            <a href="contacto.php?id=<?php echo $producto['id_producto']?>" class="btn btn-success"><i class="bi bi-envelope me-2"></i>Contactar</a>
                             <a href="index.php" class="btn btn-danger mt-2"><i class="bi bi-arrow-left-circle me-2"></i>Volver</a>
                         </div>
                     </div>
