@@ -1,19 +1,15 @@
 ﻿﻿## 📃 NextGen - PHP/MYSQL Project
 
-## 💻 Devs
-
+## 💻 Devs:
 - [@GiorgioRuanova](https://github.com/gioruanova)
 - [@ManuelCanavari](https://github.com/mcanavari43)
 - [@ErikFlor](https://github.com/erikfacundo)
 
-## 🚀 Desarrollo
-
+## 🚀 Desarrollo:
 Trabajo practico 2 realizado en PHP con conexion a MYSQL
 
-## 🛠 Skills
-
+## 🛠 Skills:
 PHP, MYSql, Bootstrap, Bootstrap, CSS, HTML, Javascript
 
-## ReadMe
-
+## ReadMe:
 Readme document created using [Readme SO](https://readme.so/es). Credits by [Katherine Oelsner](https://github.com/octokatherine)
