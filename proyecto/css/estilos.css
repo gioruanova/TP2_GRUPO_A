@@ -612,3 +612,46 @@ footer .disabled:hover {
     }
 
 }
+
+
+/* FORM CONTACTO---- */
+.form-contacto label {
+    cursor: pointer;
+}
+
+.form-contacto {
+    text-align: left;
+}
+
+@media screen and (max-width:800px) {
+    .form-contacto {
+        text-align: center;
+    }
+}
+
+.msj-enviado {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.msj-enviado .text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.msj-enviado p {
+    margin: 0;
+}
+
+.msj-enviado .btn {
+    margin-top: 1rem;
+}
+
+.msj-enviado i {
+    color: white;
+    font-size: 70px;
+}

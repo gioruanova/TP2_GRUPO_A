@@ -1,46 +1,26 @@
 <?php
-<<<<<<< HEAD
 require_once('_conexion.php');
 require_once('./consultas/consultas_productos.php');
 require_once('./funciones/funciones_input.php');
 $nombreProducto = getNombreProducto($conexion);
 
-
 // Realmente no esta validando nada, saludos !! =)
 $errores = [];
 
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errores = validarContacto($nombreProducto);
-
-    if( count($errores) == 0 ){
-        
+    if (count($errores) == 0) {
         header('Location: mensajeEnviado.php');
-
     }
-
 }
 
 
-=======
-
-require_once('_conexion.php');
-require_once('consultas/consultas_productos.php');
 $productos = getProductos($conexion);
-
 if (isset($_GET['id'])) {
     $producto = getProductoById($conexion, $_GET['id']);
-    $productoAConsultar = "Llego al form de contacto desde algun producto que venia viiendo y mostraria en el titulo del form > " . $producto['nombre_producto'];
-    echo $productoAConsultar;
-
-} else {
-    
-    $productoAConsultar = "aca podemos meter alguna logica para que en vez del nombre del producto, armemos el select que vos decias o algo parecido";
-    echo $productoAConsultar;
+    $prodCatalogo = $producto['nombre_producto'];
+    var_dump($prodCatalogo);
 }
-
->>>>>>> 20d526faac5472309bad009b6e8c41974502f0cd
 ?>
 
 <!DOCTYPE html>
@@ -70,48 +50,67 @@ if (isset($_GET['id'])) {
         </div>
 
         <div class="container containerCustomized mt-3">
-        <ul>
-            
-                                <?php foreach($errores as $error): ?>
-                                    <li class="text text-danger"> <?php echo $error ?> </li>
-                                <?php endforeach ?>
-                            </ul>
+            <ul>
 
-        <form action="mensajeEnviado.php" method="post">
-                                <div class="mb-3">
-                                    <label for="nombre" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese el nombre del producto" value="">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="telefono" class="form-label">Telefono</label>
-                                    <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Ingrese el precio del producto" value="">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Ingrese el descuento del producto" value="">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="producto" class="form-label">Seleccione producto a consultar</label>
-                                    <select type="select" class="form-control" name="producto" id="producto">
-                                        <option value="0">Seleccione</option>
-                                        <?php 
-                                        foreach($nombreProducto as $nombre){
-                                            // AGREGAR EL VALUE CON EL NOMBRE DEL PRODUCTO
-                                            echo "<option>".$nombre['nombre_producto']."</option>";
-                                        }
+                <?php foreach ($errores as $error): ?>
+                    <li class="text text-danger">
+                        <?php echo $error ?>
+                    </li>
+                <?php endforeach ?>
+            </ul>
 
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="comentarios" class="form-label">Consulta</label>
-                                    <textarea type="textarea" class="form-control" name="comentarios" id="comentarios" placeholder="Escriba su consulta" value="" ></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-success"> Enviar </button>
-                    
-                                <a href="index.php" class="btn btn-danger"> Cancelar </a>
-                            </form>
-                            
+            <form action="mensajeEnviado.php" method="post" class="form-contacto">
+                <div class="mb-1 mt-3">
+                    <label for="nombre" class="form-label text-light mb-0">Nombre:</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre"
+                        placeholder="Ingrese su nombre completo" value="" require>
+                </div>
+                <div class="mb-1 mt-3">
+                    <label for="telefono" class="form-label text-light mb-0">Telefono:</label>
+                    <input type="text" class="form-control " name="telefono" id="telefono"
+                        placeholder="Ingrese su numero telefonico" value="">
+                </div>
+                <div class="mb-1 mt-3">
+                    <label for="email" class="form-label text-light mb-0">Email:</label>
+                    <input type="email" class="form-control" name="email" id="email"
+                        placeholder="Ingrese su correo electronico" value="" require>
+                </div>
+                <div class="mb-1 mt-3">
+                    <label for="producto" class="form-label text-light mb-0">Seleccione producto a consultar:</label>
+                    <select type="select" class="form-control" name="producto" id="producto" require>
+                        <option value="0" selected>Seleccione</option>
+                        <?php foreach ($nombreProducto as $nombre): ?>
+                            <?php if ($nombre['nombre_producto'] == $prodCatalogo): ?>
+                                <option selected value="<?php echo $nombre['nombre_producto'] ?>">
+                                    <?php echo $nombre['nombre_producto'] ?>
+                                </option>
+                            <?php else: ?>
+                                <option value="<?php echo $nombre['nombre_producto'] ?>">
+                                    <?php echo $nombre['nombre_producto'] ?>
+                                </option>
+                            <?php endif ?>
+                        <?php endforeach ?>
+                    </select>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="comentarios" class="form-label text-light mb-0">Consulta:</label>
+                    <textarea type="textarea" class="form-control" name="comentarios" id="comentarios"
+                        placeholder="Escriba su consulta" value="" style="resize:none" rows="4" cols="50"
+                        require></textarea>
+                </div>
+                <div class="row justify-content-md-center" style="max-width:700px;margin:auto;">
+                    <button type="submit" class="btn btn-success"> <i
+                            class="bi bi-envelope-arrow-up mx-1"></i>Enviar</button>
+                    <button type="reset" class="btn btn-danger mt-2"> <i class="bi bi-trash mx-1"></i>Limpiar
+                        formulario</button>
+
+                </div>
+
+            </form>
+            <a href="index.php" class="p-0">
+                <button class="btn btn-warning mt-2 w-100" style="max-width:700px;margin:auto;"><i
+                        class="bi bi-arrow-left-circle mx-1"></i>Volver</button>
+            </a>
         </div>
     </div>
 
@@ -129,6 +128,5 @@ if (isset($_GET['id'])) {
     <!-- ---IMPORT JS--- -->
     <?php require('js/_bootstrap.js') ?>
     <!-- ---IMPORT JS--- -->
-</body>
 
 </html>

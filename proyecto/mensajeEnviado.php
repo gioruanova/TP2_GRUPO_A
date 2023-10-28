@@ -23,10 +23,13 @@
 
         </div>
 
-        <div class="container containerCustomized mt-3">
-            <p>Gracias por su mensaje. Nos estaremos comunicando a la brevedad</p>
-
-            <a href="index.php" class="btn btn-primary">Volver al Inicio</a>
+        <div class="container containerCustomized mt-3 msj-enviado">
+            <i class="bi bi-envelope-check"></i>
+            <div class="text">
+                <p>Gracias por su mensaje.</p>
+                <p>Nos estaremos comunicando a la brevedad</p>
+                <a href="index.php" class="btn btn-primary">Volver al Inicio</a>
+            </div>
         </div>
     </div>
 
