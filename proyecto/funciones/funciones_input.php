@@ -13,7 +13,7 @@ function validarContacto($contacto)
 
     $errores = [];
 
-    if( empty($$contacto['nombre']) ){
+    if( empty($contacto['nombre']) ){
         $errores[] = 'Usted debe ingresar un nombre';
     }
 
@@ -21,11 +21,11 @@ function validarContacto($contacto)
         $errores[] = 'Usted debe ingresar un telefono';
     }
 
-    if( !is_numeric($contacto['email']) ){
+    if( empty($contacto['email']) ){
         $errores[] = 'Usted debe ingresar un email';
     }
-
-    if( empty($contacto['nombre_producto']) ){
+    // Compare a 0 porque por default el Seleccionar tiene value 0 y los demas tienen su nombre
+    if( ($contacto['nombre_producto']) == 0 ){
         $errores[] = 'Usted debe seleccionar un producto';
     }
 

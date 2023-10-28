@@ -3,10 +3,10 @@ require_once('_conexion.php');
 require_once('./consultas/consultas_productos.php');
 require_once('./funciones/funciones_input.php');
 
-// Realmente no esta validando nada, saludos !! =)
 $nombreProducto = getNombreProducto($conexion);
 $errores = [];
 
+// LO COMENTE XQ CREO QUE ESTA DE MAS
 // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 //     $errores = validarContacto($nombreProducto);
 //     if (count($errores) == 0) {
@@ -20,43 +20,27 @@ if (isset($_GET['id'])) {
     $prodCatalogo = $producto['nombre_producto'];
 }
 
-//- Añadir datos de la consulta a la base de datos validando form
-
-if( isset($_GET['id']) ){
-    //El usuario está intentando editar un producto.
-    $contacto = getConsultaById($conexion, $_GET['id']);
-}else{
-    $contacto = [
-        'id' => test_input( $_POST['id'] ?? null ),
-        'nombre' => test_input($_POST['nombre'] ?? null),
-        'telefono' => test_input($_POST['telefono'] ?? null),
-        'email' => test_input($_POST['email'] ?? null),
-        'nombre_producto' => test_input($_POST['nombre_producto'] ?? null),
-        'consulta' => test_input($_POST['consulta'] ?? null)
-    ];
-}
-
-
+$contacto = [
+    'id' => test_input($_POST['id'] ?? null),
+    'nombre' => test_input($_POST['nombre'] ?? null),
+    'telefono' => test_input($_POST['telefono'] ?? null),
+    'email' => test_input($_POST['email'] ?? null),
+    'nombre_producto' => test_input($_POST['nombre_producto'] ?? null),
+    'consulta' => test_input($_POST['consulta'] ?? null)
+];
 
 $errores = [];
 
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $errores = validarContacto($contacto);
 
-    if( count($errores) == 0 ){
+    if (count($errores) == 0) {
 
-        if( empty($contacto['id']) ){
-            addConsulta($conexion, $contacto);
-        }else{
-            echo "Error";
-        }
-        
+        addConsulta($conexion, $contacto);
+
         header('Location: mensajeEnviado.php');
-
     }
-
 }
 
 
@@ -91,39 +75,37 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         <div class="container containerCustomized mt-3">
             <ul>
 
-                <?php foreach ($errores as $error): ?>
+                <?php foreach ($errores as $error) : ?>
                     <li class="text text-danger">
                         <?php echo $error ?>
                     </li>
                 <?php endforeach ?>
             </ul>
 
-            <form action="mensajeEnviado.php" method="post" class="form-contacto">
+            <form action="contacto.php" method="post" class="form-contacto">
                 <div class="mb-1 mt-3">
                     <label for="nombre" class="form-label text-light mb-0">Nombre:</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre"
-                        placeholder="Ingrese su nombre completo" value="" require>
+                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su nombre completo" value="<?php echo $contacto['nombre'] ?>" require>
                 </div>
                 <div class="mb-1 mt-3">
                     <label for="telefono" class="form-label text-light mb-0">Telefono:</label>
-                    <input type="text" class="form-control " name="telefono" id="telefono"
-                        placeholder="Ingrese su numero telefonico" value="">
+                    <input type="text" class="form-control " name="telefono" id="telefono" placeholder="Ingrese su numero telefonico" value="<?php echo $contacto['telefono'] ?>">
                 </div>
                 <div class="mb-1 mt-3">
                     <label for="email" class="form-label text-light mb-0">Email:</label>
-                    <input type="email" class="form-control" name="email" id="email"
-                        placeholder="Ingrese su correo electronico" value="" require>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Ingrese su correo electronico" value="<?php echo $contacto['email'] ?>" require>
                 </div>
                 <div class="mb-1 mt-3">
-                    <label for="nombre_producto" class="form-label text-light mb-0">Seleccione producto a consultar:</label>
+                    <label for="nombre_producto" class="form-label text-light mb-0">Seleccione producto a
+                        consultar:</label>
                     <select type="select" class="form-control" name="nombre_producto" id="nombre_producto" require>
                         <option value="0" selected>Seleccione</option>
-                        <?php foreach ($nombreProducto as $nombre): ?>
-                            <?php if ($nombre['nombre_producto'] == $prodCatalogo): ?>
+                        <?php foreach ($nombreProducto as $nombre) : ?>
+                            <?php if ($nombre['nombre_producto'] == $prodCatalogo) : ?>
                                 <option selected value="<?php echo $nombre['nombre_producto'] ?>">
                                     <?php echo $nombre['nombre_producto'] ?>
                                 </option>
-                            <?php else: ?>
+                            <?php else : ?>
                                 <option value="<?php echo $nombre['nombre_producto'] ?>">
                                     <?php echo $nombre['nombre_producto'] ?>
                                 </option>
@@ -133,13 +115,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="consulta" class="form-label text-light mb-0">Consulta:</label>
-                    <textarea type="textarea" class="form-control" name="consulta" id="consulta"
-                        placeholder="Escriba su consulta" value="" style="resize:none" rows="4" cols="50"
-                        require></textarea>
+                    <textarea type="textarea" class="form-control" name="consulta" id="consulta" placeholder="Escriba su consulta" value="<?php echo $contacto['consulta'] ?>" style="resize:none" rows="4" cols="50" require></textarea>
                 </div>
                 <div class="row justify-content-md-center" style="max-width:700px;margin:auto;">
-                    <button type="submit" class="btn btn-success"> <i
-                            class="bi bi-envelope-arrow-up mx-1"></i>Enviar</button>
+                    <button type="submit" class="btn btn-success"> <i class="bi bi-envelope-arrow-up mx-1"></i>Enviar</button>
                     <button type="reset" class="btn btn-danger mt-2"> <i class="bi bi-trash mx-1"></i>Limpiar
                         formulario</button>
 
@@ -147,8 +126,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
             </form>
             <a href="index.php" class="p-0">
-                <button class="btn btn-warning mt-2 w-100" style="max-width:700px;margin:auto;"><i
-                        class="bi bi-arrow-left-circle mx-1"></i>Volver</button>
+                <button class="btn btn-warning mt-2 w-100" style="max-width:700px;margin:auto;"><i class="bi bi-arrow-left-circle mx-1"></i>Volver</button>
             </a>
         </div>
     </div>

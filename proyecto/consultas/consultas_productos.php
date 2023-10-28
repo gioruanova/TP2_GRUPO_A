@@ -59,7 +59,7 @@ function getConsultas(PDO $conexion){
 
 function addConsulta(PDO $conexion, $contacto){
     $consulta = $conexion->prepare('
-    INSERT INTO consultas( id, nombre, telefono, email, nombre_producto, consulta) VALUES (:id, :nombre, :email, :nombre_producto, :consulta)
+    INSERT INTO consultas(nombre, telefono, email, nombre_producto, consulta) VALUES (:nombre, :telefono, :email, :nombre_producto, :consulta)
     ');
 
     $consulta->bindValue(':nombre', $contacto['nombre']);
@@ -68,24 +68,27 @@ function addConsulta(PDO $conexion, $contacto){
     $consulta->bindValue(':nombre_producto', $contacto['nombre_producto']);
     $consulta->bindValue(':consulta', $contacto['consulta']);
 
+
     $consulta->execute();
 }
 
-function getConsultaById(PDO $conexion, $id){
-    $consulta = $conexion->prepare('
-    SELECT id, nombre, telefono, email, nombre_producto, consulta
-    FROM consultas
-    WHERE id = :id
-    ');
+// Function para buscar una consulta por su ID
 
-    $consulta->bindValue(':id', $id);
+// function getConsultaById(PDO $conexion, $id){
+//     $consulta = $conexion->prepare('
+//     SELECT id, nombre, telefono, email, nombre_producto, consulta
+//     FROM consultas
+//     WHERE id = :id
+//     ');
 
-    $consulta->execute();
+//     $consulta->bindValue(':id', $id);
 
-    $contacto = $consulta->fetch(PDO::FETCH_ASSOC);
+//     $consulta->execute();
 
-    return $contacto;
-}
+//     $contacto = $consulta->fetch(PDO::FETCH_ASSOC);
+
+//     return $contacto;
+// }
 
 
 ?>
