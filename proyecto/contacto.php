@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 require_once('_conexion.php');
 require_once('./consultas/consultas_productos.php');
 require_once('./funciones/funciones_input.php');
@@ -22,6 +23,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 
 
+=======
+
+require_once('_conexion.php');
+require_once('consultas/consultas_productos.php');
+$productos = getProductos($conexion);
+
+if (isset($_GET['id'])) {
+    $producto = getProductoById($conexion, $_GET['id']);
+    $productoAConsultar = "Llego al form de contacto desde algun producto que venia viiendo y mostraria en el titulo del form > " . $producto['nombre_producto'];
+    echo $productoAConsultar;
+
+} else {
+    
+    $productoAConsultar = "aca podemos meter alguna logica para que en vez del nombre del producto, armemos el select que vos decias o algo parecido";
+    echo $productoAConsultar;
+}
+
+>>>>>>> 20d526faac5472309bad009b6e8c41974502f0cd
 ?>
 
 <!DOCTYPE html>
