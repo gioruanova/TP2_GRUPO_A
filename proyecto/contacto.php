@@ -2,25 +2,64 @@
 require_once('_conexion.php');
 require_once('./consultas/consultas_productos.php');
 require_once('./funciones/funciones_input.php');
-$nombreProducto = getNombreProducto($conexion);
 
 // Realmente no esta validando nada, saludos !! =)
+$nombreProducto = getNombreProducto($conexion);
 $errores = [];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $errores = validarContacto($nombreProducto);
-    if (count($errores) == 0) {
-        header('Location: mensajeEnviado.php');
-    }
-}
-
+// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//     $errores = validarContacto($nombreProducto);
+//     if (count($errores) == 0) {
+//         header('Location: mensajeEnviado.php');
+//     }
+// }
 
 $productos = getProductos($conexion);
 if (isset($_GET['id'])) {
     $producto = getProductoById($conexion, $_GET['id']);
     $prodCatalogo = $producto['nombre_producto'];
-    var_dump($prodCatalogo);
 }
+
+//- Añadir datos de la consulta a la base de datos validando form
+
+if( isset($_GET['id']) ){
+    //El usuario está intentando editar un producto.
+    $contacto = getConsultaById($conexion, $_GET['id']);
+}else{
+    $contacto = [
+        'id' => test_input( $_POST['id'] ?? null ),
+        'nombre' => test_input($_POST['nombre'] ?? null),
+        'telefono' => test_input($_POST['telefono'] ?? null),
+        'email' => test_input($_POST['email'] ?? null),
+        'nombre_producto' => test_input($_POST['nombre_producto'] ?? null),
+        'consulta' => test_input($_POST['consulta'] ?? null)
+    ];
+}
+
+
+
+$errores = [];
+
+if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+
+    $errores = validarContacto($contacto);
+
+    if( count($errores) == 0 ){
+
+        if( empty($contacto['id']) ){
+            addConsulta($conexion, $contacto);
+        }else{
+            echo "Error";
+        }
+        
+        header('Location: mensajeEnviado.php');
+
+    }
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -76,8 +115,8 @@ if (isset($_GET['id'])) {
                         placeholder="Ingrese su correo electronico" value="" require>
                 </div>
                 <div class="mb-1 mt-3">
-                    <label for="producto" class="form-label text-light mb-0">Seleccione producto a consultar:</label>
-                    <select type="select" class="form-control" name="producto" id="producto" require>
+                    <label for="nombre_producto" class="form-label text-light mb-0">Seleccione producto a consultar:</label>
+                    <select type="select" class="form-control" name="nombre_producto" id="nombre_producto" require>
                         <option value="0" selected>Seleccione</option>
                         <?php foreach ($nombreProducto as $nombre): ?>
                             <?php if ($nombre['nombre_producto'] == $prodCatalogo): ?>
@@ -93,8 +132,8 @@ if (isset($_GET['id'])) {
                     </select>
                 </div>
                 <div class="mb-3 mt-3">
-                    <label for="comentarios" class="form-label text-light mb-0">Consulta:</label>
-                    <textarea type="textarea" class="form-control" name="comentarios" id="comentarios"
+                    <label for="consulta" class="form-label text-light mb-0">Consulta:</label>
+                    <textarea type="textarea" class="form-control" name="consulta" id="consulta"
                         placeholder="Escriba su consulta" value="" style="resize:none" rows="4" cols="50"
                         require></textarea>
                 </div>
