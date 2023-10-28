@@ -11,6 +11,16 @@ function getProductos(PDO $conexion)
     return $productos;
 }
 
+function getNombreProducto(PDO $conexion)
+{
+    $consulta = $conexion->prepare('
+    SELECT  nombre_producto FROM productos
+    ');
+    $consulta->execute();
+    $nombreProducto = $consulta->fetchAll(PDO::FETCH_ASSOC);
+    return $nombreProducto;
+}
+
 // MOSTRAR PRODUCTO POR ID
 function getProductoById(PDO $conexion, $id)
 {
