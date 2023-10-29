@@ -10,7 +10,6 @@ $productos = getProductos($conexion);
 if (isset($_GET['id'])) {
     $producto = getProductoById($conexion, $_GET['id']);
     $prodCatalogo = $producto['nombre_producto'];
-    var_dump($producto['id_producto']);
 } else {
     $producto['id_producto'] = "NO";
 }
@@ -116,7 +115,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         class="form-label text-light mb-0">Consulta:</label>
                     <textarea type="textarea" class="form-control" name="consulta" id="consulta"
                         placeholder="Escriba su consulta" value="<?php echo $contacto['consulta'] ?>"
-                        style="resize:none" rows="4" cols="50" require><?php echo $contacto['consulta'] ?></textarea>
+                        style="resize:none" rows="4" cols="50" require>
+                        <?php echo $contacto['consulta'] ?>
+                    </textarea>
                     <span class="mx-1" style="color:pink;font-size: 14px;">*</span><span
                         style="color:white;font-style: italic;font-weight: 300;font-size: 14px;">Campos
                         mandatorios</span>
