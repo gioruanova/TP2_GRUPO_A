@@ -20,7 +20,8 @@ $contacto = [
     'telefono' => test_input($_POST['telefono'] ?? null),
     'email' => test_input($_POST['email'] ?? null),
     'nombre_producto' => test_input($_POST['nombre_producto'] ?? null),
-    'consulta' => test_input($_POST['consulta'] ?? null)
+    'consulta' => test_input($_POST['consulta'] ?? null),
+    'newsletter' => $_POST['newsletter']=="newsletter" ?? 1,
 ];
 
 $errores = [];
@@ -32,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: mensajeEnviado.php');
     }
 }
-
 
 ?>
 
@@ -117,6 +117,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <span class="mx-1" style="color:pink;font-size: 14px;">*</span><span
                         style="color:white;font-style: italic;font-weight: 300;font-size: 14px;">Campos
                         mandatorios</span>
+                </div>
+                <div>
+
+                <input name="newsletter" value="newsletter" class="form-check-input" type="checkbox" id="newsletter"><label for="newsletter" class="form-label text-light ms-2" style="font-weight:300;">Suscribir al newsletter</label>
+     
                 </div>
                 <div class="row justify-content-md-center" style="max-width:700px;margin:auto;">
                     <button type="submit" class="btn btn-success"> <i

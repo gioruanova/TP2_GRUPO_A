@@ -44,7 +44,7 @@ function getProductoById(PDO $conexion, $id)
 
 function getContacto(PDO $conexion){
     $consulta = $conexion->prepare('
-    SELECT id, nombre, telefono, email, nombre_producto
+    SELECT id, nombre, telefono, email, nombre_producto, consulta, newsletter
     FROM contactos
     ');
 
@@ -59,8 +59,8 @@ function getContacto(PDO $conexion){
 
 function addContacto(PDO $conexion, $contacto){
     $consulta = $conexion->prepare('
-    INSERT INTO contactos(nombre, telefono, email, nombre_producto, consulta) 
-    VALUES (:nombre, :telefono, :email, :nombre_producto, :consulta)
+    INSERT INTO contactos(nombre, telefono, email, nombre_producto, consulta, newsletter) 
+    VALUES (:nombre, :telefono, :email, :nombre_producto, :consulta, :newsletter)
     ');
 
     $consulta->bindValue(':nombre', $contacto['nombre']);
@@ -68,6 +68,7 @@ function addContacto(PDO $conexion, $contacto){
     $consulta->bindValue(':email', $contacto['email']);
     $consulta->bindValue(':nombre_producto', $contacto['nombre_producto']);
     $consulta->bindValue(':consulta', $contacto['consulta']);
+    $consulta->bindValue(':newsletter', $contacto['newsletter']);
 
 
     $consulta->execute();
