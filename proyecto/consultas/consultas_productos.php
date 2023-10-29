@@ -40,4 +40,55 @@ function getProductoById(PDO $conexion, $id)
 }
 
 
+// Primero agrego un get a cosultas
+
+function getConsultas(PDO $conexion){
+    $consulta = $conexion->prepare('
+    SELECT id, nombre, telefono, email, nombre_producto
+    FROM consultas
+    ');
+
+    $consulta->execute();
+
+    $consultas = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+    return $consultas;
+}
+
+// Agregar consulta a la base de datos, recopilacion de datos
+
+function addConsulta(PDO $conexion, $contacto){
+    $consulta = $conexion->prepare('
+    INSERT INTO consultas(nombre, telefono, email, nombre_producto, consulta) VALUES (:nombre, :telefono, :email, :nombre_producto, :consulta)
+    ');
+
+    $consulta->bindValue(':nombre', $contacto['nombre']);
+    $consulta->bindValue(':telefono', $contacto['telefono']);
+    $consulta->bindValue(':email', $contacto['email']);
+    $consulta->bindValue(':nombre_producto', $contacto['nombre_producto']);
+    $consulta->bindValue(':consulta', $contacto['consulta']);
+
+
+    $consulta->execute();
+}
+
+// Function para buscar una consulta por su ID
+
+// function getConsultaById(PDO $conexion, $id){
+//     $consulta = $conexion->prepare('
+//     SELECT id, nombre, telefono, email, nombre_producto, consulta
+//     FROM consultas
+//     WHERE id = :id
+//     ');
+
+//     $consulta->bindValue(':id', $id);
+
+//     $consulta->execute();
+
+//     $contacto = $consulta->fetch(PDO::FETCH_ASSOC);
+
+//     return $contacto;
+// }
+
+
 ?>
