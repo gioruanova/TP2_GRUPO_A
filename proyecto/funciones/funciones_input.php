@@ -13,23 +13,20 @@ function validarContacto($contacto)
 
     $errores = [];
 
-    if( empty($$contacto['nombre']) ){
+    if (empty($contacto['nombre'])) {
         $errores[] = 'Usted debe ingresar un nombre';
     }
 
-    if( !is_numeric($contacto['telefono']) ){
-        $errores[] = 'Usted debe ingresar un telefono';
+    if (!filter_var($contacto['email'], FILTER_VALIDATE_EMAIL)) {
+        $errores[] = 'El formato del E-Mail no es valido';
     }
 
-    if( !is_numeric($contacto['email']) ){
-        $errores[] = 'Usted debe ingresar un email';
-    }
-
-    if( empty($contacto['nombre_producto']) ){
+    // Compare a 0 porque por default el Seleccionar tiene value 0 y los demas tienen su nombre
+    if (($contacto['nombre_producto']) == 0) {
         $errores[] = 'Usted debe seleccionar un producto';
     }
 
-    if( empty($contacto['consulta']) ){
+    if (empty($contacto['consulta'])) {
         $errores[] = 'Usted debe ingresar una consulta';
     }
 

@@ -1,8 +1,15 @@
 <?php
-// mysqli(); // Solo sirve para MYSQL
+$windowsUser = getenv('USERNAME');
+
+$conexionPuerto = 'mysql:host=localhost;dbname=nexgendb;charset=utf8';
+
+if ($windowsUser !== "Giorgio") {
+    $conexionPuerto = 'mysql:host=localhost;dbname=nexgendb;charset=utf8;port=3308';
+}
+
 try {
     $conexion = new PDO(
-        'mysql:host=localhost;dbname=nexgendb;charset=utf8',
+        $conexionPuerto,
         'root',
         ''
     );

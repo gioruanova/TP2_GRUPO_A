@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2023 at 09:42 PM
+-- Generation Time: Oct 29, 2023 at 08:40 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `nexgendb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contactos`
+--
+
+CREATE TABLE `contactos` (
+  `id_contacto` int(11) NOT NULL,
+  `nombre` varchar(250) NOT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `email` varchar(200) NOT NULL,
+  `nombre_producto` varchar(200) NOT NULL,
+  `consulta` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contactos`
+--
+
+INSERT INTO `contactos` (`id_contacto`, `nombre`, `telefono`, `email`, `nombre_producto`, `consulta`) VALUES
+(1, 'Jorge', '12341', 'jruanova.dev@gmail.com', 'Gabinete Corsair', 'test'),
+(2, 'Jorge', '12341', 'jruanova.dev@gmail.com', 'Perrito Computadora', 'cuanto sale la compu del perrito?'),
+(3, 'Jorge', '12341', 'jruanova1987@gmail.com', 'Gabinete Corsair', 'necesito mas info'),
+(4, 'Jorge', '', 'jruanova.dev@gmail.com', 'SSD Samsung 2TB', 'enviar modelos'),
+(5, 'Jorge', '', 'jruanova.dev@gmail.com', 'Otras consultas', 'enviar catalogo');
 
 -- --------------------------------------------------------
 
@@ -53,6 +79,12 @@ INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto
 --
 
 --
+-- Indexes for table `contactos`
+--
+ALTER TABLE `contactos`
+  ADD PRIMARY KEY (`id_contacto`);
+
+--
 -- Indexes for table `productos`
 --
 ALTER TABLE `productos`
@@ -61,6 +93,12 @@ ALTER TABLE `productos`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `contactos`
+--
+ALTER TABLE `contactos`
+  MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `productos`

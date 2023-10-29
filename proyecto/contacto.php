@@ -2,25 +2,39 @@
 require_once('_conexion.php');
 require_once('./consultas/consultas_productos.php');
 require_once('./funciones/funciones_input.php');
+
 $nombreProducto = getNombreProducto($conexion);
-
-// Realmente no esta validando nada, saludos !! =)
 $errores = [];
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $errores = validarContacto($nombreProducto);
-    if (count($errores) == 0) {
-        header('Location: mensajeEnviado.php');
-    }
-}
-
 
 $productos = getProductos($conexion);
 if (isset($_GET['id'])) {
     $producto = getProductoById($conexion, $_GET['id']);
     $prodCatalogo = $producto['nombre_producto'];
-    var_dump($prodCatalogo);
+    var_dump($producto['id_producto']);
+} else {
+    $producto['id_producto'] = "NO";
 }
+
+$contacto = [
+    'id' => test_input($_POST['id'] ?? null),
+    'nombre' => test_input($_POST['nombre'] ?? null),
+    'telefono' => $_POST['telefono'] ?? null,
+    'email' => test_input($_POST['email'] ?? null),
+    'nombre_producto' => test_input($_POST['nombre_producto'] ?? null),
+    'consulta' => test_input($_POST['consulta'] ?? null)
+];
+
+$errores = [];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $errores = validarContacto($contacto);
+    if (count($errores) == 0) {
+        addContacto($conexion, $contacto);
+        header('Location: mensajeEnviado.php');
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +57,7 @@ if (isset($_GET['id'])) {
     <!-- -----------------------------BODY----------------------------- -->
 
 
-    <div class="contentCustomized animate__animated animate__fadeInDown">
+    <div class="contentCustomized">
         <div class="container containerCustomized mt-8 pt-1 pb-1">
             <h1>Contactanos</h1>
 
@@ -53,31 +67,35 @@ if (isset($_GET['id'])) {
             <ul>
 
                 <?php foreach ($errores as $error): ?>
-                    <li class="text text-danger">
+                    <li class="animate__animated animate__bounceIn" style="text-align: justify;color:pink">
                         <?php echo $error ?>
                     </li>
                 <?php endforeach ?>
             </ul>
 
-            <form action="mensajeEnviado.php" method="post" class="form-contacto">
+            <form action="contacto.php" method="post" class="form-contacto mb-0">
                 <div class="mb-1 mt-3">
-                    <label for="nombre" class="form-label text-light mb-0">Nombre:</label>
+                    <span class="mx-1" style="color:pink">*</span><label for="nombre"
+                        class="form-label text-light mb-0">Nombre:</label>
                     <input type="text" class="form-control" name="nombre" id="nombre"
-                        placeholder="Ingrese su nombre completo" value="" require>
+                        placeholder="Ingrese su nombre completo" value="<?php echo $contacto['nombre'] ?>" require>
                 </div>
                 <div class="mb-1 mt-3">
                     <label for="telefono" class="form-label text-light mb-0">Telefono:</label>
                     <input type="text" class="form-control " name="telefono" id="telefono"
-                        placeholder="Ingrese su numero telefonico" value="">
+                        placeholder="Ingrese su numero telefonico" value="<?php echo $contacto['telefono'] ?>">
                 </div>
                 <div class="mb-1 mt-3">
-                    <label for="email" class="form-label text-light mb-0">Email:</label>
+                    <span class="mx-1" style="color:pink">*</span><label for="email"
+                        class="form-label text-light mb-0">Email:</label>
                     <input type="email" class="form-control" name="email" id="email"
-                        placeholder="Ingrese su correo electronico" value="" require>
+                        placeholder="Ingrese su correo electronico" value="<?php echo $contacto['email'] ?>" require>
                 </div>
                 <div class="mb-1 mt-3">
-                    <label for="producto" class="form-label text-light mb-0">Seleccione producto a consultar:</label>
-                    <select type="select" class="form-control" name="producto" id="producto" require>
+                    <span class="mx-1" style="color:pink">*</span><label for="nombre_producto"
+                        class="form-label text-light mb-0">Seleccione producto a
+                        consultar:</label>
+                    <select type="select" class="form-control" name="nombre_producto" id="nombre_producto" require>
                         <option value="0" selected>Seleccione</option>
                         <?php foreach ($nombreProducto as $nombre): ?>
                             <?php if ($nombre['nombre_producto'] == $prodCatalogo): ?>
@@ -90,27 +108,35 @@ if (isset($_GET['id'])) {
                                 </option>
                             <?php endif ?>
                         <?php endforeach ?>
+                        <option value="Otras consultas">Otras consultas</option>
                     </select>
                 </div>
                 <div class="mb-3 mt-3">
-                    <label for="comentarios" class="form-label text-light mb-0">Consulta:</label>
-                    <textarea type="textarea" class="form-control" name="comentarios" id="comentarios"
-                        placeholder="Escriba su consulta" value="" style="resize:none" rows="4" cols="50"
-                        require></textarea>
+                    <span class="mx-1" style="color:pink">*</span><label for="consulta"
+                        class="form-label text-light mb-0">Consulta:</label>
+                    <textarea type="textarea" class="form-control" name="consulta" id="consulta"
+                        placeholder="Escriba su consulta" value="<?php echo $contacto['consulta'] ?>"
+                        style="resize:none" rows="4" cols="50" require><?php echo $contacto['consulta'] ?></textarea>
+                    <span class="mx-1" style="color:pink;font-size: 14px;">*</span><span
+                        style="color:white;font-style: italic;font-weight: 300;font-size: 14px;">Campos
+                        mandatorios</span>
                 </div>
                 <div class="row justify-content-md-center" style="max-width:700px;margin:auto;">
                     <button type="submit" class="btn btn-success"> <i
                             class="bi bi-envelope-arrow-up mx-1"></i>Enviar</button>
-                    <button type="reset" class="btn btn-danger mt-2"> <i class="bi bi-trash mx-1"></i>Limpiar
-                        formulario</button>
-
                 </div>
-
             </form>
-            <a href="index.php" class="p-0">
-                <button class="btn btn-warning mt-2 w-100" style="max-width:700px;margin:auto;"><i
-                        class="bi bi-arrow-left-circle mx-1"></i>Volver</button>
-            </a>
+            <?php if ($producto['id_producto'] == "NO"): ?>
+                <a href="index.php" class="p-0">
+                    <button class="btn btn-warning mt-2 w-100" style="max-width:700px;margin:auto;"><i
+                            class="bi bi-arrow-left-circle mx-1"></i>Volver</button>
+                </a>
+            <?php else: ?>
+                <a href="<?php echo 'productoDetalle.php?id=' . $producto['id_producto'] ?>" class="p-0">
+                    <button class="btn btn-warning mt-2 w-100" style="max-width:700px;margin: 0 auto;"><i
+                            class="bi bi-arrow-left-circle mx-1"></i>Volver</button>
+                </a>
+            <?php endif ?>
         </div>
     </div>
 
