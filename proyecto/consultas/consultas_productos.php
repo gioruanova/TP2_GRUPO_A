@@ -59,15 +59,15 @@ function getContacto(PDO $conexion){
 
 function addContacto(PDO $conexion, $contacto){
     $consulta = $conexion->prepare('
-    INSERT INTO contactos(nombre_contacto, telefono_contacto, email_contacto, nombre_producto_contacto, consulta_contacto) 
-    VALUES (:nombre_contacto, :telefono_contacto, :email_contacto, :nombre_producto_contacto, :consulta_contacto)
+    INSERT INTO contactos(nombre, telefono, email, nombre_producto, consulta) 
+    VALUES (:nombre, :telefono, :email, :nombre_producto, :consulta)
     ');
 
-    $consulta->bindValue(':nombre_contacto', $contacto['nombre_contacto']);
-    $consulta->bindValue(':telefono_contacto', $contacto['telefono_contacto']);
-    $consulta->bindValue(':email_contacto', $contacto['email_contacto']);
-    $consulta->bindValue(':nombre_producto_contacto', $contacto['nombre_producto_contacto']);
-    $consulta->bindValue(':consulta_contacto', $contacto['consulta_contacto']);
+    $consulta->bindValue(':nombre', $contacto['nombre']);
+    $consulta->bindValue(':telefono', $contacto['telefono']);
+    $consulta->bindValue(':email', $contacto['email']);
+    $consulta->bindValue(':nombre_producto', $contacto['nombre_producto']);
+    $consulta->bindValue(':consulta', $contacto['consulta']);
 
 
     $consulta->execute();
