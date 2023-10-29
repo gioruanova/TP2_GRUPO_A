@@ -1,27 +1,35 @@
 <?php
 $windowsUser = getenv('USERNAME');
 
-$conexionPuerto = 'mysql:host=localhost;dbname=nexgendb;charset=utf8';
+// DB NAME
+$dbName = 'nexgendb';
+$conexionVariable = 'mysql:host=localhost;dbname=' . $dbName . ';charset=utf8';
+
+
 
 if ($windowsUser == "Giorgio") {
-    $conexionPuerto = 'mysql:host=localhost;dbname=nexgendb;charset=utf8';
+    $conexionVariable = 'mysql:host=localhost;dbname=' . $dbName . ';charset=utf8'; // Conexion test env en base a settings de Giorgio
 
 } elseif ($windowsUser !== "Manu") {
-    $conexionPuerto = 'mysql:host=localhost;dbname=nexgendb;charset=utf8;port=3308';
-    
+    $conexionVariable = 'mysql:host=localhost;dbname=' . $dbName . ';charset=utf8;port=3308'; // Conexion test env en base a settings de Manu
+
+} elseif ($windowsUser !== "Eric") {
+    $conexionVariable = 'mysql:host=localhost;dbname=' . $dbName . ';charset=utf8'; // Conexion test env en base a settings de Eric
+
 } else {
-    $conexionPuerto = 'mysql:host=localhost;dbname=nexgendb;charset=utf8';
+    $conexionVariable = 'mysql:host=localhost;dbname=' . $dbName . ';charset=utf8'; // Conexion test env en base a settings generica
 
 }
 
 try {
     $conexion = new PDO(
-        $conexionPuerto,
+        $conexionVariable,
         'root',
         ''
     );
 
 } catch (PDOException $e) {
     header('Location: error.php');
+
 }
 ?>

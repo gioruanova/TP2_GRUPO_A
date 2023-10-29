@@ -8,14 +8,10 @@ $productos = getProductos($conexion);
 // Cantidad de productos
 $cantidad = count($productos);
 
-
 $pagina_actual = $_GET['pag'] ?? 1;
 $cantidad_por_pagina = 3;
 $paginado_enlaces = paginador_enlaces($cantidad, $pagina_actual, $cantidad_por_pagina);
 $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
-
-
-
 
 ?>
 
@@ -52,7 +48,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                 satisfacción del cliente. Explore nuestro catálogo y descubra la diferencia NextGen.</p>
         </div>
 
-        <div class="container containerCustomized mt-3 animate__animated animate__fadeInDown  animate__delay-1s">
+        <div class="container containerCustomized mt-3 animate__animated animate__fadeInDown">
 
             <div class="container text-center">
                 <div class="row justify-content-md-center">
@@ -63,7 +59,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                         <div class="col justify-content-md-center">
                             <div class="card text-bg-dark">
                                 <?php echo ($prod['producto_promo'] == 0 ? "" : "<span class='promoAvailable'>SALE</span>") ?>
-                                <img src="img/<?php echo ($prod['nombre_archivo_producto'] == NULL) ? "error-image.jpg" : $prod['nombre_archivo_producto'] . '.jpg'; ?>"
+                                <img src="img/<?php echo ($prod['nombre_archivo_producto'] == NULL) ? "error-image.jpg" : $prod['nombre_archivo_producto'] . '.' . $prod['formato_imagen']; ?>"
                                     alt="<?php echo ($prod['nombre_archivo_producto'] == NULL) ? "Producto sin imagen para " . $prod['nombre_producto'] : $prod['nombre_producto'] ?>">
                                 <div class="card-body">
                                     <div>

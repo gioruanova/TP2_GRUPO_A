@@ -44,7 +44,7 @@ if (isset($_GET['id'])) {
                 <!-- -------Comienza CARD------- -->
 
                 <div class="cardDetail">
-                    <img src="img/<?php echo ($producto['nombre_archivo_producto'] == NULL) ? "error-image.jpg" : $producto['nombre_archivo_producto'] . '.jpg'; ?>"
+                    <img src="img/<?php echo ($producto['nombre_archivo_producto'] == NULL) ? "error-image.jpg" : $producto['nombre_archivo_producto'] . '.' . $producto['formato_imagen']; ?>"
                         alt="<?php echo ($prod['nombre_archivo_producto'] == NULL) ? "Producto sin imagen para " . $producto['nombre_producto'] : $producto['nombre_producto'] ?>">
                     <div class="card-body">
                         <div>

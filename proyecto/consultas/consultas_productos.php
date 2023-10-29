@@ -4,7 +4,7 @@
 function getProductos(PDO $conexion)
 {
     $consulta = $conexion->prepare('
-        SELECT id_producto, nombre_producto, descripcion_producto, categoria_producto, precio_producto, descuento_producto, nombre_archivo_producto,producto_promo FROM productos
+        SELECT id_producto, nombre_producto, descripcion_producto, categoria_producto, precio_producto, descuento_producto, nombre_archivo_producto,formato_imagen, producto_promo FROM productos
     '); // preparo la consulta
     $consulta->execute(); // ejecuto consulta
     $productos = $consulta->fetchAll(PDO::FETCH_ASSOC); // recupero la lista
@@ -26,7 +26,7 @@ function getProductoById(PDO $conexion, $id)
 {
 
     $consulta = $conexion->prepare('
-        SELECT id_producto, nombre_producto, descripcion_producto, categoria_producto, precio_producto, descuento_producto, nombre_archivo_producto,producto_promo
+        SELECT id_producto, nombre_producto, descripcion_producto, categoria_producto, precio_producto, descuento_producto, nombre_archivo_producto,formato_imagen, producto_promo
         FROM productos
         WHERE id_producto = :id
     ');
@@ -74,7 +74,9 @@ function addContacto(PDO $conexion, $contacto){
     $consulta->execute();
 }
 
-// Function para buscar una consulta por su ID
+
+
+// Function para buscar una consulta por su ID : Listo para entrega final
 
 // function getConsultaById(PDO $conexion, $id){
 //     $consulta = $conexion->prepare('
