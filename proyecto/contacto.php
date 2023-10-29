@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
 $contacto = [
     'id' => test_input($_POST['id'] ?? null),
     'nombre' => test_input($_POST['nombre'] ?? null),
-    'telefono' => $_POST['telefono'] ?? null,
+    'telefono' => test_input($_POST['telefono'] ?? null),
     'email' => test_input($_POST['email'] ?? null),
     'nombre_producto' => test_input($_POST['nombre_producto'] ?? null),
     'consulta' => test_input($_POST['consulta'] ?? null)
@@ -113,11 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="mb-3 mt-3">
                     <span class="mx-1" style="color:pink">*</span><label for="consulta"
                         class="form-label text-light mb-0">Consulta:</label>
-                    <textarea type="textarea" class="form-control" name="consulta" id="consulta"
-                        placeholder="Escriba su consulta" value="<?php echo $contacto['consulta'] ?>"
-                        style="resize:none" rows="4" cols="50" require>
-                        <?php echo $contacto['consulta'] ?>
-                    </textarea>
+                        <textarea type="textarea" class="form-control" name="consulta" id="consulta" placeholder="Escriba su consulta" value="<?php echo $contacto['consulta'] ?>"style="resize:none" rows="4" cols="50" require><?php echo $contacto['consulta'] ?></textarea>
                     <span class="mx-1" style="color:pink;font-size: 14px;">*</span><span
                         style="color:white;font-style: italic;font-weight: 300;font-size: 14px;">Campos
                         mandatorios</span>

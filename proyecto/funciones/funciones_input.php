@@ -21,7 +21,6 @@ function validarContacto($contacto)
         $errores[] = 'El formato del E-Mail no es valido';
     }
 
-    // Compare a 0 porque por default el Seleccionar tiene value 0 y los demas tienen su nombre
     if (($contacto['nombre_producto']) == 0) {
         $errores[] = 'Usted debe seleccionar un producto';
     }
