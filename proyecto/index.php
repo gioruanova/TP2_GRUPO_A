@@ -103,7 +103,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                                     </a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link" href="?pag=<?php echo $paginado_enlaces['anterior'] ?>">
+                                    <a class="page-link" href="?pag=<?php echo $paginado_enlaces['anterior'] ?>#productos"">
                                         <?php echo $paginado_enlaces['anterior'] ?>
                                     </a>
                                 </li>
