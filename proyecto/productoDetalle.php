@@ -70,7 +70,7 @@ if (isset($_GET['id'])) {
                         </div>
                         <div class="button-wrap">
                             <a href="contacto.php?id=<?php echo $producto['id_producto']?>" class="btn btn-success"><i class="bi bi-envelope me-2"></i>Contactar</a>
-                            <a href="index.php" class="btn btn-danger mt-2"><i class="bi bi-arrow-left-circle me-2"></i>Volver</a>
+                            <a href="index.php#productos" class="btn btn-danger mt-2"><i class="bi bi-arrow-left-circle me-2"></i>Volver</a>
                         </div>
                     </div>
                     <?php echo ($producto['producto_promo'] == 0 ? "" : "<span class='promoAvailable'>SALE</span>") ?>

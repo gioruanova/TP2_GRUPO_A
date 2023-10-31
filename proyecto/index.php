@@ -91,14 +91,15 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                             </div>
                         </div>
                     <?php endforeach ?>
-
+                    <div id="productos"></div>
                     <!-- -------Termina CARD------- -->
 
                     <nav aria-label="Page navigation example" data-bs-theme="dark">
                         <ul class="pagination justify-content-center">
                             <?php if ($paginado_enlaces['anterior']): ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="?pag=<?php echo $paginado_enlaces['primero'] ?>"> Primero
+                                    <a class="page-link" href="?pag=<?php echo $paginado_enlaces['primero'] ?> #productos">
+                                        Primero
                                     </a>
                                 </li>
                                 <li class="page-item">
@@ -114,12 +115,13 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                             </li>
                             <?php if ($paginado_enlaces['siguiente']): ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="?pag=<?php echo $paginado_enlaces['siguiente'] ?>">
+                                    <a class="page-link" href="?pag=<?php echo $paginado_enlaces['siguiente'] ?>#productos">
                                         <?php echo $paginado_enlaces['siguiente'] ?>
                                     </a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link" href="?pag=<?php echo $paginado_enlaces['ultimo'] ?>"> Último </a>
+                                    <a class="page-link" href="?pag=<?php echo $paginado_enlaces['ultimo'] ?>#productos">
+                                        Último </a>
                                 </li>
                             <?php endif ?>
                         </ul>
