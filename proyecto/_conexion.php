@@ -1,5 +1,6 @@
 <?php
 $windowsUser = getenv('USERNAME');
+var_dump($windowsUser);
 
 // DB NAME
 $dbName = 'nexgendb';
