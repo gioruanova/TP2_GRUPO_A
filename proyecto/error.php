@@ -28,11 +28,11 @@
             <div class="error-box">
                 <img src="img/error.gif"></img>
                 <div class="error-text">
-                    <p>Algo salio mal. Estamos trabajando para solucionar el incoveniente</p>
+                    <p>Estamos realizando algunas tareas de mantenimiento.</p>
                     <p>Por favor regrese en unos minutos</p>
                     <br>
                     <h4>Enlaces recomendados:</h4>
-                    <a href="empresa.php">>Nuestra empresa</a>
+                    <a href="empresa.php">> Nuestra empresa</a>
                 </div>
             </div>
         </div>
