@@ -1,3 +1,7 @@
+<?php 
+require_once('conf/globalConfig.php');
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +36,7 @@
                     <p>Por favor regrese en unos minutos</p>
                     <br>
                     <h4>Enlaces recomendados:</h4>
-                    <a href="empresa.php">> Nuestra empresa</a>
+                    <a href="<?php echo BASE_URL ?>empresa.php">> Nuestra empresa</a>
                 </div>
             </div>
         </div>

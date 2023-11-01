@@ -1,14 +1,14 @@
 <footer>
-    <a class="navbar-brand" href="index.php">
+    <a class="navbar-brand" href="<?php echo BASE_URL ?>">
         <span><i class="bi bi-cpu color-change-effect"></i></span>
         <span class="brand-name">NextGen</span>
     </a>
     <div class="nav-footer">
-        <a href="index.php">Inicio</a>
+        <a href="<?php echo BASE_URL ?>">Inicio</a>
         <span class="separator">|</span>
-        <a href="empresa.php">La empresa</a>
+        <a href="<?php echo BASE_URL ?>empresa.php">La empresa</a>
         <span class="separator">|</span>
-        <a href="contacto.php">Contacto</a>
+        <a href="<?php echo BASE_URL ?>contacto.php">Contacto</a>
         <span class="separator">|</span>
         <a class="disabled" title="Proximamente!!!">Acceso</a>
     </div>

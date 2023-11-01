@@ -1,4 +1,6 @@
 <?php
+
+require_once('conf/globalConfig.php');
 require_once('_conexion.php');
 require_once('consultas/consultas_productos.php');
 require_once('funciones/paginacion.php');
@@ -85,7 +87,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
 
                                         </div>
                                     </div>
-                                    <a href="productoDetalle.php?id=<?php echo $prod['id_producto'] ?>"
+                                    <a href="<?php echo BASE_URL ?>productoDetalle.php?id=<?php echo $prod['id_producto'] ?>"
                                         class="btn btn-primary">Ver Más <i class="bi bi-plus-circle ms-1"></i></a>
                                 </div>
                             </div>

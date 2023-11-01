@@ -1,7 +1,7 @@
 <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
     <div class="container-fluid">
 
-        <a class="navbar-brand" href="index.php">
+        <a class="navbar-brand" href="<?php echo BASE_URL ?>">
             <span><i class="bi bi-cpu color-change-effect"></i></span>
             <span>NextGen</span>
         </a>
@@ -20,10 +20,10 @@
                         <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="empresa.php">La empresa</a>
+                        <a class="nav-link" href="<?php echo BASE_URL ?>empresa.php">La empresa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.php">Contacto</a>
+                        <a class="nav-link" href="<?php echo BASE_URL ?>contacto.php">Contacto</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle disabled" href="#" role="button" data-bs-toggle="dropdown"
@@ -31,8 +31,8 @@
                             Acceso
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" title="Proximamente!!!">Iniciar Sesion</a></li>
-                            <li><a class="dropdown-item" href="#" title="Proximamente!!!">Registrarse</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL ?>" title="Proximamente!!!">Iniciar Sesion</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL ?>" title="Proximamente!!!">Registrarse</a></li>
                         </ul>
                     </li>
 

@@ -1,5 +1,6 @@
 <?php
 
+require_once('conf/globalConfig.php');
 require_once('_conexion.php');
 require_once('consultas/consultas_productos.php');
 $productos = getProductos($conexion);
@@ -69,8 +70,8 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                         <div class="button-wrap">
-                            <a href="contacto.php?id=<?php echo $producto['id_producto']?>" class="btn btn-success"><i class="bi bi-envelope me-2"></i>Contactar</a>
-                            <a href="index.php#productos" class="btn btn-danger mt-2"><i class="bi bi-arrow-left-circle me-2"></i>Volver</a>
+                            <a href="<?php echo BASE_URL ?>contacto.php?id=<?php echo $producto['id_producto']?>" class="btn btn-success"><i class="bi bi-envelope me-2"></i>Contactar</a>
+                            <a href="<?php echo BASE_URL ?>#productos" class="btn btn-danger mt-2"><i class="bi bi-arrow-left-circle me-2"></i>Volver</a>
                         </div>
                     </div>
                     <?php echo ($producto['producto_promo'] == 0 ? "" : "<span class='promoAvailable'>SALE</span>") ?>
@@ -87,7 +88,7 @@ if (isset($_GET['id'])) {
             <h3>No dudes en contactarnos</h3>
             <p>Contactanos y recibi nuestro asesoramiento, y suscribite a nuestro newsletter mensual para estar al tanto
                 de todos los ingresos y promociones</p>
-            <a href="contacto.php" class="btn btn-primary" style="width: 200px"><i class="bi bi-envelope me-2"></i>Contactanos</a>
+            <a href="<?php echo BASE_URL ?>contacto.php" class="btn btn-primary" style="width: 200px"><i class="bi bi-envelope me-2"></i>Contactanos</a>
         </div>
     </div>
     <!-- -----------------------------BODY----------------------------- -->

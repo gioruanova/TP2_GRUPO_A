@@ -1,6 +1,7 @@
-html{
+html {
     scroll-behavior: smooth;
 }
+
 body {
     background-image: url("../img/body-bg.jpg");
     background-attachment: fixed;
@@ -95,8 +96,7 @@ h6 {
 
 .containerCustomized .card:hover {
     box-shadow: 2px 2px 20px -3px #d6eeff;
-    transform: scale(1.1);
-    top: -20px;
+    transform: scale(1.05);
 }
 
 
@@ -231,6 +231,7 @@ h6 {
     border: 2px solid white;
     box-shadow: 0 0 9px 2px black;
     animation: colorChange 700ms linear infinite;
+
 }
 
 @keyframes colorChange {
@@ -381,10 +382,61 @@ h6 {
 
 
 
+
+
 .error-box img {
     border-radius: 1rem;
     box-shadow: 2px 2px 25px -3px #4f5050c4;
+    max-width: 300px;
+    position: relative;
+    animation: shake 0.8s infinite;
 
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(5px, -5px);
+    }
+
+    20% {
+        transform: translate(-5px, 5px);
+    }
+
+    30% {
+        transform: translate(5px, 0);
+    }
+
+    40% {
+        transform: translate(-5px, 0);
+    }
+
+    50% {
+        transform: translate(0, 5px);
+    }
+
+    60% {
+        transform: translate(0, -5px);
+    }
+
+    70% {
+        transform: translate(5px, 5px);
+    }
+
+    80% {
+        transform: translate(-5px, -5px);
+    }
+
+    90% {
+        transform: translate(5px, 0);
+    }
+
+    100% {
+        transform: translate(-5px, 0);
+    }
 }
 
 .error-box p {
