@@ -7,11 +7,16 @@ $nombreProducto = getNombreProducto($conexion);
 $errores = [];
 
 $productos = getProductos($conexion);
+
+$prodCatalogo = null;
+
 if (isset($_GET['id'])) {
     $producto = getProductoById($conexion, $_GET['id']);
     $prodCatalogo = $producto['nombre_producto'];
+    
 } else {
     $producto['id_producto'] = "NO";
+    
 }
 
 $contacto = [
@@ -21,8 +26,10 @@ $contacto = [
     'email' => test_input($_POST['email'] ?? null),
     'nombre_producto' => test_input($_POST['nombre_producto'] ?? null),
     'consulta' => test_input($_POST['consulta'] ?? null),
-    'newsletter' => $_POST['newsletter']=="newsletter" ?? 1,
+    'newsletter' => $_POST['newsletter']?? [],
 ];
+
+
 
 $errores = [];
 
@@ -95,19 +102,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         class="form-label text-light mb-0">Seleccione producto a
                         consultar:</label>
                     <select type="select" class="form-control" name="nombre_producto" id="nombre_producto" require>
-                        <option value="0" selected>Seleccione</option>
+                        <option value="0" >Seleccione</option>
                         <?php foreach ($nombreProducto as $nombre): ?>
-                            <?php if ($nombre['nombre_producto'] == $prodCatalogo): ?>
-                                <option selected value="<?php echo $nombre['nombre_producto'] ?>">
+                            
+                            <?php if ($nombre['nombre_producto'] == $prodCatalogo and $prodCatalogo != null ): ?>
+                                <option selected value="<?php echo $nombre['nombre_producto']?>" >
                                     <?php echo $nombre['nombre_producto'] ?>
                                 </option>
                             <?php else: ?>
-                                <option value="<?php echo $nombre['nombre_producto'] ?>">
+                                <option value="<?php echo $nombre['nombre_producto'] ?>" <?php if ($nombre['nombre_producto'] == $contacto['nombre_producto']): ?> selected <?php endif ?>>
                                     <?php echo $nombre['nombre_producto'] ?>
                                 </option>
                             <?php endif ?>
                         <?php endforeach ?>
-                        <option value="Otras consultas">Otras consultas</option>
+                        <option value="Otras consultas"  <?php if ($contacto['nombre_producto'] == 'Otras consultas'): ?> selected <?php endif ?>>Otras consultas</option>
                     </select>
                 </div>
                 <div class="mb-3 mt-3">
@@ -120,7 +128,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div>
 
-                <input name="newsletter" value="newsletter" class="form-check-input" type="checkbox" id="newsletter"><label for="newsletter" class="form-label text-light ms-2" style="font-weight:300;">Suscribir al newsletter</label>
+                <input <?php echo ($contacto['newsletter'] == "1") ? "checked" : "" ?> name="newsletter" value="1" class="form-check-input" type="checkbox" id="newsletter"><label for="newsletter" class="form-label text-light ms-2" style="font-weight:300;" >Suscribir al newsletter</label>
+
      
                 </div>
                 <div class="row justify-content-md-center" style="max-width:700px;margin:auto;">
@@ -128,6 +137,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             class="bi bi-envelope-arrow-up mx-1"></i>Enviar</button>
                 </div>
             </form>
+            <a href="contacto.php" class="p-0">
+                    <button class="btn btn-danger mt-2 w-100" style="max-width:700px;margin: 0 auto;"><i
+                            class="bi bi-trash mx-1"></i>Borrar Formulario</button>
+                </a>
             <?php if ($producto['id_producto'] == "NO"): ?>
                 <a href="index.php" class="p-0">
                     <button class="btn btn-warning mt-2 w-100" style="max-width:700px;margin:auto;"><i
@@ -139,6 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             class="bi bi-arrow-left-circle mx-1"></i>Volver</button>
                 </a>
             <?php endif ?>
+ 
         </div>
     </div>
 
