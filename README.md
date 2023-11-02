@@ -13,14 +13,21 @@ PHP, MYSql, Bootstrap, CSS, HTML, Javascript.
 
 
 ## 🛠 Config:
--Validar que la db y ruta estan correctamente actualizadas en el archivo conf/globalConfig.php
+-Validar que la db y ruta estan correctamente actualizadas en el archivo __conf/globalConfig.php__ en la linea 10:
 ```bash
-define('BASE_URL', 'http://localhost:8080/TP2_GRUPO_A/proyecto/');
+define('BASE_URL', 'http://localhost:'.$puerto.'/TP2_GRUPO_A/proyecto/');
 ```
--Validar que los puertos esten correctamente seteados en el archivo _conexion.php en la linea 7:
+
+-Validar que el puerto Apache este correctamente seteado en el archivo __conf/globalConfig.php__ en la linea 5:
+```bash
+$puerto='8080'; // <----En caso de error probar con puerto __80__
+```
+
+-Validar que el puerto para MYSQL este correctamente seteado en el archivo ___conexion.php__ en la linea 7:
 ```bash
 $puertoParaInvitado=''; // <----Completar puerto en caso de no poder conectarse
 ```
+
 
 ## ReadMe:
 Readme document created using [Readme SO](https://readme.so/es). Credits by [Katherine Oelsner](https://github.com/octokatherine).
