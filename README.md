@@ -9,7 +9,7 @@
 Trabajo practico 2 realizado en PHP con conexion a MYSQL.
 
 ## 🛠 Skills:
-PHP, MYSql, Bootstrap, Bootstrap, CSS, HTML, Javascript.
+PHP, MYSql, Bootstrap, CSS, HTML, Javascript.
 
 
 ## 🛠 Config:
