@@ -11,7 +11,7 @@ if ($windowsUser == "Giorgio") {
      // Conexion test env en base a settings de Giorgio
     $conexionVariable = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8';
 
-} elseif ($windowsUser == "Manu") {
+} elseif ($windowsUser == "Manu43") {
     // Conexion test env en base a settings de Manu
     $conexionVariable = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8;port=3308'; 
 
