@@ -4,22 +4,26 @@ $windowsUser = getenv('USERNAME');
 // DB NAME
 
 $conexionVariable = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8';
-
+$puertoParaInvitado=''; // <----Completar puerto en caso de no poder conectarse
 
 
 if ($windowsUser == "Giorgio") {
-    $conexionVariable = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8'; // Conexion test env en base a settings de Giorgio
+     // Conexion test env en base a settings de Giorgio
+    $conexionVariable = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8';
 
 } elseif ($windowsUser == "Manu") {
-    $conexionVariable = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8;port=3308'; // Conexion test env en base a settings de Manu
+    // Conexion test env en base a settings de Manu
+    $conexionVariable = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8;port=3308'; 
 
 } elseif ($windowsUser == "DESKTOP-UD2T2NO") {
-    $conexionVariable = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8;port=3306'; // Conexion test env en base a settings de Eric
+    // Conexion test env en base a settings de Eric
+    $conexionVariable = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8;port=3306'; 
 
 } else {
-    $conexionVariable = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8'; // Conexion test env en base a settings generica
-
-}
+    // Conexion test env en base a settings generica
+    $conexionVariable = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8' . ($puertoParaInvitado == '' ? '' : ';port=' . $puertoParaInvitado);
+  
+}   
 
 try {
     $conexion = new PDO(
@@ -32,4 +36,3 @@ try {
     header('Location: error.php');
 
 }
-?>
