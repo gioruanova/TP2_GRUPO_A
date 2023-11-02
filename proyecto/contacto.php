@@ -11,11 +11,12 @@ $errores = [];
 $productos = getProductos($conexion);
 
 $prodCatalogo = null;
+$prodCatalogoId=null;
 
 if (isset($_GET['id'])) {
     $producto = getProductoById($conexion, $_GET['id']);
     $prodCatalogo = $producto['nombre_producto'];
-
+    $prodCatalogoId = $producto['id_producto'];
 } else {
     $producto['id_producto'] = "NO";
 
@@ -111,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <select type="select" class="form-control" name="nombre_producto" id="nombre_producto" require>
                         <option value="0">Seleccione</option>
                         <?php foreach ($nombreProducto as $nombre): ?>
-                            <?php if ($nombre['nombre_producto'] == $prodCatalogo and $prodCatalogo != null): ?>
+                            <?php if ($nombre['id_producto'] == $prodCatalogoId and $prodCatalogoId != null): ?>
                                 <option selected value='<?php echo $nombre['nombre_producto'] ?>'>
                                     <?php echo $nombre['nombre_producto'] ?>
                                 </option>

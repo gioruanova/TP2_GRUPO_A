@@ -2,7 +2,7 @@
 
 session_start();
 
-define('BASE_URL', 'http://localhost:8080/0-TP/TP2_GRUPO_A/proyecto/');
+define('BASE_URL', 'http://localhost:8080/TP2_GRUPO_A/proyecto/');
 
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'nexgendb');

@@ -14,7 +14,7 @@ function getProductos(PDO $conexion)
 function getNombreProducto(PDO $conexion)
 {
     $consulta = $conexion->prepare('
-    SELECT  nombre_producto FROM productos
+    SELECT  id_producto, nombre_producto FROM productos
     ');
     $consulta->execute();
     $nombreProducto = $consulta->fetchAll(PDO::FETCH_ASSOC);
