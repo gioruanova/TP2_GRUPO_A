@@ -20,7 +20,7 @@ define('BASE_URL', 'http://localhost:'.$puerto.'/TP2_GRUPO_A/proyecto/');
 
 -Validar que el puerto Apache este correctamente seteado en el archivo __conf/globalConfig.php__ en la linea 5:
 ```bash
-$puerto='8080'; // <----En caso de error probar con puerto __80__
+$puerto='8080'; // <----En caso de error probar con puerto 80
 ```
 
 -Validar que el puerto para MYSQL este correctamente seteado en el archivo ___conexion.php__ en la linea 7:
