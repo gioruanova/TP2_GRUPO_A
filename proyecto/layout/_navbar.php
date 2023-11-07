@@ -1,7 +1,7 @@
 <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
     <div class="container-fluid">
 
-        <a class="navbar-brand" href="<?php echo BASE_URL ?>">
+        <a class="navbar-brand" href="<?php echo BASE_URL ?>index.php">
             <span><i class="bi bi-cpu color-change-effect"></i></span>
             <span>NextGen</span>
         </a>
@@ -26,13 +26,13 @@
                         <a class="nav-link" href="<?php echo BASE_URL ?>contacto.php">Contacto</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle disabled" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Acceso
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="<?php echo BASE_URL ?>" title="Proximamente!!!">Iniciar Sesion</a></li>
-                            <li><a class="dropdown-item" href="<?php echo BASE_URL ?>" title="Proximamente!!!">Registrarse</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL ?>iniciar_sesion.php" >Iniciar Sesion</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL ?>registrarse.php" >Registrarse</a></li>
                         </ul>
                     </li>
 

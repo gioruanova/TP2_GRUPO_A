@@ -32,3 +32,32 @@ function validarContacto($contacto)
     return $errores;
 
 }
+
+
+function validarProductos($producto)
+{
+    $errores = [];
+
+    if (empty($producto['nombre_producto'])) {
+        $errores[] = 'El nombre es mandatorio';
+    }
+
+    if (empty($producto['categoria_producto'])) {
+        $errores[] = 'La categoria es mandatoria';
+    }
+
+    if (empty($producto['precio_producto'])) {
+        $errores[] = 'El precio es mandatorio';
+    }
+
+    if ($producto['descuento_producto'] == 0) {
+        $producto['descuento_producto'] = 0;
+        
+    } elseif (empty($producto['descuento_producto'])) {
+        $errores[] = 'El descuento es mandatorio';
+    }
+
+
+
+    return $errores;
+}

@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+
 }
 
 body {
@@ -725,4 +726,199 @@ footer .disabled:hover {
 .msj-enviado i {
     color: white;
     font-size: 70px;
+}
+
+/* ADMIN MAIN INDEX-------- */
+.admin-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.admin-container-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-option {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    transition: ease 200ms all;
+    box-shadow: 2px 2px 25px -3px #b5b5b5c4;
+    border: 2px solid white;
+    padding: 25px 10px;
+    border-radius: 5px;
+    background: #10101026;
+    margin: 10px;
+    width: 180px;
+    height: 180px;
+}
+
+.admin-option i {
+    font-size: 50px;
+    margin-bottom: -10px;
+}
+
+.admin-option:hover {
+    background-color: #44bae186;
+    color: white;
+}
+
+
+/* VER PRODUCTOS ADMIN----- */
+
+.table-ver-productos {
+    font-size: 13px;
+}
+
+.pagination-productos a {
+    font-size: 13px;
+
+}
+
+.table-ver-productos .text-center {
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.table-ver-productos .btn {
+    font-size: 13px;
+}
+
+.table-ver-productos th {
+    background: #8fc7f3;
+}
+
+.table-ver-productos .first {
+    border-radius: 5px 0 0 0;
+}
+
+.table-ver-productos .last {
+    border-radius: 0 5px 0 0;
+}
+
+.table-ver-productos tr {
+    border: none;
+}
+
+.table-ver-productos tr:last-child td:first-child {
+    border-radius: 0 0 0 5px;
+
+}
+
+.table-ver-productos tr:last-child td:last-child {
+    border-radius: 0 0 5px 0;
+}
+
+.img-view {
+    width: 50px;
+    height: 50px;
+    display: block;
+    object-fit: cover;
+    margin: auto;
+}
+
+.menu-producto-admin {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.menu-producto-admin a {
+    width: 200px;
+}
+
+.edit-product-form {
+    text-align: start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 3rem;
+    justify-content: space-between
+}
+
+.edit-product-form label {
+    cursor: pointer;
+}
+
+
+.edit-product-form .left-module {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 65%;
+}
+
+
+
+.edit-product-form .right-module {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-product-form img {
+    width: 100%;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+
+}
+
+@media screen and (max-width:900px) {
+    .edit-product-form {
+        flex-direction: column;
+        align-items: center
+    }
+
+    .edit-product-form .left-module {
+        max-width: 100%;
+    }
+
+    .edit-product-form .right-module {
+        width: 100%;
+    }
+}
+
+
+#success-copy {
+    color: pink;
+    opacity: 0;
+    transition: ease 400ms all;
+}
+
+.confirmation-blink {
+    animation: confirmationBlink 1.5s linear;
+}
+
+@keyframes confirmationBlink {
+    0% {
+        opacity: 1;
+    }
+}
+
+.page-link {
+    font-size: 13px;
+}
+
+.admin-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-container table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.admin-container table th,
+.admin-container table td {
+
+    padding: 8px;
+    text-align: left;
 }

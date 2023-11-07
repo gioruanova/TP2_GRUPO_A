@@ -10,7 +10,7 @@
         <span class="separator">|</span>
         <a href="<?php echo BASE_URL ?>contacto.php">Contacto</a>
         <span class="separator">|</span>
-        <a class="disabled" title="Proximamente!!!">Acceso</a>
+        <a href="<?php echo BASE_URL ?>iniciar_sesion.php">Acceso</a>
     </div>
     <div class="copyright">
         <span>©NextGen Tech. 2023 Todos los derechos reservados</span>
