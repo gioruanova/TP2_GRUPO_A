@@ -19,6 +19,7 @@ h6 {
     font-family: 'Sometype Mono', monospace;
     font-weight: 800;
     word-spacing: -4px;
+    margin: 0;
 }
 
 /* HEADER------ */
