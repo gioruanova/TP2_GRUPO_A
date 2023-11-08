@@ -868,6 +868,9 @@ footer .disabled:hover {
     height: 300px;
     display: block;
     object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    box-shadow: 2px 3px 10px 2px #252525c9;
 
 }
 
