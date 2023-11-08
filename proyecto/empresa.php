@@ -67,13 +67,13 @@ require_once('conf/globalConfig.php');
 
             <div class="founder-grid">
                 <a href="https://github.com/mcanavari43" target="_blank">
-                    <img src="img/founder1.jpg" alt="Manuel Canavari" class="founder-img">
+                    <img src="img/assets/founder1.jpg" alt="Manuel Canavari" class="founder-img">
                 </a>
                 <a href="https://github.com/gioruanova" target="_blank">
-                    <img src="img/founder2.jpg" alt="Jorge Ruanova" class="founder-img">
+                    <img src="img/assets/founder2.jpg" alt="Jorge Ruanova" class="founder-img">
                 </a>
                 <a href="https://github.com/erikfacundo" target="_blank">
-                    <img src="img/founder3.jpg" alt="Erik Flor" class="founder-img">
+                    <img src="img/assets/founder3.jpg" alt="Erik Flor" class="founder-img">
                 </a>
             </div>
 

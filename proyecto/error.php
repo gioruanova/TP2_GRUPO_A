@@ -30,7 +30,7 @@ require_once('conf/globalConfig.php');
         <div class="container containerCustomized mt-3">
 
             <div class="error-box">
-                <img src="img/error.gif"></img>
+                <img src="img/assets/error.gif"></img>
                 <div class="error-text">
                     <p>Estamos realizando algunas tareas de mantenimiento.</p>
                     <p>Por favor regrese en unos minutos</p>
