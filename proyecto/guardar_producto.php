@@ -7,8 +7,6 @@ require_once('./funciones/funciones_input.php');
 
 $productos = getProductos($conexion);
 
-
-
 if (isset($_GET['id'])) {
     $producto = getProductoById($conexion, $_GET['id']);
     $mostrarImagen = true;
@@ -17,16 +15,12 @@ if (isset($_GET['id'])) {
 
     $imagenProducto = $producto['nombre_archivo_producto'];
     $imagenProductoFormato = $producto['formato_imagen'];
-    
-
-
 
 } else {
     $mostrarImagen = false;
     $tituloPagina = 'Agregar nuevo producto';
-
     $imagenCheckBox = "Subir una imagen para el producto";
-    
+
     $producto = [
         'id_producto' => test_input($_POST['id_producto'] ?? null),
         'nombre_producto' => test_input($_POST['nombre_producto'] ?? null),
@@ -42,7 +36,7 @@ if (isset($_GET['id'])) {
 }
 
 $errores = [];
-$imagenProducto = $producto['nombre_archivo_producto']; // validacion archivo
+$imagenProducto = $producto['nombre_archivo_producto'];
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
@@ -50,22 +44,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
         $errores = validarProductos($producto);
 
         if (empty($producto['id_producto'])) {
-            // ----------------------
+            // ----------------------------------------------
             // AGREGAR NUEVO PRODUCTO
+            // ----------------------------------------------
             if (isset($_POST['editimage'])) {
+
                 // --------------------------
                 // SE CAPTURA IMAGEN DEL FORM
-                $pathInfo = pathinfo($imagenProducto['name']); // tomo el path
-                var_dump($pathInfo);
-                $extension = $pathInfo['extension']; // tomo la extension
-                $extensiones_validas = ['jpg', 'jpeg']; // genero array con formatos validos
+                // --------------------------
 
-                if (!in_array($extension, $extensiones_validas)) { // Valido el archivo dentro del array
+                $pathInfo = pathinfo($imagenProducto['name']);
+                var_dump($pathInfo);
+                $extension = $pathInfo['extension'];
+                $extensiones_validas = ['jpg', 'jpeg'];
+
+                if (!in_array($extension, $extensiones_validas)) {
                     $errores[] = 'El formato del archivo debe ser JPG o JPEG';
                 }
 
                 if (count($errores) == 0) {
-
                     $archivo_desde = $imagenProducto['tmp_name'];
                     $archivoNombre = time() . $pathInfo['filename'];
                     $archivo_hacia = 'img/' . $archivoNombre . '.' . $extension;
@@ -76,30 +73,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
                     header('Location: ver_productos.php');
 
                 }
-
             } else {
-                // --------------------------
-                // SE CARGA IMAGEN POR DEFAULT
+
+                // ---------------------------------
+                // SE CARGA IMAGEN POR DEFAULT ERROR
+                // ---------------------------------
+
                 if (count($errores) == 0) {
-                    $producto['nombre_archivo_producto'] = null;
-                    $producto['formato_imagen'] = null;
+                    $producto['nombre_archivo_producto'] = 'error-image';
+                    $producto['formato_imagen'] = 'jpg';
                     addProducto($conexion, $producto);
                     header('Location: ver_productos.php');
                 }
             }
 
-
         } else {
-            // ----------------------
-            // ACTUALIZAR UN PRODUCTO
+            // ----------------------------------------------
+            // SE ACTUALIZA PRODUCTO EXISTENT PRODUCTO
+            // ----------------------------------------------
             if (isset($_POST['editimage'])) {
+
                 // --------------------------
                 // SE CAPTURA IMAGEN DEL FORM
-                $pathInfo = pathinfo($imagenProducto['name']); // tomo el path
-                $extension = $pathInfo['extension']; // tomo la extension
-                $extensiones_validas = ['jpg', 'jpeg']; // genero array con formatos validos
+                // --------------------------
 
-                if (!in_array($extension, $extensiones_validas)) { // Valido el archivo dentro del array
+                $pathInfo = pathinfo($imagenProducto['name']);
+                $extension = $pathInfo['extension'];
+                $extensiones_validas = ['jpg', 'jpeg'];
+
+                if (!in_array($extension, $extensiones_validas)) {
                     $errores[] = 'El formato del archivo debe ser JPG o JPEG';
                 }
 
@@ -112,13 +114,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
                     $producto['formato_imagen'] = $extension;
                     updateProducto($conexion, $producto);
                     header('Location: ver_productos.php');
-
-
                 }
 
             } else {
+
                 // --------------------------
                 // SE UTILIZA IMAGEN ANTIGUA
+                // --------------------------
+
                 if (count($errores) == 0) {
                     $getOldImage = getProductoById($conexion, $producto['id_producto']);
                     $productoImagen = $getOldImage['nombre_archivo_producto'];
@@ -128,11 +131,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
                     updateProducto($conexion, $producto);
                     header('Location: ver_productos.php');
                 }
-
             }
-
         }
     }
+}
+
+// -----------------
+// RECUPERO DE DATOS
+// -----------------
+$idRecuperado = $producto['id_producto'];
+$productoRecuperado = getProductoById($conexion, $idRecuperado);
+if ($productoRecuperado != null) {
+    $tituloPagina = 'Editar producto > ' . $productoRecuperado['nombre_producto'];
 }
 ?>
 
@@ -173,6 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
                 <?php endforeach ?>
             </ul>
 
+
             <form action="guardar_producto.php" method="post" class="edit-product-form" enctype="multipart/form-data">
 
                 <div class="left-module">
@@ -205,30 +216,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
                             con descuento</label>
                     </div>
 
-                    <textarea type="textarea" class="form-control" name="descripcion_producto" id="descripcion_producto"
-                        placeholder="Escribir descripcion" value="<?php echo $producto['descripcion_producto'] ?>"
-                        style="resize:none" rows="8" cols="50" require>
-                        <?php echo $producto['descripcion_producto'] ?>
-                    </textarea>
+                    <textarea type="textarea" class="form-control" name="descripcion_producto" id="descripcion_producto" placeholder="Escribir descripcion" value="<?php echo $producto['descripcion_producto'] ?>"style="resize:none" rows="8" cols="50" require><?php echo $producto['descripcion_producto'] ?> </textarea>
                 </div>
 
                 <div class="right-module">
+                    <?php
+                    if ($productoRecuperado != null) {
+                        $mostrarImagen = true;
+                        $imagenRecuperada = $productoRecuperado['nombre_archivo_producto'];
+                        $formatoImagenRecuperada = $productoRecuperado['formato_imagen'];
 
-
-
-
+                    } else {
+                        $mostrarImagen = false;
+                        $imagenRecuperada = null;
+                        $formatoImagenRecuperada = null;
+                    }
+                    ?>
 
                     <?php if ($mostrarImagen): ?>
-                        <img src='img/<?php echo $producto['nombre_archivo_producto'] . '.' . $producto['formato_imagen']; ?>'
-                            alt='<?php echo ($producto['nombre_archivo_producto'] == NULL) ? "Imagen para el producto a publicar" : "Producto sin imagen para " . $producto['nombre_producto']; ?>'>
-
-                        <?php if ($producto['nombre_archivo_producto'] == NULL): ?>
-                            <img src='img/error-image.jpg'
-                                alt='<?php echo ($producto['nombre_archivo_producto'] == NULL) ? "Imagen para el producto a publicar" : "Producto sin imagen para " . $producto['nombre_producto']; ?>'>
-                        <?php endif ?>
+                        <img src='img/<?php echo $imagenRecuperada . '.' . $formatoImagenRecuperada; ?>'
+                           alt='<?php echo ($producto['nombre_archivo_producto'] == NULL) ? "Imagen para el producto a publicar" : "Producto sin imagen para " . $producto['nombre_producto']; ?>'>
                     <?php endif ?>
-
-
 
                     <div>
                         <input name="editimage[]" value="1" class="form-check-input" type="checkbox" id="editimage">
@@ -241,8 +249,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
                     </label>
                     <input type="file" id="nombre_archivo_producto" name="nombre_archivo_producto" class="form-control">
                     <span class="text-light" style="font-size:12px">Solo se adminten archivos formato .JPG o .JPEG
-                        (300px x
-                        300px) </span>
+                        (300px x 300px) </span>
 
                     <div>
                         <button type="submit" class="btn btn-success mt-5"><i
@@ -252,12 +259,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
                                 class="bi bi-arrow-left-circle me-2"></i>Volver</a>
                     </div>
                 </div>
-
-
             </form>
-
-
-
         </div>
     </div>
 
