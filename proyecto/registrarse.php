@@ -64,26 +64,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         <div class="container containerCustomized mt-8 pt-1 pb-1">
             <h1>Registrarse</h1>
 
+            <ul>
+            <?php foreach($errores as $error): ?>
+                <li class="text text-danger"> <?php echo $error ?> </li>
+            <?php endforeach ?>
+        </ul>
         </div>
 
-        <form action="<?php echo BASE_URL ?>registrarse.php" method="post">
+        <form action="<?php echo BASE_URL ?>registrarse.php" method="post" enctype="multipart/form-data">
         <div class="container containerCustomized mt-3">
             <div style="max-width:300px;margin:auto;margin-bottom:20px">
                 <label for="nombre" class="form-label text-light">Nombre Completo: </label>
                 <input type="text" name="nombre" id="nombre" class="form-control mb-2"
-                    placeholder="Ingrese su nombre completo">
+                    placeholder="Ingrese su nombre completo" value="<?php echo $nombre ?>">
 
                 <label for="usuario" class="form-label text-light">Email:</label>
-                <input type="email" name="usuario" id="usuario" class="form-control mb-2"
-                    placeholder="Ingrese su correo electronico">
+                <input type="email" name="email" id="email" class="form-control mb-2"
+                    placeholder="Ingrese su correo electronico" value="<?php echo $email ?>">
 
                 <label for="password" class="form-label text-light">Contraseña: </label>
                 <input type="password" name="password" id="password" class="form-control mb-2"
                     placeholder="Ingrese su contraseña">
                     
                     <div>
-                        <button type="submit" class="btn btn-success"> <i
-                        class="bi bi-envelope-arrow-up mx-1"></i>Registrarse</button>
+                        <button href="" class="btn btn-success mt-2">Registrarse</button>
                         <a href="<?php echo BASE_URL ?>iniciar_sesion.php" class="btn btn-warning mt-2">Ya tengo usuario</a>
                     </div>
                 </div>

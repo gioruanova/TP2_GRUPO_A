@@ -3,6 +3,8 @@ require_once('conf/globalConfig.php');
 require_once('_conexion.php');
 require_once('consultas/consultas_productos.php');
 
+$usuario = $_SESSION['usuario'] ?? null;
+
 ?>
 
 <!DOCTYPE html>

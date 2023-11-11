@@ -223,7 +223,7 @@ function addUsuario(PDO $conexion, $usuario){
 
 function getUsuarioByEmail(PDO $conexion, $email){
     $consulta = $conexion->prepare('
-    SELECT id, nombre, email, password, rol 
+    SELECT id, nombre, email, password, rol
     FROM usuarios
     WHERE email = :email 
     ');
@@ -231,6 +231,8 @@ function getUsuarioByEmail(PDO $conexion, $email){
     $consulta->bindValue(':email', $email);
 
     $consulta->execute();
+
+    return $consulta ->fetch(PDO::FETCH_ASSOC); 
 }
 
 // ELIMINAR USUARIO POR ID---------------------
