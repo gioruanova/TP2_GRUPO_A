@@ -54,10 +54,27 @@ function validarProductos($producto)
         $producto['descuento_producto'] = 0;
         
     } elseif (empty($producto['descuento_producto'])) {
-        $errores[] = 'El descuento es mandatorio';
+        $errores[] = 'Si no hay descuento, ingrese 0';
+    }
+    return $errores;
+}
+
+
+function validarUsuario($usuario)
+{
+    $errores = [];
+
+    if (empty($usuario['nombre'])) {
+        $errores[] = 'Debe ingresar un nombre';
     }
 
+    if (!filter_var($usuario['email'], FILTER_VALIDATE_EMAIL)) {
+        $errores[] = 'Debe ingresar un email valido';
+    }
 
+    if (empty($usuario['password'])) {
+        $errores[] = 'Es necesario una contraseña';
+    }
 
     return $errores;
 }

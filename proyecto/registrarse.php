@@ -1,10 +1,45 @@
 <?php
 require_once('conf/globalConfig.php');
 require_once('_conexion.php');
+require_once('funciones/funciones_input.php');
 require_once('consultas/consultas_productos.php');
 
+$nombre = test_input($_POST['nombre'] ?? null);
+$email = test_input($_POST['email'] ?? null);
+$password = test_input($_POST['password'] ?? null);
 
+$errores = [];
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{
+
+    $errores = validarUsuario([
+        'nombre' => $nombre,
+        'email' => $email,
+        'password' => $password
+    ]);
+
+    if( getUsuarioByEmail($conexion, $email) ){
+        $errores[] = "Ya existe un usuario con el email {$email}";
+    }
+
+    //Verifica que el formulario esté validado
+    if( count($errores) == 0 )
+    {
+        $usuario_nuevo = [
+            'nombre' => $nombre,
+            'email' => $email,
+            'password' => $password,
+            'rol' => 'Usuario'
+        ];
+
+        addUsuario($conexion, $usuario_nuevo);
+
+        header('Location: registroExitoso.php');
+
+    }
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +66,7 @@ require_once('consultas/consultas_productos.php');
 
         </div>
 
+        <form action="<?php echo BASE_URL ?>registrarse.php" method="post">
         <div class="container containerCustomized mt-3">
             <div style="max-width:300px;margin:auto;margin-bottom:20px">
                 <label for="nombre" class="form-label text-light">Nombre Completo: </label>
@@ -44,15 +80,17 @@ require_once('consultas/consultas_productos.php');
                 <label for="password" class="form-label text-light">Contraseña: </label>
                 <input type="password" name="password" id="password" class="form-control mb-2"
                     placeholder="Ingrese su contraseña">
-
-                <div>
-                    <a href="#" class="btn btn-success mt-2">Registrar</a>
-                    <a href="<?php echo BASE_URL ?>iniciar_sesion.php" class="btn btn-warning mt-2">Ya tengo usuario</a>
+                    
+                    <div>
+                        <button type="submit" class="btn btn-success"> <i
+                        class="bi bi-envelope-arrow-up mx-1"></i>Registrarse</button>
+                        <a href="<?php echo BASE_URL ?>iniciar_sesion.php" class="btn btn-warning mt-2">Ya tengo usuario</a>
+                    </div>
                 </div>
+                <a href="<?php echo BASE_URL ?>index.php" class="btn btn-primary">Volver al Inicio </a>
             </div>
-            <a href="<?php echo BASE_URL ?>index.php" class="btn btn-primary">Volver al Inicio </a>
         </div>
-    </div>
+    </form>
     <!-- -----------------------------BODY----------------------------- -->
 
     <!-- ---IMPORT FOOTER--- -->

@@ -58,6 +58,8 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
 
 
                     <?php foreach ($productos as $prod): ?>
+
+
                         <div class="col justify-content-md-center">
                             <div class="card text-bg-dark">
                                 <?php echo ($prod['producto_promo'] == 0 ? "" : "<span class='promoAvailable'>SALE</span>") ?>
@@ -69,7 +71,8 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                                             <?php echo $prod['nombre_producto'] ?>
                                         </h5>
                                         <span class="categoria">(
-                                            <?php echo $prod['categoria_producto'] ?>)
+                                            <?php echo $prod['categoria_producto'
+                                            ] ?>)
                                         </span>
                                     </div>
                                     <div class="card-text">

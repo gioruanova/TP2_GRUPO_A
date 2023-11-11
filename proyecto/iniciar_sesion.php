@@ -3,8 +3,6 @@ require_once('conf/globalConfig.php');
 require_once('_conexion.php');
 require_once('consultas/consultas_productos.php');
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +40,7 @@ require_once('consultas/consultas_productos.php');
                     placeholder="Ingrese su contraseña">
 
                 <div>
-                    <a href="#" class="btn btn-success mt-2">Ingresar</a>
+                    <a href="<?php if($usuario['rol'] = 'Admin') echo BASE_URL?>admin_index.php" class="btn btn-success mt-2">Ingresar</a>
                     <a href="<?php echo BASE_URL ?>iniciar_sesion.php" class="btn btn-warning mt-2">Crear usuario</a>
                 </div>
             </div>
