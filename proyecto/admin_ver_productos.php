@@ -4,6 +4,10 @@ require_once('_conexion.php');
 require_once('consultas/consultas_productos.php');
 require_once('funciones/paginacion.php');
 
+if ($_SESSION['usuario']['rol'] !== 'Admin') {
+    header('Location: index.php');
+}
+
 $productos = getProductos($conexion);
 
 $substrNombreProducto = 30;
@@ -43,7 +47,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
         <div class="container containerCustomized mt-3">
 
             <div class="menu-producto-admin" id="listado-productos">
-                <a href="<?php echo BASE_URL ?>guardar_producto.php" class="btn btn-success mt-2"><i
+                <a href="<?php echo BASE_URL ?>admin_guardar_producto.php" class="btn btn-success mt-2"><i
                         class="bi bi-plus-circle mx-2"></i>Nuevo Producto</a>
 
                 <a href="#listado-productos" class="btn btn-secondary mt-2"><i
@@ -98,10 +102,10 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                                 </td>
                                 <td class="text-center">
                                     <div style="display:flex;justify-content: center;">
-                                        <a href="<?php echo BASE_URL ?>guardar_producto.php?id=<?php echo $prod['id_producto'] ?>"
+                                        <a href="<?php echo BASE_URL ?>admin_guardar_producto.php?id=<?php echo $prod['id_producto'] ?>"
                                             title="Editar Producto"> <button class="btn btn-primary"><i
                                                     class="bi bi-pencil-square"> </i> </button></a>
-                                        <a class="ms-1" href="eliminar_producto.php?id=<?php echo $prod['id_producto'] ?>"
+                                        <a class="ms-1" href="admin_eliminar_producto.php?id=<?php echo $prod['id_producto'] ?>"
                                             title="Eliminar producto"><button class="btn btn-danger"><i
                                                     class="bi bi-trash"></i></button></a>
                                     </div>

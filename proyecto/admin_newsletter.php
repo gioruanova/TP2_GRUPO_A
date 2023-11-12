@@ -1,7 +1,16 @@
 <?php
 require_once('conf/globalConfig.php');
 require_once('_conexion.php');
-require_once('consultas/consultas_productos.php');
+require_once('consultas/consultas_mensajes.php');
+
+
+if (isset($_SESSION['usuario'])){
+    if ($_SESSION['usuario']['rol'] == 'Usuario') {
+        header('Location: index.php');
+    }
+}else{
+    header('Location: index.php');
+}
 
 
 $consultas = getContacto($conexion);

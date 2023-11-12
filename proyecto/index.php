@@ -38,8 +38,10 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
     <div class="contentCustomized">
 
         <div class="container containerCustomized mt-8 animate__animated animate__fadeIn">
+
             <div class="brand-index ">
                 <i class="brand-icon bi bi-cpu color-change-effect me-2"></i>
+                
                 <h1 class="brand-name">NextGen</h1>
             </div>
             <p>NextGen se destaca como un referente en la industria de importación de productos

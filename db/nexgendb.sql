@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2023 at 11:38 PM
+-- Generation Time: Nov 12, 2023 at 10:53 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -47,7 +47,7 @@ INSERT INTO `contactos` (`id_contacto`, `nombre`, `telefono`, `email`, `nombre_p
 (22, 'Jorge Ruanova', '', 'jorge.ruanova@davinci.edu.ar', 'Otras consultas', 'Por favor, enviar catalogo completo a jorge.ruanova@davinci.edu.ar', 1, '2023-10-01', 1),
 (23, 'Jorge Ruanova', '151234455', 'jorge.ruanova@davinci.edu.ar', 'Auricular Gamer Logitech G335 Blanco', 'Vienen en negros?', 0, '2023-10-02', 0),
 (38, 'test', '12345646', 'jruanova1987@gmail.com', 'Monitor Gamer 55&#039;&#039; Samsung Curvo Odyssey 4K 16', 'test', 1, '2023-10-03', 0),
-(39, 'Pepito', '', 'pepito@gmail.com', 'Otras consultas', 'test', 1, '2023-10-04', 0),
+(39, 'Pepito', '', 'pepito@gmail.com', 'Otras consultas', 'test', 1, '2023-10-04', 1),
 (40, 'test', '12341', 'jruanova.dev@gmail.com', 'Otras consultas', 'test fecha', 0, '2023-11-07', 1),
 (41, 'test', '', 'jruanova.dev@gmail.com', 'Teclado Gamer Redragon K530W-RGB-PRO Draconic', 'test nuevo campo', 0, '2023-11-07', 1);
 
@@ -97,18 +97,20 @@ CREATE TABLE `usuarios` (
   `nombre` text NOT NULL,
   `email` text NOT NULL,
   `password` text NOT NULL,
-  `rol` text NOT NULL
+  `rol` text NOT NULL,
+  `newsletter` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `rol`) VALUES
-(1, 'Jorge', 'jorge@nexgen.com', 'jorge123', 'Admin'),
-(2, 'Manu', 'manu@nexgen.com', 'manu123', 'Admin'),
-(3, 'Erik', 'erik@nexgen.com', 'erik123', 'Empleado'),
-(4, 'Fer', 'fer@gmail.com', 'fer123', 'Usuario');
+INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `rol`, `newsletter`) VALUES
+(1, 'Jorge', 'jorge@nexgen.com', '123456', 'Admin', 1),
+(2, 'Manu', 'manu@nexgen.com', '123456', 'Admin', 0),
+(3, 'Erik', 'erik@nexgen.com', '123456', 'Empleado', 0),
+(4, 'Fer', 'fer@gmail.com', '123456', 'Usuario', 0),
+(18, 'Pepe Luis', 'pepito@gmail.com', '123456', 'Usuario', 1);
 
 --
 -- Indexes for dumped tables
@@ -152,7 +154,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,6 +3,7 @@
 require_once('conf/globalConfig.php');
 require_once('_conexion.php');
 require_once('./consultas/consultas_productos.php');
+require_once('./consultas/consultas_mensajes.php');
 require_once('./funciones/funciones_input.php');
 
 $nombreProducto = getNombreProducto($conexion);
@@ -42,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errores = validarContacto($contacto);
     if (count($errores) == 0) {
         addContacto($conexion, $contacto);
-        header('Location: mensajeEnviado.php');
+        header('Location: admin_mensajeEnviado.php');
     }
 }
 

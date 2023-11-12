@@ -1,8 +1,12 @@
 <?php
 require_once('conf/globalConfig.php');
 require_once('_conexion.php');
-require_once('consultas/consultas_productos.php');
+require_once('consultas/consultas_usuarios.php');
 
+
+if ($_SESSION['usuario']['rol'] !== 'Admin') {
+    header('Location: index.php');
+}
 
 $usuarios = getUsuarios($conexion);
 ?>

@@ -1,7 +1,17 @@
 <?php
 require_once('conf/globalConfig.php');
 require_once('_conexion.php');
-require_once('consultas/consultas_productos.php');
+require_once('consultas/consultas_mensajes.php');
+
+
+if (isset($_SESSION['usuario'])){
+    if ($_SESSION['usuario']['rol'] == 'Usuario') {
+        header('Location: index.php');
+    }
+}else{
+    header('Location: index.php');
+}
+
 
 
 $consultas = getContacto($conexion);
@@ -92,7 +102,9 @@ $consultas = getContacto($conexion);
 
                                 <td class="text-center">
                                     <?php if ($contacto['respondido'] == 0): ?>
-                                        <a href="<?php echo BASE_URL ?>admin_respuesta_confirmada.php?id=<?php echo $contacto['id_contacto']?>" class="btn btn-primary" title="Marcar como respondido"><i class="bi bi-bookmark-check"></i></a>
+                                        <a href="<?php echo BASE_URL ?>admin_respuesta_confirmada.php?id=<?php echo $contacto['id_contacto'] ?>"
+                                            class="btn btn-primary" title="Marcar como respondido"><i
+                                                class="bi bi-bookmark-check"></i></a>
                                     <?php else: ?>
                                         <?php echo '<i class="bi bi-send-check" style="font-size: 22px;color:green;"></i>' ?>
                                     <?php endif ?>

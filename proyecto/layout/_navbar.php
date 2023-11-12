@@ -31,8 +31,21 @@
                             Acceso
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="<?php echo BASE_URL ?>iniciar_sesion.php" >Iniciar Sesion</a></li>
-                            <li><a class="dropdown-item" href="<?php echo BASE_URL ?>registrarse.php" >Registrarse</a></li>
+
+                            <?php if (isset($_SESSION['usuario'])): ?>
+                                <li><a class="dropdown-item" href="<?php echo BASE_URL ?>admin_index.php">Mi cuenta</a></li>
+                                <li><a class="dropdown-item" href="<?php echo BASE_URL ?>logout.php">Logout</a></li>
+                            <?php else: ?>
+
+                                <li><a class="dropdown-item" href="<?php echo BASE_URL ?>iniciar_sesion.php">Iniciar
+                                        Sesion</a></li>
+                                <li><a class="dropdown-item" href="<?php echo BASE_URL ?>registrarse.php">Registrarse</a>
+                                </li>
+                            <?php endif ?>
+
+
+
+
                         </ul>
                     </li>
 

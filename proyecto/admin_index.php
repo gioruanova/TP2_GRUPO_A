@@ -1,5 +1,15 @@
 <?php
 require_once('conf/globalConfig.php');
+
+if (!isset($_SESSION['usuario'])) {
+    header('Location: index.php');
+
+
+}
+
+$tiutlo = $_SESSION['usuario']['nombre'];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -23,31 +33,47 @@ require_once('conf/globalConfig.php');
 
     <div class="contentCustomized animate__animated animate__backInDown">
         <div class="container containerCustomized mt-8">
-            <h1>Bienvenido Admin</h1>
+            <h1>Bienvenido <?php echo $tiutlo ?></h1>
             <p>Seleccione la tarea que desea realizar</p>
 
         </div>
 
         <div class="container containerCustomized mt-3">
-            <div class="admin-container">
+            <div class="admin-container admin-buttons">
+
+                <?php if ($_SESSION['usuario']['rol'] == 'Admin'): ?>
+       
                 <a href="<?php echo BASE_URL ?>admin_usuarios.php" class="admin-option">
-                    <i class="bi bi-people-fill"></i>
-                    <span>Administrar usuarios</span>
+                <i class="bi bi-people-fill"></i>
+                <span>Administrar usuarios</span>
                 </a>
+      
+                <?php endif ?>
 
-                <a href="<?php echo BASE_URL ?>ver_productos.php" class="admin-option">
-                    <i class="bi bi-cart-check"></i>
-                    <span>Admin. Productos</span>
-                </a>
+                <?php if ($_SESSION['usuario']['rol'] == 'Admin'): ?>
+                    <a href="<?php echo BASE_URL ?>admin_ver_productos.php" class="admin-option">
+                        <i class="bi bi-cart-check"></i>
+                        <span>Admin. Productos</span>
+                    </a>
+                <?php endif ?>
 
-                <a href="<?php echo BASE_URL ?>admin_consultas.php" class="admin-option">
+
+                <?php if ($_SESSION['usuario']['rol'] == 'Admin' or $_SESSION['usuario']['rol'] == 'Empleado'): ?>
+
+               
+                    <a href="<?php echo BASE_URL ?>admin_consultas.php" class="admin-option">
                     <i class="bi bi-envelope-fill"></i>
                     <span>Consultas Recibidas</span>
-                </a>
-
-                <a href="<?php echo BASE_URL?>admin_newsletter.php" class="admin-option">
+                    </a>
+                    <a href="<?php echo BASE_URL ?>admin_newsletter.php" class="admin-option">
                     <i class="bi bi-card-list"></i>
                     <span>Listado Newsletter</span>
+                    </a>
+                <?php endif ?>
+
+                <a href="<?php echo BASE_URL ?>genericUser_viewAccount.php" class="admin-option">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Mis Datos</span>
                 </a>
             </div>
 

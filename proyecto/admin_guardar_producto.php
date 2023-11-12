@@ -5,6 +5,10 @@ require_once('consultas/consultas_productos.php');
 require_once('./funciones/funciones_input.php');
 
 
+if ($_SESSION['usuario']['rol'] !== 'Admin') {
+    header('Location: index.php');
+}
+
 $productos = getProductos($conexion);
 
 if (isset($_GET['id'])) {
@@ -70,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
                     $producto['nombre_archivo_producto'] = $archivoNombre;
                     $producto['formato_imagen'] = $extension;
                     addProducto($conexion, $producto);
-                    header('Location: ver_productos.php');
+                    header('Location: admin_ver_productos.php');
 
                 }
             } else {
@@ -83,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
                     $producto['nombre_archivo_producto'] = 'error-image';
                     $producto['formato_imagen'] = 'jpg';
                     addProducto($conexion, $producto);
-                    header('Location: ver_productos.php');
+                    header('Location: admin_ver_productos.php');
                 }
             }
 
@@ -113,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
                     $producto['nombre_archivo_producto'] = $archivoNombre;
                     $producto['formato_imagen'] = $extension;
                     updateProducto($conexion, $producto);
-                    header('Location: ver_productos.php');
+                    header('Location: admin_ver_productos.php');
                 }
 
             } else {
@@ -129,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
                     $producto['nombre_archivo_producto'] = $productoImagen;
                     $producto['formato_imagen'] = $productoImagenFormato;
                     updateProducto($conexion, $producto);
-                    header('Location: ver_productos.php');
+                    header('Location: admin_ver_productos.php');
                 }
             }
         }
@@ -184,7 +188,7 @@ if ($productoRecuperado != null) {
             </ul>
 
 
-            <form action="guardar_producto.php" method="post" class="edit-product-form" enctype="multipart/form-data">
+            <form action="admin_guardar_producto.php" method="post" class="edit-product-form" enctype="multipart/form-data">
 
                 <div class="left-module">
 
@@ -255,7 +259,7 @@ if ($productoRecuperado != null) {
                         <button type="submit" class="btn btn-success mt-5"><i
                                 class="bi bi-floppy mx-2"></i>Guardar</button>
 
-                        <a href="<?php echo BASE_URL ?>ver_productos.php" class="btn btn-warning mt-5"><i
+                        <a href="<?php echo BASE_URL ?>admin_ver_productos.php" class="btn btn-warning mt-5"><i
                                 class="bi bi-arrow-left-circle me-2"></i>Volver</a>
                     </div>
                 </div>
