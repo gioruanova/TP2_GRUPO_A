@@ -2,7 +2,7 @@
 
 session_start();
 
-$puerto='8080'; // En caso de error, probar puerto 80
+$puerto='80'; // En caso de error, probar puerto 80
 
 define('BASE_URL', 'http://localhost:'.$puerto.'/TP2_GRUPO_A/proyecto/');
 

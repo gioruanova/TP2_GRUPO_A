@@ -1,22 +1,18 @@
 <?php
-
 require_once('conf/globalConfig.php');
 require_once('_conexion.php');
-require_once('consultas/consultas_productos.php');
+require_once('consultas/consultas_mensajes.php');
+require_once('funciones/redireccion.php');
 
-if ($_SESSION['usuario']['rol'] !== 'Admin') {
-    header('Location: index.php');
-}
+redireccionarUsuario();
+
 
 $id = $_GET['id'] ?? null;
 
-
 if ($id) {
-    deleteProducto($conexion, $id);
+    marcarLeido($conexion, $id);
+    header('Location: admin_consultas.php');
 }
-
-// header('Location: admin_ver_productos.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +24,7 @@ if ($id) {
     <!-- ---IMPORT HEADERS--- -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextGen - Admin | Producto Eliminado</title>
+    <title>NextGen - Consulta actualizada </title>
 </head>
 
 <body>
@@ -40,16 +36,7 @@ if ($id) {
 
     <div class="contentCustomized animate__animated animate__fadeInDown">
         <div class="container containerCustomized mt-8 pt-1 pb-1">
-            <h1>Producto eliminado</h1>
-
-        </div>
-
-        <div class="container containerCustomized mt-3 msj-enviado">
-            <i class="bi bi-trash"></i>
-            <div class="text">
-                <p>Producto eliminado</p>
-                <a href="<?php echo BASE_URL ?>ver_productos.php" class="btn btn-primary">Volver a productos</a>
-            </div>
+            <h1>Respuesta enviada</h1>
         </div>
     </div>
 

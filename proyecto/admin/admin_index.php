@@ -1,13 +1,11 @@
 <?php
 require_once('conf/globalConfig.php');
 
-if (!isset($_SESSION['usuario'])) {
+if (isset($_SESSION['usuario'])) {
     header('Location: index.php');
-
-
 }
 
-$tiutlo = $_SESSION['usuario']['nombre'];
+$titulo = $_SESSION['usuario']['nombre'];
 
 
 ?>
@@ -33,7 +31,7 @@ $tiutlo = $_SESSION['usuario']['nombre'];
 
     <div class="contentCustomized animate__animated animate__backInDown">
         <div class="container containerCustomized mt-8">
-            <h1>Bienvenido <?php echo $tiutlo ?></h1>
+            <h1>Bienvenido <?php echo $titulo ?></h1>
             <p>Seleccione la tarea que desea realizar</p>
 
         </div>

@@ -33,7 +33,7 @@
                         <ul class="dropdown-menu">
 
                             <?php if (isset($_SESSION['usuario'])): ?>
-                                <li><a class="dropdown-item" href="<?php echo BASE_URL ?>admin_index.php">Mi cuenta</a></li>
+                                <li><a class="dropdown-item" href="<?php echo BASE_URL ?>genericUser_viewAccount.php">Mi cuenta</a></li>
                                 <li><a class="dropdown-item" href="<?php echo BASE_URL ?>logout.php">Logout</a></li>
                             <?php else: ?>
 

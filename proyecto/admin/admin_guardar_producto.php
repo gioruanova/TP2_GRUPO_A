@@ -2,12 +2,10 @@
 require_once('conf/globalConfig.php');
 require_once('_conexion.php');
 require_once('consultas/consultas_productos.php');
-require_once('./funciones/funciones_input.php');
+require_once('funciones/funciones_input.php');
+require_once('funciones/redireccion.php');
 
-
-if ($_SESSION['usuario']['rol'] !== 'Admin') {
-    header('Location: index.php');
-}
+isNotAdmin();
 
 $productos = getProductos($conexion);
 
