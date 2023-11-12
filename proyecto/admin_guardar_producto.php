@@ -58,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { {
                 // --------------------------
 
                 $pathInfo = pathinfo($imagenProducto['name']);
-                var_dump($pathInfo);
                 $extension = $pathInfo['extension'];
                 $extensiones_validas = ['jpg', 'jpeg'];
 
@@ -188,7 +187,8 @@ if ($productoRecuperado != null) {
             </ul>
 
 
-            <form action="admin_guardar_producto.php" method="post" class="edit-product-form" enctype="multipart/form-data">
+            <form action="admin_guardar_producto.php" method="post" class="edit-product-form"
+                enctype="multipart/form-data">
 
                 <div class="left-module">
 
@@ -220,7 +220,11 @@ if ($productoRecuperado != null) {
                             con descuento</label>
                     </div>
 
-                    <textarea type="textarea" class="form-control" name="descripcion_producto" id="descripcion_producto" placeholder="Escribir descripcion" value="<?php echo $producto['descripcion_producto'] ?>"style="resize:none" rows="8" cols="50" require><?php echo $producto['descripcion_producto'] ?> </textarea>
+                    <textarea type="textarea" class="form-control" name="descripcion_producto" id="descripcion_producto"
+                        placeholder="Escribir descripcion" value="<?php echo $producto['descripcion_producto'] ?>"
+                        style="resize:none" rows="8" cols="50" require>
+                        <?php echo $producto['descripcion_producto'] ?>
+                    </textarea>
                 </div>
 
                 <div class="right-module">
@@ -239,7 +243,7 @@ if ($productoRecuperado != null) {
 
                     <?php if ($mostrarImagen): ?>
                         <img src='img/<?php echo $imagenRecuperada . '.' . $formatoImagenRecuperada; ?>'
-                           alt='<?php echo ($producto['nombre_archivo_producto'] == NULL) ? "Imagen para el producto a publicar" : "Producto sin imagen para " . $producto['nombre_producto']; ?>'>
+                            alt='<?php echo ($producto['nombre_archivo_producto'] == NULL) ? "Imagen para el producto a publicar" : "Producto sin imagen para " . $producto['nombre_producto']; ?>'>
                     <?php endif ?>
 
                     <div>

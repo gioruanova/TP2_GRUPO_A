@@ -16,6 +16,7 @@ if (isset($_GET['id'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Aca tenemos que armar el codigo para actualizar la tabla de usuarios por id 
     // con la condicion de que si la opcion no cambia, mantener la opcion actual
+    // Creo que seria crear la consulta editByUserId
 
     }
 }
