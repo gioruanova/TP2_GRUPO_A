@@ -15,7 +15,6 @@ if ($id) {
     deleteProducto($conexion, $id);
 }
 
-// header('Location: admin_ver_productos.php');
 
 ?>
 
@@ -48,7 +47,7 @@ if ($id) {
             <i class="bi bi-trash"></i>
             <div class="text">
                 <p>Producto eliminado</p>
-                <a href="<?php echo BASE_URL ?>ver_productos.php" class="btn btn-primary">Volver a productos</a>
+                <a href="<?php echo BASE_URL ?>admin_ver_productos.php" class="btn btn-primary">Volver a productos</a>
             </div>
         </div>
     </div>

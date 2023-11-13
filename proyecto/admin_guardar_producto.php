@@ -192,8 +192,8 @@ if ($productoRecuperado != null) {
 
                 <div class="left-module">
 
-                    <input type="" name="id_producto" id="id_producto" class="form-control"
-                        value="<?php echo $producto['id_producto'] ?>" placeholder="ID HIDDEN">
+                    <input type="hidden" name="id_producto" id="id_producto" class="form-control"
+                        value="<?php echo $producto['id_producto'] ?>">
 
                     <label for="nombre_producto" class="form-label text-light mb-0">Nombre: </label>
                     <input type="text" name="nombre_producto" id="nombre_producto" class="form-control"
@@ -220,11 +220,7 @@ if ($productoRecuperado != null) {
                             con descuento</label>
                     </div>
 
-                    <textarea type="textarea" class="form-control" name="descripcion_producto" id="descripcion_producto"
-                        placeholder="Escribir descripcion" value="<?php echo $producto['descripcion_producto'] ?>"
-                        style="resize:none" rows="8" cols="50" require>
-                        <?php echo $producto['descripcion_producto'] ?>
-                    </textarea>
+                    <textarea type="textarea" class="form-control" name="descripcion_producto" id="descripcion_producto" placeholder="Escribir descripcion" value="<?php echo $producto['descripcion_producto'] ?>" style="resize:none" rows="8" cols="50" require><?php echo $producto['descripcion_producto'] ?></textarea>
                 </div>
 
                 <div class="right-module">
