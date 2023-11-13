@@ -31,7 +31,7 @@ $usuarios = getUsuarios($conexion);
     <!-- -----------------------------BODY----------------------------- -->
 
     <div class="contentCustomized animate__animated animate__backInDown">
-        <div class="container containerCustomized mt-8">
+        <div class="container containerCustomized mt-5">
             <h1>Administrar Usuarios</h1>
 
 

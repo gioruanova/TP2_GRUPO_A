@@ -40,7 +40,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
     <!-- -----------------------------BODY----------------------------- -->
 
     <div class="contentCustomized animate__animated animate__backInRight">
-        <div class="container containerCustomized mt-8">
+        <div class="container containerCustomized mt-5">
             <h1>Mantenimiento producots</h1>
         </div>
 

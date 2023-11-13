@@ -171,7 +171,7 @@ if ($productoRecuperado != null) {
     <!-- -----------------------------BODY----------------------------- -->
 
     <div class="contentCustomized animate__animated animate__backInRight">
-        <div class="container containerCustomized mt-8">
+        <div class="container containerCustomized mt-5">
             <h1>
                 <?php echo $tituloPagina ?>
             </h1>

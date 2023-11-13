@@ -22,7 +22,7 @@ require_once('conf/globalConfig.php');
     <!-- -----------------------------BODY----------------------------- -->
 
     <div class="contentCustomized animate__animated animate__bounceIn">
-        <div class="container containerCustomized mt-8">
+        <div class="container containerCustomized mt-5">
             <h1>Disculpe las molestias</h1>
 
         </div>

@@ -39,7 +39,7 @@ $usuarios = getUsuarios($conexion);
     <!-- -----------------------------BODY----------------------------- -->
 
     <div class="contentCustomized animate__animated animate__fadeInDown">
-        <div class="container containerCustomized mt-8 pt-1 pb-1">
+        <div class="container containerCustomized mt-5 pt-1 pb-1">
             <h1>Usuario eliminado</h1>
 
         </div>

@@ -26,7 +26,7 @@ header('Location: index.php');
     <!-- -----------------------------BODY----------------------------- -->
 
     <div class="contentCustomized animate__animated animate__bounceIn">
-        <div class="container containerCustomized mt-8">
+        <div class="container containerCustomized mt-5">
             <h1>Logout</h1>
 
         </div>

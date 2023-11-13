@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     <div class="contentCustomized">
-        <div class="container containerCustomized mt-8 pt-1 pb-1">
+        <div class="container containerCustomized mt-5 pt-1 pb-1">
             <h1>Contactanos</h1>
 
         </div>
@@ -111,6 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <span class="mx-1" style="color:pink">*</span><label for="nombre_producto"
                         class="form-label text-light mb-0">Seleccione producto a
                         consultar:</label>
+                        
                     <select type="select" class="form-control" name="nombre_producto" id="nombre_producto" require>
                         <option value="0">Seleccione</option>
                         <?php foreach ($nombreProducto as $nombre): ?>

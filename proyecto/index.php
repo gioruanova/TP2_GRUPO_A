@@ -5,6 +5,9 @@ require_once('_conexion.php');
 require_once('consultas/consultas_productos.php');
 require_once('funciones/paginacion.php');
 
+// Banner misc
+
+
 $productos = getProductos($conexion);
 
 // Cantidad de productos
@@ -30,6 +33,8 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
 </head>
 
 <body>
+
+
     <!-- ---IMPORT NAV--- -->
     <?php require('layout/_navbar.php') ?>
     <!-- ---IMPORT NAV--- -->
@@ -37,7 +42,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
     <!-- -----------------------------BODY----------------------------- -->
     <div class="contentCustomized">
 
-        <div class="container containerCustomized mt-8 animate__animated animate__fadeIn">
+        <div class="container containerCustomized mt-5 animate__animated animate__fadeIn">
 
             <div class="brand-index ">
                 <i class="brand-icon bi bi-cpu color-change-effect me-2"></i>

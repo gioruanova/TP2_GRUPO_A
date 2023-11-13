@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2023 at 10:53 PM
+-- Generation Time: Nov 13, 2023 at 10:51 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `nexgendb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bannermensaje`
+--
+
+CREATE TABLE `bannermensaje` (
+  `id` int(11) NOT NULL,
+  `mensajeMostrar` text NOT NULL,
+  `indicador` tinyint(1) NOT NULL,
+  `finalizacionMensaje` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bannermensaje`
+--
+
+INSERT INTO `bannermensaje` (`id`, `mensajeMostrar`, `indicador`, `finalizacionMensaje`) VALUES
+(1, 'Hot sale disponible hasta el 01/01/2024', 1, '2024-01-01');
 
 -- --------------------------------------------------------
 
@@ -44,12 +64,13 @@ CREATE TABLE `contactos` (
 --
 
 INSERT INTO `contactos` (`id_contacto`, `nombre`, `telefono`, `email`, `nombre_producto`, `consulta`, `newsletter`, `fecha_consulta`, `respondido`) VALUES
-(22, 'Jorge Ruanova', '', 'jorge.ruanova@davinci.edu.ar', 'Otras consultas', 'Por favor, enviar catalogo completo a jorge.ruanova@davinci.edu.ar', 1, '2023-10-01', 1),
-(23, 'Jorge Ruanova', '151234455', 'jorge.ruanova@davinci.edu.ar', 'Auricular Gamer Logitech G335 Blanco', 'Vienen en negros?', 0, '2023-10-02', 0),
-(38, 'test', '12345646', 'jruanova1987@gmail.com', 'Monitor Gamer 55&#039;&#039; Samsung Curvo Odyssey 4K 16', 'test', 1, '2023-10-03', 0),
+(22, 'Josesito Fuentes', '0341152211213', 'jfuentes@yahoo.com', 'Otras consultas', 'Por favor, enviar catalogo completo a jfuentes@yahoo.com', 1, '2023-10-01', 1),
+(23, 'Jorge Ruanova', '151234455', 'jorge.ruanova@davinci.edu.ar', 'Auricular Gamer Logitech G335 Blanco', 'Podran pasarme otros modelos?', 0, '2023-10-02', 0),
+(38, 'Armando', '12345646', 'armandoestebanquito@gmail.com', 'Monitor Gamer 55&#039;&#039; Samsung Curvo Odyssey 4K 16', 'test', 1, '2023-10-03', 0),
 (39, 'Pepito', '', 'pepito@gmail.com', 'Otras consultas', 'test', 1, '2023-10-04', 1),
-(40, 'test', '12341', 'jruanova.dev@gmail.com', 'Otras consultas', 'test fecha', 0, '2023-11-07', 1),
-(41, 'test', '', 'jruanova.dev@gmail.com', 'Teclado Gamer Redragon K530W-RGB-PRO Draconic', 'test nuevo campo', 0, '2023-11-07', 1);
+(40, 'Juan', '12341', 'juanperez@gmail.com', 'Otras consultas', 'test fecha', 1, '2023-11-07', 1),
+(41, 'Pedro', '', 'pedro-pepito@gmail.com', 'Teclado Gamer Redragon K530W-RGB-PRO Draconic', 'test nuevo campo', 1, '2023-11-07', 1),
+(42, 'Cosme', '', 'cosme@altavista.com', 'Mouse Gamer Logitech G203 Lightsync Negro', 'test', 0, '2023-11-13', 0);
 
 -- --------------------------------------------------------
 
@@ -106,15 +127,21 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `rol`, `newsletter`) VALUES
-(1, 'Jorge', 'jorge@nexgen.com', '123456', 'Admin', 1),
+(1, 'Jorge Ruanova', 'jorge@nexgen.com', '123456', 'Admin', 0),
 (2, 'Manu', 'manu@nexgen.com', '123456', 'Admin', 0),
-(3, 'Erik', 'erik@nexgen.com', '123456', 'Empleado', 0),
-(4, 'Fer', 'fer@gmail.com', '123456', 'Usuario', 0),
-(18, 'Pepe Luis', 'pepito@gmail.com', '123456', 'Usuario', 1);
+(3, 'Erik con K', 'erik@nexgen.com', '123456', 'Empleado', 0),
+(4, 'Fer', 'fer@gmail.com', '123456', 'Usuario', 1),
+(18, 'Luis Gomez', 'luis-gomez@gmail.com', '7799', 'Usuario', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bannermensaje`
+--
+ALTER TABLE `bannermensaje`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `contactos`
@@ -139,22 +166,28 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT for table `bannermensaje`
+--
+ALTER TABLE `bannermensaje`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `contactos`
 --
 ALTER TABLE `contactos`
-  MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_contacto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

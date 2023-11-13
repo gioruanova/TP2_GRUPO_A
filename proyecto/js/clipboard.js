@@ -1,8 +1,8 @@
 // Funcion para copiar on click
-function copyToClipboard() {
-    const copyText = document.getElementById("listado");
+function copyToClipboard(selector,selector2) {
+    const copyText = document.getElementById(selector);
     copyText.select();
-    const successCopyElement = document.getElementById("success-copy");
+    const successCopyElement = document.getElementById(selector2);
     if (successCopyElement) {
         successCopyElement.classList.add("confirmation-blink");
         setTimeout(() => {

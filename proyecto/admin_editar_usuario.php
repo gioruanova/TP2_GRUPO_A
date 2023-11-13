@@ -2,25 +2,39 @@
 require_once('conf/globalConfig.php');
 require_once('_conexion.php');
 require_once('consultas/consultas_usuarios.php');
+require_once('./funciones/funciones_input.php');
 
 if ($_SESSION['usuario']['rol'] !== 'Admin') {
     header('Location: index.php');
-}
+}  else {
+    $idUser = $_SESSION['usuario']['id'];
 
+    if (isset($_GET['id'])) {
+        $usuario = getUsuarioById($conexion, $_GET['id']);
 
-if (isset($_GET['id'])) {
-    $usuario = getUsuarioById($conexion, $_GET['id']);
+    } else {
+        $usuario = [
+            'id' => test_input($_POST['id'] ?? null),
+            'nombre' => test_input($_POST['nombre'] ?? null),
+            'email' => test_input($_POST['email'] ?? null),
+            'password' => test_input($_POST['password'] ?? null),
+            'newsletter' => test_input($_POST['newsletter'] ?? null),
+            'rol' => test_input($_POST['rol'] ?? null),
+        ];
+    }
 
-
+    $errores = [];
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Aca tenemos que armar el codigo para actualizar la tabla de usuarios por id 
-    // con la condicion de que si la opcion no cambia, mantener la opcion actual
-    // Creo que seria crear la consulta editByUserId
-
+        $errores = validarUsuario($usuario);
+        if (count($errores) == 0) {
+            if ($usuario['id']) {
+                updateUsuario($conexion, $usuario);
+                header('Location: admin_index.php');
+            }
+        }
     }
 }
-
 
 ?>
 
@@ -44,16 +58,25 @@ if (isset($_GET['id'])) {
     <!-- -----------------------------BODY----------------------------- -->
 
     <div class="contentCustomized animate__animated animate__backInDown">
-        <div class="container containerCustomized mt-8">
+        <div class="container containerCustomized mt-5">
             <h1>Editar Usuario</h1>
 
 
         </div>
 
         <div class="container containerCustomized mt-3">
+        <?php foreach ($errores as $error): ?>
+                <li class="text" style="text-align: justify;color:pink">
+                    <?php echo $error ?>
+                </li>
+            <?php endforeach ?>
             <div class="admin-container-table">
 
-                <form action="" class="form-contacto">
+                <form action="admin_editar_usuario.php" method="post" class="form-contacto">
+
+                <input type="hidden" name="id" id="id" class="form-control mb-2"
+                       required value="<?php echo $usuario['id'] ?>">
+
                     <label for="nombre" class="form-label text-light"
                         style="width: 100%;text-align: left;">Nombre</label>
                     <input type="text" name="nombre" id="nombre" class="form-control mb-2"
@@ -90,7 +113,7 @@ if (isset($_GET['id'])) {
                     </div>
 
                     <div style="display: flex;justify-content: center;">
-                    <button href="" class="btn btn-success mt-2">Actualizar</button>
+                    <button type="submit" class="btn btn-success mt-2">Actualizar</button>
                     </div>
    
                 </form>

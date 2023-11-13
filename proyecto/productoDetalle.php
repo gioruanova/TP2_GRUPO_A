@@ -32,7 +32,7 @@ if (isset($_GET['id'])) {
     <!-- -----------------------------BODY----------------------------- -->
     <div class="contentCustomized animate__animated animate__fadeInDown">
 
-        <div class="container containerCustomized mt-8">
+        <div class="container containerCustomized mt-5">
             <h1>Conocé más sobre el producto</h1>
             <p>A continuación podrás obtener un detalle extendido del producto y sus características.</p>
 

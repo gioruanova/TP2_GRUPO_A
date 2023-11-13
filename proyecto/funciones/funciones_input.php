@@ -78,3 +78,15 @@ function validarUsuario($usuario)
 
     return $errores;
 }
+
+function validarBanner($mensaje)
+{
+    $errores = [];
+
+    if (empty($mensaje['mensajeMostrar'])) {
+        $mensaje[] = 'Debe ingresar un nombre';
+    }
+
+
+    return $errores;
+}

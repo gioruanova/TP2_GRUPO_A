@@ -1,3 +1,34 @@
+<?php
+require_once('_conexion.php');
+require_once('consultas/consultas_misc.php');
+
+$mensaje = getMensajeBanner($conexion,"1");
+
+
+if ($mensaje['indicador'] == 1) {
+
+    if ($mensaje['finalizacionMensaje'] >= date("Y-m-d")) {
+        $mensajeBanner = $mensaje['mensajeMostrar'];
+        $inlineStyle = '';
+    } else{
+        $mensajeBanner = "";
+        $inlineStyle = "style=display:none!important";
+    }
+
+
+} else {
+    $mensajeBanner = "";
+    $inlineStyle = "style=display:none!important";
+}
+
+?>
+
+
+<div class="top-bar" <?php echo $inlineStyle ?>>
+    <p>
+        <?php echo $mensajeBanner ?>
+    </p>
+</div>
 <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
     <div class="container-fluid">
 
@@ -50,10 +81,7 @@
                     </li>
 
                 </ul>
-                <form class="d-flex mt-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
+
                 <div class="redes">
                     <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
                     <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>

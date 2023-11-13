@@ -7,8 +7,8 @@ if (!isset($_SESSION['usuario'])) {
 
 }
 
-$tiutlo = $_SESSION['usuario']['nombre'];
-
+$titulo = $_SESSION['usuario']['nombre'];
+$idUser = $_SESSION['usuario']['id'];
 
 ?>
 
@@ -32,8 +32,8 @@ $tiutlo = $_SESSION['usuario']['nombre'];
     <!-- -----------------------------BODY----------------------------- -->
 
     <div class="contentCustomized animate__animated animate__backInDown">
-        <div class="container containerCustomized mt-8">
-            <h1>Bienvenido <?php echo $tiutlo ?></h1>
+        <div class="container containerCustomized mt-5">
+            <h1>Bienvenido <?php echo $titulo ?></h1>
             <p>Seleccione la tarea que desea realizar</p>
 
         </div>
@@ -55,6 +55,11 @@ $tiutlo = $_SESSION['usuario']['nombre'];
                         <i class="bi bi-cart-check"></i>
                         <span>Admin. Productos</span>
                     </a>
+
+                    <a href="<?php echo BASE_URL ?>mensajes_generales.php?id=1" class="admin-option">
+                    <i class="bi bi-gear"></i>
+                        <span>Mensajes Generales</span>
+                    </a>
                 <?php endif ?>
 
 
@@ -71,7 +76,7 @@ $tiutlo = $_SESSION['usuario']['nombre'];
                     </a>
                 <?php endif ?>
 
-                <a href="<?php echo BASE_URL ?>genericUser_viewAccount.php" class="admin-option">
+                <a href="<?php echo BASE_URL ?>genericUser_viewAccount.php?id=<?php echo $idUser?>" class="admin-option">
                     <i class="bi bi-person-circle"></i>
                     <span>Mis Datos</span>
                 </a>

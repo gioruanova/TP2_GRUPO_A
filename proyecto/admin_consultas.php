@@ -37,7 +37,7 @@ $consultas = getContacto($conexion);
     <!-- -----------------------------BODY----------------------------- -->
 
     <div class="contentCustomized animate__animated animate__backInDown">
-        <div class="container containerCustomized mt-8">
+        <div class="container containerCustomized mt-5">
             <h1>Listado Consultas</h1>
 
 
