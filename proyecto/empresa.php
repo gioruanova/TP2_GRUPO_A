@@ -72,7 +72,7 @@ require_once('conf/globalConfig.php');
                 <a href="https://github.com/gioruanova" target="_blank">
                     <img src="img/assets/founder2.jpg" alt="Jorge Ruanova" class="founder-img">
                 </a>
-                <a href="https://github.com/erikfacundo" target="_blank">
+                <a href="https://erikfacundo.github.io/portafolio/" target="_blank">
                     <img src="img/assets/founder3.jpg" alt="Erik Flor" class="founder-img">
                 </a>
             </div>
