@@ -30,7 +30,7 @@ if ($_SESSION['usuario']['rol'] !== 'Admin') {
         if (count($errores) == 0) {
             if ($usuario['id']) {
                 updateUsuario($conexion, $usuario);
-                header('Location: admin_index.php');
+                header('Location: admin_usuarios.php');
             }
         }
     }
@@ -72,7 +72,7 @@ if ($_SESSION['usuario']['rol'] !== 'Admin') {
             <?php endforeach ?>
             <div class="admin-container-table">
 
-                <form action="admin_editar_usuario.php" method="post" class="form-contacto">
+                <form id="formSubmit" action="admin_editar_usuario.php" method="post" class="form-contacto">
 
                 <input type="hidden" name="id" id="id" class="form-control mb-2"
                        required value="<?php echo $usuario['id'] ?>">
@@ -138,7 +138,7 @@ if ($_SESSION['usuario']['rol'] !== 'Admin') {
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.js') ?>
     <!-- ---IMPORT JS--- -->
 </body>
 

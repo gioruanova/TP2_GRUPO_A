@@ -103,7 +103,7 @@ $consultas = getContacto($conexion);
                                 <td class="text-center">
                                     <?php if ($contacto['respondido'] == 0): ?>
                                         <a href="<?php echo BASE_URL ?>admin_respuesta_confirmada.php?id=<?php echo $contacto['id_contacto'] ?>"
-                                            class="btn btn-primary" title="Marcar como respondido"><i
+                                            class="btn-actualizarRegistro btn btn-primary" title="Marcar como respondido"><i
                                                 class="bi bi-bookmark-check"></i></a>
                                     <?php else: ?>
                                         <?php echo '<i class="bi bi-send-check" style="font-size: 22px;color:green;"></i>' ?>
@@ -131,7 +131,7 @@ $consultas = getContacto($conexion);
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.js') ?>
     <!-- ---IMPORT JS--- -->
 </body>
 

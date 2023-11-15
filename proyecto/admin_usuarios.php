@@ -77,7 +77,7 @@ $usuarios = getUsuarios($conexion);
                                             class="bi bi-pencil-square"></i></a>
 
                                     <a href="<?php echo BASE_URL ?>admin_eliminar_usuario.php?id=<?php echo $user['id'] ?>"
-                                        class="btn btn-danger ms-1" title="Eliminar Usuario"><i class="bi bi-trash"></i></a>
+                                        class="btn-borrarRegistro btn btn-danger ms-1" title="Eliminar Usuario"><i class="bi bi-trash"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -101,7 +101,7 @@ $usuarios = getUsuarios($conexion);
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.js') ?>
     <!-- ---IMPORT JS--- -->
 </body>
 

@@ -13,6 +13,7 @@ $id = $_GET['id'] ?? null;
 
 if ($id) {
     deleteProducto($conexion, $id);
+    header('Location: admin_ver_productos.php');
 }
 
 
@@ -64,7 +65,7 @@ if ($id) {
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.js') ?>
     <!-- ---IMPORT JS--- -->
 </body>
 

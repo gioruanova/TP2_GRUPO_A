@@ -67,10 +67,10 @@ if ($_SESSION['usuario']['rol'] !== 'Admin') {
                 </li>
             <?php endforeach ?>
 
-            <form action="mensajes_generales.php" method="post" class="form-contacto">
+            <form id="formSubmit" action="admin_mensajes_generales.php" method="post" class="form-contacto">
 
 
-                <input type="text" name="id" id="id" class="form-control mb-2" value="<?php echo $mensaje['id'] ?>">
+                <input type="hidden" name="id" id="id" class="form-control mb-2" value="<?php echo $mensaje['id'] ?>">
 
 
                 <div>
@@ -109,13 +109,6 @@ if ($_SESSION['usuario']['rol'] !== 'Admin') {
 
         </div>
 
-
-
-
-        <div class="container containerCustomized mt-2 pt-3 pb-3">
-            <a href="<?php echo BASE_URL ?>admin_index.php" class="btn btn-warning"><i
-                    class="bi bi-arrow-left-circle me-2"></i>Volver</a>
-        </div>
     </div>
 
 
@@ -131,10 +124,8 @@ if ($_SESSION['usuario']['rol'] !== 'Admin') {
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
-    <script>
-        <?php require 'js/clipboard.js'; ?>
-    </script>
+    <?php require('js/_customScripts.js') ?>
+
     <!-- ---IMPORT JS--- -->
 </body>
 

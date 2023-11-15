@@ -56,7 +56,7 @@ $idUser = $_SESSION['usuario']['id'];
                         <span>Admin. Productos</span>
                     </a>
 
-                    <a href="<?php echo BASE_URL ?>mensajes_generales.php?id=1" class="admin-option">
+                    <a href="<?php echo BASE_URL ?>admin_mensajes_generales.php?id=1" class="admin-option">
                     <i class="bi bi-gear"></i>
                         <span>Mensajes Generales</span>
                     </a>
@@ -98,7 +98,7 @@ $idUser = $_SESSION['usuario']['id'];
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.js') ?>
     <!-- ---IMPORT JS--- -->
 </body>
 

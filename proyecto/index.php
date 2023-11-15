@@ -18,6 +18,8 @@ $cantidad_por_pagina = 3;
 $paginado_enlaces = paginador_enlaces($cantidad, $pagina_actual, $cantidad_por_pagina);
 $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +48,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
 
             <div class="brand-index ">
                 <i class="brand-icon bi bi-cpu color-change-effect me-2"></i>
-                
+
                 <h1 class="brand-name">NextGen</h1>
             </div>
             <p>NextGen se destaca como un referente en la industria de importación de productos
@@ -120,10 +122,10 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                                     </a>
                                 </li>
                             <?php endif ?>
-                            <li class="page-item active">
-                                <span class="page-link">
-                                    <?php echo $paginado_enlaces['actual'] ?>
-                                </span>
+                            <li class=" page-item active">
+                                    <span class="page-link">
+                                        <?php echo $paginado_enlaces['actual'] ?>
+                                    </span>
                             </li>
                             <?php if ($paginado_enlaces['siguiente']): ?>
                                 <li class="page-item">
@@ -176,8 +178,18 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.js') ?>
+
+
+    <script src="<?php echo BASE_URL ?>js/_popupSweet.js"></script>
     <!-- ---IMPORT JS--- -->
+
+    <script>
+        const headerTop = document.getElementById('top-bar').querySelector('p');
+        if (headerTop) {
+            showPopUp();
+        }
+    </script>
 
 </body>
 

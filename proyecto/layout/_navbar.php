@@ -2,15 +2,15 @@
 require_once('_conexion.php');
 require_once('consultas/consultas_misc.php');
 
-$mensaje = getMensajeBanner($conexion,"1");
+$mensaje = getMensajeBanner($conexion, "1");
 
 
 if ($mensaje['indicador'] == 1) {
 
     if ($mensaje['finalizacionMensaje'] >= date("Y-m-d")) {
-        $mensajeBanner = $mensaje['mensajeMostrar'];
+        $mensajeBanner = '<p>' . $mensaje['mensajeMostrar'] . '</p>';
         $inlineStyle = '';
-    } else{
+    } else {
         $mensajeBanner = "";
         $inlineStyle = "style=display:none!important";
     }
@@ -24,10 +24,8 @@ if ($mensaje['indicador'] == 1) {
 ?>
 
 
-<div class="top-bar" <?php echo $inlineStyle ?>>
-    <p>
-        <?php echo $mensajeBanner ?>
-    </p>
+<div id="top-bar" class="top-bar" <?php echo $inlineStyle ?>>
+<?php echo $mensajeBanner ?>
 </div>
 <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
     <div class="container-fluid">

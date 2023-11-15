@@ -105,7 +105,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                                         <a href="<?php echo BASE_URL ?>admin_guardar_producto.php?id=<?php echo $prod['id_producto'] ?>"
                                             title="Editar Producto"> <button class="btn btn-primary"><i
                                                     class="bi bi-pencil-square"> </i> </button></a>
-                                        <a class="ms-1" href="admin_eliminar_producto.php?id=<?php echo $prod['id_producto'] ?>"
+                                        <a class="btn-borrarRegistro ms-1" href="admin_eliminar_producto.php?id=<?php echo $prod['id_producto'] ?>"
                                             title="Eliminar producto"><button class="btn btn-danger"><i
                                                     class="bi bi-trash"></i></button></a>
                                     </div>
@@ -173,7 +173,9 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.js') ?>
+    
+    
     <!-- ---IMPORT JS--- -->
 </body>
 

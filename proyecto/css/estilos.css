@@ -966,28 +966,6 @@ footer .disabled:hover {
 }
 
 
-#success-copy,
-#success-copy-usuarios {
-    color: pink;
-    opacity: 0;
-    transition: ease 400ms all;
-    height: 2px;
-    display: block;
-}
-
-.confirmation-blink {
-    animation: confirmationBlink 1.5s linear;
-    height: 24px !important;
-
-}
-
-@keyframes confirmationBlink {
-    0% {
-        opacity: 1;
-
-    }
-}
-
 .page-link {
     font-size: 13px;
 }
@@ -1007,4 +985,43 @@ footer .disabled:hover {
 
     padding: 8px;
     text-align: left;
+}
+
+
+
+.swal2-container {
+    z-index: 99999;
+}
+
+
+.swal2-popup {
+    box-shadow: 2px 2px 25px -3px #848687c4;
+}
+
+.swal2-popup .swal2-title {
+    font-size: 20px;
+}
+
+.swal2-popup .swal2-html-container {
+    margin: 0;
+    font-size: 16px;
+}
+
+.swal2-popup button {
+    padding: 5px 25px;
+}
+
+.swal2-image {
+    border-radius: 10px;
+    object-fit: contain;
+    margin-bottom: 0;
+}
+
+.swal2-checkbox {
+    background: transparent !important;
+}
+
+.copy-modal-alert .swal2-popup {
+    bottom: 2rem;
+    right: 2rem;
 }

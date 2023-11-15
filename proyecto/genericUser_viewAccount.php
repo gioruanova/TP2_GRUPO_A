@@ -91,7 +91,7 @@ if (!isset($_SESSION['usuario'])) {
             <div class="admin-container-table">
 
 
-                <form action="genericUser_viewAccount.php" method="post">
+                <form id="formSubmit" action="genericUser_viewAccount.php" method="post">
 
 
                     <label for="nombre" class="form-label text-light"
@@ -139,7 +139,7 @@ if (!isset($_SESSION['usuario'])) {
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.js') ?>
     <!-- ---IMPORT JS--- -->
 </body>
 

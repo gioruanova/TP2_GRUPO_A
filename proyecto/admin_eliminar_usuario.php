@@ -13,6 +13,7 @@ $nombreUsuario = getUsuarioById($conexion, $id);
 
 if ($id) {
     deleteUSuario($conexion, $id);
+    header('Location: admin_usuarios.php');
 }
 
 
@@ -72,7 +73,7 @@ $usuarios = getUsuarios($conexion);
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.js') ?>
     <!-- ---IMPORT JS--- -->
 </body>
 

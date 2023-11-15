@@ -56,9 +56,9 @@ $usuarios = getUsuarios($conexion);
                 </label>
                 <input type="listado" id="listado" name="listado" class="form-control mb-2 mt-2"
                     value="<?php echo $listadoNewsletter ?>">
-                <span id="success-copy">Direcciones copiadas</span>
+                
                 <div>
-                    <a class="btn btn-primary mt-2" onclick="copyToClipboard('listado','success-copy')"><i
+                    <a class="btn btn-primary mt-2" onclick="copyToClipboard('listado')"><i
                             class="bi bi-clipboard-check mx-2"></i>Copiar Direcciones</a>
                     <a href="mailto:<?php echo $listadoNewsletter ?>?subject=NextGen > Nuestras novedades"
                         class="btn btn-success mt-2"><i class="bi bi-send-check mx-2"></i></i>Envio masivo</a>
@@ -80,11 +80,13 @@ $usuarios = getUsuarios($conexion);
                 <label for="listadoUsuarios" class="form-label mt-3 text-light mb-0">Newsletter Usuarios:</label>
                 <input type="listadoUsuarios" id="listadoUsuarios" name="listadoUsuarios" class="form-control mb-2 mt-2"
                     value="<?php echo $listadoNewsletterUsuarios ?>">
-                <span id="success-copy-usuarios">Direcciones copiadas</span>
+                
                 <div>
+                    
                     <a class="btn btn-primary mt-2"
-                        onclick="copyToClipboard('listadoUsuarios','success-copy-usuarios')"><i
+                        onclick="copyToClipboard('listadoUsuarios')"><i
                             class="bi bi-clipboard-check mx-2"></i>Copiar Direcciones</a>
+
                     <a href="mailto:<?php echo $listadoNewsletterUsuarios ?>?subject=NextGen  > Nuestras novedades exclusivas para usuarios"
                         class="btn btn-success mt-2"><i class="bi bi-send-check mx-2"></i></i>Envio masivo</a>
                 </div>
@@ -111,9 +113,9 @@ $usuarios = getUsuarios($conexion);
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.js') ?>
     <script>
-        <?php require 'js/clipboard.js'; ?>
+        <?php require 'js/_clipboard.js' ?>
     </script>
     <!-- ---IMPORT JS--- -->
 </body>

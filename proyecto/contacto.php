@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errores = validarContacto($contacto);
     if (count($errores) == 0) {
         addContacto($conexion, $contacto);
-        header('Location: admin_mensajeEnviado.php');
+        header('Location: index.php');
     }
 }
 
@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <?php endforeach ?>
             </ul>
 
-            <form action="contacto.php" method="post" class="form-contacto mb-0">
+            <form id="mensajeEnviado" action="contacto.php" method="post" class="form-contacto mb-0">
 
                 <div class="mb-1 mt-3">
                     <span class="mx-1" style="color:pink">*</span><label for="nombre"
@@ -185,7 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.js') ?>
     <!-- ---IMPORT JS--- -->
 
 </html>
