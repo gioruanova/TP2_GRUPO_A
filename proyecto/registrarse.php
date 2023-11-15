@@ -116,7 +116,7 @@ if (isset($_SESSION['usuario'])) {
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_customScripts.js') ?>
+    <?php require('js/_customScripts.php') ?>
     <!-- ---IMPORT JS--- -->
 </body>
 

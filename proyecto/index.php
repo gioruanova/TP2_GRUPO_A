@@ -178,7 +178,7 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_customScripts.js') ?>
+    <?php require('js/_customScripts.php') ?>
 
 
     <script src="<?php echo BASE_URL ?>js/_popupSweet.js"></script>

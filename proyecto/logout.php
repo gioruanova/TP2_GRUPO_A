@@ -48,7 +48,7 @@ header('Location: index.php');
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_customScripts.js') ?>
+    <?php require('js/_customScripts.php') ?>
     <!-- ---IMPORT JS--- -->
 </body>
 

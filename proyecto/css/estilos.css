@@ -72,6 +72,11 @@ nav .dropdown-menu {
 
 .navbar-brand {
     transition: ease 200ms all;
+    font-size: 30px;
+}
+
+.scrollEffect .navbar-brand {
+    font-size: 20px;
 }
 
 .navbar-brand:hover {
@@ -633,10 +638,14 @@ footer .disabled:hover {
 .whapp-container {
     position: fixed;
     bottom: 1rem;
-    right: 1rem;
+    right: -5rem;
     display: flex;
     align-items: center;
     transition: ease 200ms all;
+}
+
+.scrollEffect .whapp-container {
+    right: 1rem; 
 }
 
 .whapp-container .textoMovil {
@@ -684,6 +693,9 @@ footer .disabled:hover {
 .whapp-container .iconBg i {
     color: white;
     font-size: 25px;
+    margin-top: 4px;
+    margin-left: 1px;
+
 }
 
 

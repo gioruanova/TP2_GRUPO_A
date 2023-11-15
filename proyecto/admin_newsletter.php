@@ -113,7 +113,7 @@ $usuarios = getUsuarios($conexion);
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_customScripts.js') ?>
+    <?php require('js/_customScripts.php') ?>
     <script>
         <?php require 'js/_clipboard.js' ?>
     </script>
