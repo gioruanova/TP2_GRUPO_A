@@ -220,11 +220,7 @@ if ($productoRecuperado != null) {
                             con descuento</label>
                     </div>
 
-                    <textarea type="textarea" class="form-control" name="descripcion_producto" id="descripcion_producto"
-                        placeholder="Escribir descripcion" value="<?php echo $producto['descripcion_producto'] ?>"
-                        style="resize:none" rows="8" cols="50" require>
-                        <?php echo $producto['descripcion_producto'] ?>
-                    </textarea>
+                    <textarea type="textarea" class="form-control" name="descripcion_producto" id="descripcion_producto" placeholder="Escribir descripcion" value="<?php echo $producto['descripcion_producto'] ?>"                        style="resize:none" rows="8" cols="50" require><?php echo $producto['descripcion_producto'] ?></textarea>
                 </div>
 
                 <div class="right-module">
@@ -242,8 +238,9 @@ if ($productoRecuperado != null) {
                     ?>
 
                     <?php if ($mostrarImagen): ?>
-                        <img src='img/<?php echo $imagenRecuperada . '.' . $formatoImagenRecuperada; ?>'
+                        <img src='img/<?php echo($imagenRecuperada == null)?'error-image.jpg': $imagenRecuperada . '.' . $formatoImagenRecuperada ?>'
                             alt='<?php echo ($producto['nombre_archivo_producto'] == NULL) ? "Imagen para el producto a publicar" : "Producto sin imagen para " . $producto['nombre_producto']; ?>'>
+                            <?php else: ?>
                     <?php endif ?>
 
                     <div>
