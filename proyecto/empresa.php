@@ -23,7 +23,7 @@ require_once('conf/globalConfig.php');
     <!-- -----------------------------BODY----------------------------- -->
 
     <div class="contentCustomized animate__animated animate__fadeInDown">
-        <div class="container containerCustomized mt-8 pt-1 pb-1">
+        <div class="container containerCustomized mt-5 pt-1 pb-1">
             <h1>Sobre nosotros</h1>
 
         </div>
@@ -67,13 +67,13 @@ require_once('conf/globalConfig.php');
 
             <div class="founder-grid">
                 <a href="https://github.com/mcanavari43" target="_blank">
-                    <img src="img/founder1.jpg" alt="Manuel Canavari" class="founder-img">
+                    <img src="img/assets/founder1.jpg" alt="Manuel Canavari" class="founder-img">
                 </a>
                 <a href="https://github.com/gioruanova" target="_blank">
-                    <img src="img/founder2.jpg" alt="Jorge Ruanova" class="founder-img">
+                    <img src="img/assets/founder2.jpg" alt="Jorge Ruanova" class="founder-img">
                 </a>
-                <a href="https://github.com/erikfacundo" target="_blank">
-                    <img src="img/founder3.jpg" alt="Erik Flor" class="founder-img">
+                <a href="https://erikfacundo.github.io/portafolio/" target="_blank">
+                    <img src="img/assets/founder3.jpg" alt="Erik Flor" class="founder-img">
                 </a>
             </div>
 
@@ -93,7 +93,7 @@ require_once('conf/globalConfig.php');
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.php') ?>
     <!-- ---IMPORT JS--- -->
 </body>
 

@@ -1,7 +1,36 @@
+<?php
+require_once('_conexion.php');
+require_once('consultas/consultas_misc.php');
+
+$mensaje = getMensajeBanner($conexion, "1");
+
+
+if ($mensaje['indicador'] == 1) {
+
+    if ($mensaje['finalizacionMensaje'] >= date("Y-m-d")) {
+        $mensajeBanner = '<p>' . $mensaje['mensajeMostrar'] . '</p>';
+        $inlineStyle = '';
+    } else {
+        $mensajeBanner = "";
+        $inlineStyle = "style=display:none!important";
+    }
+
+
+} else {
+    $mensajeBanner = "";
+    $inlineStyle = "style=display:none!important";
+}
+
+?>
+
+
+<div id="top-bar" class="top-bar" <?php echo $inlineStyle ?>>
+<?php echo $mensajeBanner ?>
+</div>
 <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
     <div class="container-fluid">
 
-        <a class="navbar-brand" href="<?php echo BASE_URL ?>">
+        <a class="navbar-brand" href="<?php echo BASE_URL ?>index.php">
             <span><i class="bi bi-cpu color-change-effect"></i></span>
             <span>NextGen</span>
         </a>
@@ -26,21 +55,31 @@
                         <a class="nav-link" href="<?php echo BASE_URL ?>contacto.php">Contacto</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle disabled" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Acceso
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="<?php echo BASE_URL ?>" title="Proximamente!!!">Iniciar Sesion</a></li>
-                            <li><a class="dropdown-item" href="<?php echo BASE_URL ?>" title="Proximamente!!!">Registrarse</a></li>
+
+                            <?php if (isset($_SESSION['usuario'])): ?>
+                                <li><a class="dropdown-item" href="<?php echo BASE_URL ?>admin_index.php">Mi cuenta</a></li>
+                                <li><a class="dropdown-item" href="<?php echo BASE_URL ?>logout.php">Logout</a></li>
+                            <?php else: ?>
+
+                                <li><a class="dropdown-item" href="<?php echo BASE_URL ?>iniciar_sesion.php">Iniciar
+                                        Sesion</a></li>
+                                <li><a class="dropdown-item" href="<?php echo BASE_URL ?>registrarse.php">Registrarse</a>
+                                </li>
+                            <?php endif ?>
+
+
+
+
                         </ul>
                     </li>
 
                 </ul>
-                <form class="d-flex mt-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
+
                 <div class="redes">
                     <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
                     <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>

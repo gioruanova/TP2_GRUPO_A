@@ -5,6 +5,9 @@ require_once('_conexion.php');
 require_once('consultas/consultas_productos.php');
 require_once('funciones/paginacion.php');
 
+// Banner misc
+
+
 $productos = getProductos($conexion);
 
 // Cantidad de productos
@@ -14,6 +17,8 @@ $pagina_actual = $_GET['pag'] ?? 1;
 $cantidad_por_pagina = 3;
 $paginado_enlaces = paginador_enlaces($cantidad, $pagina_actual, $cantidad_por_pagina);
 $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
+
+
 
 ?>
 
@@ -30,6 +35,8 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
 </head>
 
 <body>
+
+
     <!-- ---IMPORT NAV--- -->
     <?php require('layout/_navbar.php') ?>
     <!-- ---IMPORT NAV--- -->
@@ -37,9 +44,11 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
     <!-- -----------------------------BODY----------------------------- -->
     <div class="contentCustomized">
 
-        <div class="container containerCustomized mt-8 animate__animated animate__fadeIn">
+        <div class="container containerCustomized mt-5 animate__animated animate__fadeIn">
+
             <div class="brand-index ">
                 <i class="brand-icon bi bi-cpu color-change-effect me-2"></i>
+
                 <h1 class="brand-name">NextGen</h1>
             </div>
             <p>NextGen se destaca como un referente en la industria de importación de productos
@@ -58,6 +67,8 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
 
 
                     <?php foreach ($productos as $prod): ?>
+
+
                         <div class="col justify-content-md-center">
                             <div class="card text-bg-dark">
                                 <?php echo ($prod['producto_promo'] == 0 ? "" : "<span class='promoAvailable'>SALE</span>") ?>
@@ -69,7 +80,8 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                                             <?php echo $prod['nombre_producto'] ?>
                                         </h5>
                                         <span class="categoria">(
-                                            <?php echo $prod['categoria_producto'] ?>)
+                                            <?php echo $prod['categoria_producto'
+                                            ] ?>)
                                         </span>
                                     </div>
                                     <div class="card-text">
@@ -110,10 +122,10 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                                     </a>
                                 </li>
                             <?php endif ?>
-                            <li class="page-item active">
-                                <span class="page-link">
-                                    <?php echo $paginado_enlaces['actual'] ?>
-                                </span>
+                            <li class=" page-item active">
+                                    <span class="page-link">
+                                        <?php echo $paginado_enlaces['actual'] ?>
+                                    </span>
                             </li>
                             <?php if ($paginado_enlaces['siguiente']): ?>
                                 <li class="page-item">
@@ -166,8 +178,18 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.php') ?>
+
+
+    <script src="<?php echo BASE_URL ?>js/_popupSweet.js"></script>
     <!-- ---IMPORT JS--- -->
+
+    <script>
+        const headerTop = document.getElementById('top-bar').querySelector('p');
+        if (headerTop) {
+            showPopUp();
+        }
+    </script>
 
 </body>
 

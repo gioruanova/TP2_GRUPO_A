@@ -1,6 +1,10 @@
-<?php
+<?php 
 require_once('conf/globalConfig.php');
-?>
+
+$_SESSION['usuario'] = null;
+
+header('Location: index.php');
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,19 +25,14 @@ require_once('conf/globalConfig.php');
 
     <!-- -----------------------------BODY----------------------------- -->
 
-    <div class="contentCustomized animate__animated animate__fadeInDown">
-        <div class="container containerCustomized mt-8 pt-1 pb-1">
-            <h1>Consulta enviada</h1>
+    <div class="contentCustomized animate__animated animate__bounceIn">
+        <div class="container containerCustomized mt-5">
+            <h1>Logout</h1>
 
         </div>
 
-        <div class="container containerCustomized mt-3 msj-enviado">
-            <i class="bi bi-envelope-check"></i>
-            <div class="text">
-                <p>Gracias por su mensaje.</p>
-                <p>Nos estaremos comunicando a la brevedad</p>
-                <a href="index.php" class="btn btn-primary">Volver al Inicio</a>
-            </div>
+        <div class="container containerCustomized mt-3">
+
         </div>
     </div>
 
@@ -43,13 +42,13 @@ require_once('conf/globalConfig.php');
     <!-- ---IMPORT FOOTER--- -->
     <?php require('layout/_footer.php') ?>
     <!-- ---IMPORT FOOTER--- -->
-
+    
     <!-- ---IMPORT WHATSAPP--- -->
     <?php require('layout/_whatsappIcon.php') ?>
     <!-- ---IMPORT WHATSAPP--- -->
 
     <!-- ---IMPORT JS--- -->
-    <?php require('js/_bootstrap.js') ?>
+    <?php require('js/_customScripts.php') ?>
     <!-- ---IMPORT JS--- -->
 </body>
 

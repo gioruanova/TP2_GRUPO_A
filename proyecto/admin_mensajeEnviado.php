@@ -1,6 +1,11 @@
-<?php 
+<?php
 require_once('conf/globalConfig.php');
- ?>
+
+if ($_SESSION['usuario']['rol'] == 'Usuario') {
+    header('Location: index.php');
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,23 +26,18 @@ require_once('conf/globalConfig.php');
 
     <!-- -----------------------------BODY----------------------------- -->
 
-    <div class="contentCustomized animate__animated animate__bounceIn">
-        <div class="container containerCustomized mt-5">
-            <h1>Disculpe las molestias</h1>
+    <div class="contentCustomized animate__animated animate__fadeInDown">
+        <div class="container containerCustomized mt-5 pt-1 pb-1">
+            <h1>Consulta enviada</h1>
 
         </div>
 
-        <div class="container containerCustomized mt-3">
-
-            <div class="error-box">
-                <img src="img/assets/error.gif"></img>
-                <div class="error-text">
-                    <p>Estamos realizando algunas tareas de mantenimiento.</p>
-                    <p>Por favor regrese en unos minutos</p>
-                    <br>
-                    <h4>Enlaces recomendados:</h4>
-                    <a href="<?php echo BASE_URL ?>empresa.php">> Nuestra empresa</a>
-                </div>
+        <div class="container containerCustomized mt-3 msj-enviado">
+            <i class="bi bi-envelope-check"></i>
+            <div class="text">
+                <p>Gracias por su mensaje.</p>
+                <p>Nos estaremos comunicando a la brevedad</p>
+                <a href="<?php echo BASE_URL ?>" class="btn btn-primary">Volver al Inicio</a>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@ require_once('conf/globalConfig.php');
     <!-- ---IMPORT FOOTER--- -->
     <?php require('layout/_footer.php') ?>
     <!-- ---IMPORT FOOTER--- -->
-    
+
     <!-- ---IMPORT WHATSAPP--- -->
     <?php require('layout/_whatsappIcon.php') ?>
     <!-- ---IMPORT WHATSAPP--- -->

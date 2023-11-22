@@ -1,6 +1,24 @@
-<?php 
+<?php
 require_once('conf/globalConfig.php');
- ?>
+require_once('_conexion.php');
+require_once('consultas/consultas_mensajes.php');
+
+if (isset($_SESSION['usuario'])){
+    if ($_SESSION['usuario']['rol'] == 'Usuario') {
+        header('Location: index.php');
+    }
+}else{
+    header('Location: index.php');
+}
+
+
+$id = $_GET['id'] ?? null;
+
+if ($id) {
+    marcarLeido($conexion, $id);
+    header('Location: admin_consultas.php');
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +29,7 @@ require_once('conf/globalConfig.php');
     <!-- ---IMPORT HEADERS--- -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextGen - Contacto</title>
+    <title>NextGen - Consulta actualizada </title>
 </head>
 
 <body>
@@ -21,24 +39,9 @@ require_once('conf/globalConfig.php');
 
     <!-- -----------------------------BODY----------------------------- -->
 
-    <div class="contentCustomized animate__animated animate__bounceIn">
-        <div class="container containerCustomized mt-5">
-            <h1>Disculpe las molestias</h1>
-
-        </div>
-
-        <div class="container containerCustomized mt-3">
-
-            <div class="error-box">
-                <img src="img/assets/error.gif"></img>
-                <div class="error-text">
-                    <p>Estamos realizando algunas tareas de mantenimiento.</p>
-                    <p>Por favor regrese en unos minutos</p>
-                    <br>
-                    <h4>Enlaces recomendados:</h4>
-                    <a href="<?php echo BASE_URL ?>empresa.php">> Nuestra empresa</a>
-                </div>
-            </div>
+    <div class="contentCustomized animate__animated animate__fadeInDown">
+        <div class="container containerCustomized mt-5 pt-1 pb-1">
+            <h1>Respuesta enviada</h1>
         </div>
     </div>
 
@@ -48,7 +51,7 @@ require_once('conf/globalConfig.php');
     <!-- ---IMPORT FOOTER--- -->
     <?php require('layout/_footer.php') ?>
     <!-- ---IMPORT FOOTER--- -->
-    
+
     <!-- ---IMPORT WHATSAPP--- -->
     <?php require('layout/_whatsappIcon.php') ?>
     <!-- ---IMPORT WHATSAPP--- -->

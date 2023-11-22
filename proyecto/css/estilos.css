@@ -1,9 +1,10 @@
 html {
     scroll-behavior: smooth;
+
 }
 
 body {
-    background-image: url("../img/body-bg.jpg");
+    background-image: url("../img/assets/body-bg.jpg");
     background-attachment: fixed;
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
@@ -18,18 +19,64 @@ h6 {
     font-family: 'Sometype Mono', monospace;
     font-weight: 800;
     word-spacing: -4px;
+    margin: 0;
+    color: white;
+    text-wrap: pretty;
 }
 
 /* HEADER------ */
 .navbar {
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 9999;
 }
 
+nav .dropdown-menu {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: ease 300ms all;
+    padding: 0;
+    border: none;
+    font-size: 14px;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    height: 5rem;
+    padding: 8px 0;
+    padding-top: 0;
+}
+
+.top-bar {
+    background-color: #1288d9;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.top-bar p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    margin: 4px 0;
+}
+
 .navbar-brand {
     transition: ease 200ms all;
+    font-size: 30px;
+}
+
+.scrollEffect .navbar-brand {
+    font-size: 20px;
 }
 
 .navbar-brand:hover {
@@ -37,8 +84,25 @@ h6 {
 
 }
 
+#offcanvasNavbar {
+    max-width: 200px;
+}
+
+@media screen and (max-width:400px) {
+    #offcanvasNavbar {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
 .redes {
-    margin-top: 1rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+    left: 0;
 }
 
 .redes i {
@@ -574,10 +638,14 @@ footer .disabled:hover {
 .whapp-container {
     position: fixed;
     bottom: 1rem;
-    right: 1rem;
+    right: -5rem;
     display: flex;
     align-items: center;
     transition: ease 200ms all;
+}
+
+.scrollEffect .whapp-container {
+    right: 1rem; 
 }
 
 .whapp-container .textoMovil {
@@ -625,6 +693,9 @@ footer .disabled:hover {
 .whapp-container .iconBg i {
     color: white;
     font-size: 25px;
+    margin-top: 4px;
+    margin-left: 1px;
+
 }
 
 
@@ -725,4 +796,244 @@ footer .disabled:hover {
 .msj-enviado i {
     color: white;
     font-size: 70px;
+}
+
+/* ADMIN MAIN INDEX-------- */
+.admin-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.admin-container-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+.admin-buttons {
+    overflow-x: unset !important;
+    max-width: 600px;
+    margin: auto;
+}
+
+.admin-option {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    transition: ease 200ms all;
+    box-shadow: 2px 2px 25px -3px #b5b5b5c4;
+    border: 2px solid white;
+    padding: 25px 10px;
+    border-radius: 5px;
+    background: #10101026;
+    margin: 4px 10px;
+    width: 180px;
+    height: 180px;
+}
+
+.admin-option i {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.admin-option:hover {
+    background-color: #44bae186;
+    color: white;
+}
+
+@media screen and (max-width:520px) {
+    .admin-option i {
+        display: none;
+    }
+
+    .admin-option {
+        height: auto;
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+
+/* VER PRODUCTOS ADMIN----- */
+
+.table-ver-productos {
+    font-size: 13px;
+}
+
+.pagination-productos a {
+    font-size: 13px;
+
+}
+
+.table-ver-productos .text-center {
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.table-ver-productos .btn {
+    font-size: 13px;
+}
+
+.table-ver-productos th {
+    background: #8fc7f3;
+}
+
+.table-ver-productos .first {
+    border-radius: 5px 0 0 0;
+}
+
+.table-ver-productos .last {
+    border-radius: 0 5px 0 0;
+}
+
+.table-ver-productos tr {
+    border: none;
+}
+
+.table-ver-productos tr:last-child td:first-child {
+    border-radius: 0 0 0 5px;
+
+}
+
+.table-ver-productos tr:last-child td:last-child {
+    border-radius: 0 0 5px 0;
+}
+
+.img-view {
+    width: 50px;
+    height: 50px;
+    display: block;
+    object-fit: cover;
+    margin: auto;
+}
+
+.menu-producto-admin {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.menu-producto-admin a {
+    width: 200px;
+}
+
+.edit-product-form {
+    text-align: start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 3rem;
+    justify-content: space-between
+}
+
+.edit-product-form label {
+    cursor: pointer;
+}
+
+
+.edit-product-form .left-module {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 65%;
+}
+
+
+
+.edit-product-form .right-module {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-product-form img {
+    width: 100%;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    box-shadow: 2px 3px 10px 2px #252525c9;
+
+}
+
+@media screen and (max-width:900px) {
+    .edit-product-form {
+        flex-direction: column;
+        align-items: center
+    }
+
+    .edit-product-form .left-module {
+        max-width: 100%;
+    }
+
+    .edit-product-form .right-module {
+        width: 100%;
+    }
+}
+
+
+.page-link {
+    font-size: 13px;
+}
+
+.admin-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-container table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.admin-container table th,
+.admin-container table td {
+
+    padding: 8px;
+    text-align: left;
+}
+
+
+
+.swal2-container {
+    z-index: 99999;
+}
+
+
+.swal2-popup {
+    box-shadow: 2px 2px 25px -3px #848687c4;
+}
+
+.swal2-popup .swal2-title {
+    font-size: 20px;
+}
+
+.swal2-popup .swal2-html-container {
+    margin: 0;
+    font-size: 16px;
+}
+
+.swal2-popup button {
+    padding: 5px 25px;
+}
+
+.swal2-image {
+    border-radius: 10px;
+    object-fit: contain;
+    margin-bottom: 0;
+}
+
+.swal2-checkbox {
+    background: transparent !important;
+}
+
+.copy-modal-alert .swal2-popup {
+    bottom: 2rem;
+    right: 2rem;
 }
