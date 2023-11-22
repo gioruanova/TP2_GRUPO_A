@@ -6,10 +6,10 @@
 - [@ErikFlor](https://github.com/erikfacundo)
 
 ## 🚀 Desarrollo:
-Trabajo practico 2 realizado en PHP con conexion a MYSQL.
+TP FINAL realizado en PHP con conexion a MYSQL.
 
 ## 🛠 Skills:
-PHP, MYSql, Bootstrap, CSS, HTML, Javascript.
+PHP, MYSql, Bootstrap, CSS, HTML, Javascript & Sweet alert
 
 
 ## 🛠 Config:
