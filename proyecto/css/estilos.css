@@ -24,6 +24,11 @@ h6 {
     text-wrap: pretty;
 }
 
+select,
+input {
+    cursor: pointer;
+}
+
 /* HEADER------ */
 .navbar {
     position: sticky;
@@ -645,7 +650,7 @@ footer .disabled:hover {
 }
 
 .scrollEffect .whapp-container {
-    right: 1rem; 
+    right: 1rem;
 }
 
 .whapp-container .textoMovil {

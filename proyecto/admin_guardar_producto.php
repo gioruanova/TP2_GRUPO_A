@@ -10,12 +10,17 @@ if ($_SESSION['usuario']['rol'] !== 'Admin') {
 }
 
 $productos = getProductos($conexion);
+$categorias = getCategorias($conexion);
+
+
 
 if (isset($_GET['id'])) {
     $producto = getProductoById($conexion, $_GET['id']);
     $mostrarImagen = true;
     $tituloPagina = 'Editar producto > ' . $producto['nombre_producto'];
     $imagenCheckBox = "Modificar la imagen subida";
+
+
 
     $imagenProducto = $producto['nombre_archivo_producto'];
     $imagenProductoFormato = $producto['formato_imagen'];
@@ -200,9 +205,16 @@ if ($productoRecuperado != null) {
                         value="<?php echo $producto['nombre_producto'] ?>" placeholder="Ingrese el nombre del producto">
 
                     <label for="categoria_producto" class="form-label text-light mb-0 mt-2">Categoria: </label>
-                    <input type="text" name="categoria_producto" id="categoria_producto" class="form-control"
-                        value="<?php echo $producto['categoria_producto'] ?>"
-                        placeholder="Ingrese el nombre de la categoria">
+                    <select type="select" class="form-control mb-0" name="categoria_producto" id="categoria_producto">
+                        <option value="0">Seleccione una categoria</option>
+                        <?php foreach ($categorias as $cat): ?>
+                        <option value="<?php echo $cat['categoria'] ?>"  <?php if ($producto['categoria_producto'] == $cat['categoria']): ?>
+                                selected <?php endif ?>  class="form-control mb-0">
+                                <?php echo $cat['categoria'] ?>
+                            </option>
+                        <?php endforeach ?>
+                    </select>
+                    
 
                     <label for="precio_producto" class="form-label text-light mb-0 mt-2">Precio: </label>
                     <input type="number" name="precio_producto" step="any" id="precio_producto" class="form-control"
@@ -220,7 +232,7 @@ if ($productoRecuperado != null) {
                             con descuento</label>
                     </div>
 
-                    <textarea type="textarea" class="form-control" name="descripcion_producto" id="descripcion_producto" placeholder="Escribir descripcion" value="<?php echo $producto['descripcion_producto'] ?>"                        style="resize:none" rows="8" cols="50" require><?php echo $producto['descripcion_producto'] ?></textarea>
+                    <textarea type="textarea" class="form-control" name="descripcion_producto" id="descripcion_producto" placeholder="Escribir descripcion" value="<?php echo $producto['descripcion_producto'] ?>" style="resize:none" rows="8" cols="50" require><?php echo $producto['descripcion_producto'] ?></textarea>
                 </div>
 
                 <div class="right-module">
@@ -238,9 +250,9 @@ if ($productoRecuperado != null) {
                     ?>
 
                     <?php if ($mostrarImagen): ?>
-                        <img src='img/<?php echo($imagenRecuperada == null)?'error-image.jpg': $imagenRecuperada . '.' . $formatoImagenRecuperada ?>'
+                        <img src='img/<?php echo ($imagenRecuperada == null) ? 'error-image.jpg' : $imagenRecuperada . '.' . $formatoImagenRecuperada ?>'
                             alt='<?php echo ($producto['nombre_archivo_producto'] == NULL) ? "Imagen para el producto a publicar" : "Producto sin imagen para " . $producto['nombre_producto']; ?>'>
-                            <?php else: ?>
+                    <?php else: ?>
                     <?php endif ?>
 
                     <div>

@@ -115,4 +115,17 @@ function updateProducto(PDO $conexion, $producto)
 }
 
 
+// CONEXION A PRODUCTOS---------------------
+// --------------------------------------------
+function getCategorias(PDO $conexion)
+{
+    $consulta = $conexion->prepare(
+        'SELECT id, categoria FROM productoscategorias'
+    ); // preparo la consulta
+    $consulta->execute(); // ejecuto consulta
+    $categorias = $consulta->fetchAll(PDO::FETCH_ASSOC); // recupero la lista
+    return $categorias;
+}
+
+
 ?>
