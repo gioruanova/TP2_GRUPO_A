@@ -9,7 +9,7 @@
 TP FINAL realizado en PHP con conexion a MYSQL.
 
 ## 🛠 Skills:
-PHP, MYSql, Bootstrap, CSS, HTML, Javascript & Sweet alert
+[![My Skills](https://skillicons.dev/icons?i=php,mysql,html,css,sass,js,)](https://skillicons.dev)
 
 
 ## 🔧 Config:
