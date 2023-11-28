@@ -1,4 +1,4 @@
-﻿﻿# 📃 NextGen - PHP/MYSQL Project
+﻿﻿## 📃 NextGen - PHP/MYSQL Project
 
 ## 💻 Devs:
 - [@GiorgioRuanova](https://github.com/gioruanova)
