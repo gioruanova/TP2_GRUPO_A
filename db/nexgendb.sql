@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2023 at 10:51 PM
+-- Generation Time: Nov 28, 2023 at 03:50 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -110,6 +110,35 @@ INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `productoscategorias`
+--
+
+CREATE TABLE `productoscategorias` (
+  `id` int(11) NOT NULL,
+  `categoria` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `productoscategorias`
+--
+
+INSERT INTO `productoscategorias` (`id`, `categoria`) VALUES
+(1, 'Memorias'),
+(2, 'Almacenamiento'),
+(3, 'Notebooks'),
+(4, 'Punteros'),
+(5, 'Monitores'),
+(6, 'Headsets'),
+(7, 'Placas Graficas'),
+(8, 'Gabinetes'),
+(9, 'Consolas'),
+(10, 'Juegos'),
+(11, 'Hardware General'),
+(12, 'Otros');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `usuarios`
 --
 
@@ -156,6 +185,12 @@ ALTER TABLE `productos`
   ADD PRIMARY KEY (`id_producto`);
 
 --
+-- Indexes for table `productoscategorias`
+--
+ALTER TABLE `productoscategorias`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -182,6 +217,12 @@ ALTER TABLE `contactos`
 --
 ALTER TABLE `productos`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+
+--
+-- AUTO_INCREMENT for table `productoscategorias`
+--
+ALTER TABLE `productoscategorias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
