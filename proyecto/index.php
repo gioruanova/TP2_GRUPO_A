@@ -59,6 +59,12 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                 satisfacción del cliente. Explore nuestro catálogo y descubra la diferencia NextGen.</p>
         </div>
 
+        <!-- FETCH API -->
+        <div class="container containerCustomized mt-2 animate__animated animate__fadeIn marqueeContainer">
+            <div id="dolarContainer"></div>
+        </div>
+        <!-- END FETCH API -->
+
         <div class="container containerCustomized mt-3 animate__animated animate__fadeInDown">
 
             <div class="container text-center">
@@ -167,6 +173,13 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
                 practicas relacionadas PHP y MYSQL.</p>
         </div>
     </div>
+
+    <!-- PRE FOOTER -->
+    <div class="container containerCustomized mt-2 animate__animated animate__fadeIn marqueeContainer">
+        <div id="topMessage"></div>
+    </div>
+    <!-- ENDPRE FOOTER -->
+
     <!-- -----------------------------BODY----------------------------- -->
 
     <!-- ---IMPORT FOOTER--- -->
@@ -181,15 +194,13 @@ $productos = paginacion($productos, $pagina_actual, $cantidad_por_pagina);
     <?php require('js/_customScripts.php') ?>
 
 
-    <script src="<?php echo BASE_URL ?>js/_popupSweet.js"></script>
-    <!-- ---IMPORT JS--- -->
 
-    <script>
-        const headerTop = document.getElementById('top-bar').querySelector('p');
-        if (headerTop) {
-            showPopUp();
-        }
-    </script>
+    <script src="<?php echo BASE_URL ?>js/_popupSweet.js"></script>
+    <script src="<?php echo BASE_URL ?>js/_cotizadorDolar.js"></script>
+    <script src="<?php echo BASE_URL ?>js/_popUpIndex.js"></script>
+    <script src="<?php echo BASE_URL ?>js/_preFooter.js"></script>
+
+    <!-- ---IMPORT JS--- -->
 
 </body>
 

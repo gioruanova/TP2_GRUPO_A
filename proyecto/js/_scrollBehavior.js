@@ -8,10 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (scrollPosition > 0) {
             body.classList.add('scrollEffect');
-            console.log('scrollEffect');
         } else {
             body.classList.remove('scrollEffect');
-            console.log('no');
         }
 
     })

@@ -25,7 +25,7 @@ if ($mensaje['indicador'] == 1) {
 
 
 <div id="top-bar" class="top-bar" <?php echo $inlineStyle ?>>
-<?php echo $mensajeBanner ?>
+    <?php echo $mensajeBanner ?>
 </div>
 <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
     <div class="container-fluid">
@@ -34,10 +34,19 @@ if ($mensaje['indicador'] == 1) {
             <span><i class="bi bi-cpu color-change-effect"></i></span>
             <span>NextGen</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="burger-contaniner">
+            <?php if (isset($_SESSION['usuario'])): ?>
+                <a title="Mi cuenta" href="<?php echo BASE_URL ?>admin_index.php"><i class="bi bi-person-circle naviconuser"></i></a>
+            <?php else: ?>
+                <a title="Iniciar Sesion" href="<?php echo BASE_URL ?>iniciar_sesion.php"><i
+                        class="bi bi-box-arrow-in-right naviconuser"></i></a>
+            <?php endif ?>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>

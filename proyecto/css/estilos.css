@@ -100,6 +100,31 @@ nav .dropdown-menu {
     }
 }
 
+.burger-contaniner {
+    display: flex;
+    align-items: center
+}
+
+.burger-contaniner .naviconuser {
+    font-size: 25px;
+    color: white;
+    transition: ease 300ms all;
+}
+
+.burger-contaniner .naviconuser:hover {
+    color: #44bbe1;
+
+}
+
+.burger-contaniner .navbar-toggler {
+    margin-left: 1rem;
+    transition: ease 300ms all;
+}
+
+.burger-contaniner .navbar-toggler:hover {
+    background-color: #44bbe1;
+}
+
 .redes {
     width: 100%;
     position: absolute;
@@ -1041,4 +1066,16 @@ footer .disabled:hover {
 .copy-modal-alert .swal2-popup {
     bottom: 2rem;
     right: 2rem;
+}
+
+
+/* Dolar Fetch----- */
+.marqueeContainer {
+    padding: 1rem 2rem;
+}
+
+#dolarContainer,
+#topMessage {
+    display: flex;
+    color: white;
 }

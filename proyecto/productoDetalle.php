@@ -7,7 +7,7 @@ $productos = getProductos($conexion);
 
 if (isset($_GET['id'])) {
     $producto = getProductoById($conexion, $_GET['id']);
-    
+
 }
 
 ?>
@@ -37,6 +37,12 @@ if (isset($_GET['id'])) {
             <p>A continuación podrás obtener un detalle extendido del producto y sus características.</p>
 
         </div>
+
+        <!-- FETCH API -->
+        <div class="container containerCustomized mt-2 animate__animated animate__fadeIn marqueeContainer">
+            <div id="dolarContainer"></div>
+        </div>
+        <!-- END FETCH API -->
 
         <div class="container containerCustomized mt-3">
 
@@ -70,8 +76,10 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                         <div class="button-wrap">
-                            <a href="<?php echo BASE_URL ?>contacto.php?id=<?php echo $producto['id_producto']?>" class="btn btn-success"><i class="bi bi-envelope me-2"></i>Contactar</a>
-                            <a href="<?php echo BASE_URL ?>#productos" class="btn btn-danger mt-2"><i class="bi bi-arrow-left-circle me-2"></i>Volver</a>
+                            <a href="<?php echo BASE_URL ?>contacto.php?id=<?php echo $producto['id_producto'] ?>"
+                                class="btn btn-success"><i class="bi bi-envelope me-2"></i>Contactar</a>
+                            <a href="<?php echo BASE_URL ?>#productos" class="btn btn-danger mt-2"><i
+                                    class="bi bi-arrow-left-circle me-2"></i>Volver</a>
                         </div>
                     </div>
                     <?php echo ($producto['producto_promo'] == 0 ? "" : "<span class='promoAvailable'>SALE</span>") ?>
@@ -88,15 +96,23 @@ if (isset($_GET['id'])) {
             <h3>No dudes en contactarnos</h3>
             <p>Contactanos y recibi nuestro asesoramiento, y suscribite a nuestro newsletter mensual para estar al tanto
                 de todos los ingresos y promociones</p>
-            <a href="<?php echo BASE_URL ?>contacto.php" class="btn btn-primary" style="width: 200px"><i class="bi bi-envelope me-2"></i>Contactanos</a>
+            <a href="<?php echo BASE_URL ?>contacto.php" class="btn btn-primary" style="width: 200px"><i
+                    class="bi bi-envelope me-2"></i>Contactanos</a>
         </div>
     </div>
+
+        <!-- PRE FOOTER -->
+        <div class="container containerCustomized mt-2 animate__animated animate__fadeIn marqueeContainer">
+        <div id="topMessage"></div>
+    </div>
+    <!-- ENDPRE FOOTER -->
+
     <!-- -----------------------------BODY----------------------------- -->
 
     <!-- ---IMPORT FOOTER--- -->
     <?php require('layout/_footer.php') ?>
     <!-- ---IMPORT FOOTER--- -->
-    
+
     <!-- ---IMPORT WHATSAPP--- -->
     <?php require('layout/_whatsappIcon.php') ?>
     <!-- ---IMPORT WHATSAPP--- -->
@@ -104,6 +120,10 @@ if (isset($_GET['id'])) {
     <!-- ---IMPORT JS--- -->
     <?php require('js/_customScripts.php') ?>
     <!-- ---IMPORT JS--- -->
+
+    <script src="<?php echo BASE_URL ?>js/_cotizadorDolar.js"></script>
+    <script src="<?php echo BASE_URL ?>js/_preFooter.js"></script>
+    
 
 </body>
 
