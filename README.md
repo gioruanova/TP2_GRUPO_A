@@ -15,7 +15,7 @@ PHP, MYSql, Bootstrap, CSS, HTML, Javascript & Sweet alert
 ## 🔧 Config:
 -Validar que la db y ruta estan correctamente actualizadas en el archivo __conf/globalConfig.php__ en la linea 10:
 ```bash
-define('BASE_URL', 'http://localhost:'.$puerto.'/TP2_GRUPO_A/proyecto/');
+define('BASE_URL', 'http://localhost:'.$puerto.'/FINAL_GRUPO_A/proyecto/');
 ```
 
 -Validar que el puerto Apache este correctamente seteado en el archivo __conf/globalConfig.php__ en la linea 5:

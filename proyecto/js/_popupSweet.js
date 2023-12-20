@@ -7,7 +7,7 @@ async function showPopUp() {
     Swal.fire({
       title: "Hot Sale!!!",
       text: "Aprovecha nuestros descuentos disponibles por tiempo limitado!!",
-      imageUrl: "http://localhost:8080/TP2_GRUPO_A/proyecto/img/assets/hot-sale-img.jpg",
+      imageUrl: "http://localhost:8080/FINAL_GRUPO_A/proyecto/img/assets/hot-sale-img.jpg",
       imageWidth: 400,
       imageHeight: 300,
       imageAlt: "Hot Sale!!!",

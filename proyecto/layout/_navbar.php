@@ -1,4 +1,5 @@
 <?php
+// Recursividad en conexion. scar del navbar
 require_once('_conexion.php');
 require_once('consultas/consultas_misc.php');
 
